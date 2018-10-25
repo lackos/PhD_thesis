@@ -1,12 +1,15 @@
-\documentclass[10pt,a4paper]{report}
+\documentclass[10pt,a4paper, twoside]{report}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{bibentry}
 \usepackage{graphicx}
 \usepackage{setspace}
-\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\pagestyle{headings}
+\nobibliography*
+\onehalfspacing
 \begin{document}
 \doublespacing
 \title{PhD Thesis}
@@ -14,6 +17,14 @@
 \author{Bryce Lackenby}
 
 \maketitle
+\tableofcontents
+\listoffigures
+\listoftables
+\pagebreak
+\section*{Accepted papers}
+\cite{LDFDb2018} \bibentry{LDFDb2018} \\
+\cite{LFWQM2018} \bibentry{LFWQM2018} \\
+\cite{LDFOg2018} \bibentry{LDFOg2018}
 \part{Second order tensor properties in deformed nuclei}
 
 \chapter{Background Information}
@@ -162,7 +173,13 @@ Also
 Therefore the total quadrupole moment is given by,
 \section{Schiff moment in nuclei}
 \chapter{Results}
-\appendix
-\chapter{Derivations}
-\section{Second order tensors between rotating frames}
+\part{Atomic Calculations}
+\chapter{The CIPT Method}
+The CIPT method is a multi-electron method used to calculate the spectra of atoms. It was developed by V. A. Dzuba at UNSW Sydney and employs a combination of the configuration interaction and Perturbation Theory.
+\section{Hartree-Fock}
+\section{Basis States}
+\section{}
+\chapter{Super Heavy Elements}
+\bibliographystyle{unsrt}
+\bibliography{Thesis.bib}
 \end{document}
