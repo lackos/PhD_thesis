@@ -17,6 +17,15 @@
 \usepackage{booktabs}
 \usepackage{pdflscape}
 \usepackage{afterpage}
+\usepackage{hyperref}
+\hypersetup{
+    linktoc=all,
+    colorlinks,
+    citecolor=blue,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
 
 \AtBeginDocument{
 \heavyrulewidth=.08em
@@ -35,7 +44,7 @@
 \begin{document}
 \onehalfspacing
 \title{PhD Thesis \\
-Enhanced properties of deformed nuclei and spectra of Super Heavy Elements}
+Violation of the fundamental symmetries and atomic structure of superheavy elements}
 \begin{figure}
 \center
 \includegraphics[scale=1]{./figures/unsw-crest.eps}
@@ -44,13 +53,7 @@ Enhanced properties of deformed nuclei and spectra of Super Heavy Elements}
 \date{\today}
 \maketitle
 \tableofcontents
-\section*{Accepted papers}
-\cite{LDFDb2018} \bibentry{LDFDb2018} \\
-\cite{LFWQM2018} \bibentry{LFWQM2018} \\
-\cite{LDFOg2018} \bibentry{LDFOg2018} \\
-\cite{LFMQM2018} \bibentry{LFMQM2018}
-\listoffigures
-\listoftables
+
 
 \begin{abstract}
 We introduce the weak quadrupole moment of nuclei, related to the quadrupole distribution of the weak charge in the nucleus.  The weak quadrupole moment produces a tensor weak interaction  between the nucleus and electrons and can be observed in atomic and molecular experiments measuring parity nonconservation. The dominating contribution to the weak quadrupole is given by the quadrupole moment of the neutron distribution, therefore, corresponding experiments should allow one to measure the neutron quadrupoles. Using the deformed oscillator model and the Schmidt model we calculate the quadrupole distributions of neutrons, $Q_{n}$, the weak quadrupole moments, $Q_{W}^{(2)}$, and the Lorentz Invariance violating energy shifts in $^{9}$Be, $^{21}$Ne , $^{27}$Al, $^{131}$Xe, $^{133}$Cs, $^{151}$Eu, $^{153}$Eu, $^{163}$Dy, $^{167}$Er, $^{173}$Yb, $^{177}$Hf, $^{179}$Hf, $^{181}$Ta, $^{201}$Hg and $^{229}$Th. 
@@ -62,13 +65,66 @@ electric dipole transition amplitudes from the ground state of Db, isotope shift
 potential of Db. Similar calculations for Ta, which is lighter analog of Db, are performed to control the accuracy
 of the calculations.
 \end{abstract}
-\part{Second order tensor properties in deformed nuclei}
-\chapter{Introduction}
-Since its inception in the latter half of the of 20th century the Standard Model, which classifies and describes the interactions of known fundamental particles and forces, is a robust phenomenological theory and remains the most holistic and accurate description of our universe. However despite the apparent success of the SM \cite{} there are observed physical phenomena which cannot described without the SM being revised or extended. Similar to how classical physics is a large spatial approximation to quantum theory, it is suspected that the standard model is a low energy approximation to a more fundamental theory of the universe. To validate these beliefs and uncover new physics, scientists aim to discover physical phenomena not described by the current standard model, so-called ``beyond the standard model'' (BSM) physics. Many BSM theories have been proposed such as supersymmetric theories \cite{} One avenue of interest is the detection of the violation of fundamental symmetries is an avenue which is suspected to overthrow the model by suggesting a deeper underlying theory.  There are a number of discrete symmetries which form the basis of our current interpretation of the universe. They are time-reversal $T$ parity and charge conjugation (get the paragraph from Honours thesis). \\
+\chapter*{Acknowledgements}
+\thispagestyle{empty}
 
+\clearpage
+
+\section*{Accepted papers}
+\cite{LDFDb2018} \bibentry{LDFDb2018} \\
+\cite{LFWQM2018} \bibentry{LFWQM2018} \\
+\cite{LDFOg2018} \bibentry{LDFOg2018} \\
+\cite{LFMQM2018} \bibentry{LFMQM2018}
+\cite{LDFSg2019} \bibentry{LDFSg2019}
+\part{Violation of the fundamental symmetries in nuclei}
+\chapter{Introduction}
+Since its inception in the latter half of the of 20th century the Standard Model, which classifies and describes the interactions (except gravitational) of known fundamental particles and forces, is a robust phenomenological theory and remains the most holistic and accurate description of our universe. However despite the success of the SM \cite{} there are observed physical phenomena which cannot be described without the SM being revised or extended. Similar to how classical physics is a large spatial approximation to quantum theory, it is suspected that the standard model is a low energy approximation to a more fundamental theory of the universe.  Therefore, for the past several decades, there has been a concerted effort to detect, measure and explain phenomena which lie outside the current standard model of physics so called ``beyond the standard model'' physics (BSM). A common avenue to study BSM physics is the violation of fundamental symmetries of nature and their manifestations in physical systems.
+
+There are two distinct approaches to measure BSM phenomena. As mentioned above, the SM is suspected to be a low energy approximation to a greater theory and therefore to measure the BSM effects high energy experiments must be used. The energy where SM breaks down and quantum gravitational effects is at the Plank scale $M_P = 2.4 \times 10^{18}$ GeV. With current high energy experiemntal probes only reaching into the TeV range \cite{}, directly measurements at this scale are currently unthinkable. Though these are high energy phenomena, it is suspected that certain signatures of their effects can be observed heavily suppressed in low energy , electroweak experiments with mass order ($m_{ew} \approx 246$ GeV \cite{}).  These effects are expect to be a ratio of the electroweak and Plank scale $m_{ew}/M_P \approx times 10^{-16}$  \cite{Kostelecky1995}. 
+
+The three fundamental discrete symmetries are parity $P-$, time reversal $T-$ and charge conjugation $C-$. 
+
+
+
+ %To validate these beliefs and uncover new physics, scientists aim to discover physical phenomena not described by the current standard model, so-called ``beyond the standard model'' (BSM) physics.
+There have been many BSM theories have been proposed such as supersymmetric \cite{Fayet1976, Fayet1977}  and grand unified theories \cite{}. Some of the observed phenomena which initiated this search for BSM are the existence of dark matter and energy, the non unified gravitational forces and the apparent matter and anti-matter assymetry in the universe. It is the last of these which is most appropriate to this thesis. \\
+\linebreak
+The apparent matter anti-matter asymmetry of the universe remains an open question in modern physics and one of the primary reasons physics beyond the standard model exists and manifests in prominent ways.  It is apparent that in our universe there is an unequal amount of matter and anti-matter. If an identical amount of matter and anti-matter was created at the big bang, they would have annhiliated each other resulting in only energy
+In 1967 A. D. Sakharov proposed three necessary conditions to account for the matter anti-matter in the universe \cite{Sakharov1967}:
+\begin{enumerate}
+\item Baryon number B violation.
+\item  C-symmetry and CP-symmetry violation.
+\item Interactions out of thermal equilibrium.
+\end{enumerate}
+Since this work each of these conditions have been studied extensively. The second condition, violation of $CP-$ symmetries has been observed in the standard model in the decay of neutral kaons. 
+\iffalse
+In nature there are three fundamental discrete symmetry transformations, parity ($P$), time reversal ($T$) and charge conjugation ($C$). Parity is the inversion of spacial coordinates ($\textbf{r} \xmapsto{P} -\textbf{r}$), time reversal is the transformation which reverses the instantaneous velocity  of all particles concerned ($t \xmapsto{T} -t$) and charge conjugation is the replacement of all particles with their corresponding anti-particles ($m \xmapsto{C} \bar{m}$, an example of these transformations are shown in Figure \ref{ParityTimeCharge}). Up until the 1950s it was unknown whether these symmetries were invariant in nature or if their violation had yet to be observed. It was known there was no violation in the electromagnetic or strong interaction (the discovery of strong $CP$ violation came much later, see Section \ref{QCDViolatingTerm}) however there was no reason for the weak force to conserve these symmetries. Although many had their suspicions \cite{Purcell1950, Dirac1949} there was no evidence until it was experimentally observed by Wu \textit{et al.} in 1957  \cite{Wu1957} that $P$ and $C$ were violated in the Beta decay of $^{60}$Co. The prediction of this result a year previous rewarded Lee and Yang with the Nobel prize for their work \cite{Lee1956} on parity violating mechanisms in the electroweak theory. Since then, the search for the violation of discrete symmetries in other mechanisms has rapidly grown and now spans many fields including atomic, nuclear and high energy particle physics. \\
+\fi
+The three discrete symmetries parity ($P-$), time-reversal ($T-$) and charge-congugation ($C-$) are fundamental symmetries of nature. 
+One avenue of interest is the detection of the violation of fundamental symmetries is an avenue which is suspected to overthrow the model by suggesting a deeper underlying theory.  There are a number of discrete symmetries which form the basis of our current interpretation of the universe. They are time-reversal $T$ parity and charge conjugation (get the paragraph from Honours thesis). \\
+Bertolami (CPT violation and baryogenesis)
 Of these discrete symmetries only parity has been determined to be violated. This is a prediction of the standard model weak interaction and therefore the bubble has yet to burst on the standard model. In this thesis we will look at some processes which violate these symmetries. 
-\section{CPT Theory}
+\chapter{Fundamental symmetries and their violation}
 A cornerstone of modern quantum field theory is the CPT theorem. In essence it states that all physical phenomena are CPT-even which means under the application of the three operators the system is unchanged. 
+\section{Discrete symmetries}
+\begin{figure}
+\includegraphics[scale=0.3]{./figures/EDM.eps}
+\caption{\label{fig:ParityTimeEDM} This diagram show the $P$ and $T$ transforms of a particle with angular momentum $I$ and a finite EDM $\textbf{d}$. The spatial EDM defined in  is $P$-odd and $T$-even. However as the EDM must be in the direction of the angular momentum of the particle which is $P$-even and $T$-odd there is a contradiction and the EDM violates $P$ and $T$.}
+\end{figure}
+\section{Lorentz symmetry}
+Like the discrete symmetries, Lorentz symmetry is one of the most fundamental symmetries in nature. It forms the basis of modern physics as the cornerstone to special relativity. Local Lorentz invariance (LLI) states that there is no preferred reference frame of the universe and the laws of physics are unchanged when the orientation of the system (rotation) or speed of the system (boosts) is changed. Due to its importance, considerable effort has been made over the last century to test and quantify its validity through experiments \cite{Kennedy1932, Ives1938, Robertson1949, LorentzTestSeries}.  \\
+\linebreak
+Lorentz invariance, along with combined CPT, is always conserved in the current Standard Model. However, many proposals for new physics BSM such as GUT and String theories require LLI to be violated \cite{Kostelecky1989, Damour, Gambini1999, Pospelov2012, Kostelecky1995}.  Like the discrete symmetries above, LLI is suspected to be a low-energy effective property but is spontaneously broken at higher energies due to an underlying theory. Unlike violation of the discrete symmetries however,  there  are no sources of LLIV in the SM and any measurement of some anisotropy will be the result of some unknown greater underlying theory. Therefore an extension to the SM in Refs. \cite{Colladay1997, Colladay1998, Kostelecky1999, LorentzDataTables2017} has been proposed which contains LLIV terms in the SM Lagrangian. The SME retains the desirable properties of the SM such as renormaizability and gauge invariance. 
+
+However modern physics suspects that it will not always be conserved and that, like other symmetries, Lorentz invariance is a low energy property of the universe but can be spontaneously broken in high energy theories. Due to its fundamental importance to how we understand the universe, there have been many experimental searches for LLIV which date back to the nineteenth century. The historic Michelson Morley experiment was a test of LLI where the null result famously ruled out the existence of a lumeriferous ether \cite{Michelson1887}. Since then there have been many more modern tests on LLI using more sophisticated techniques such as  resonance cavities \cite{Muller2005, Muller2003, Wolf2004}, Doppler shift experiments \cite{Lane2005, Saathoff2003} and clock comparison experiments \cite{Prestage1985, Chupp1989, Hohensee2013, Dzuba2016}. 
+\section{Violation in atomic and nuclear systems}
+\chapter{Non-spherical nuclei and their enhancement of violation of fundamental symmetries}
+\section{Deformed nuclei}
+\section{$CP-$ violation in deformed nuclei}
+\section{Lorentz violation in deformed nuclei}
+\section{Weak quadrupole moments}
+\chapter{Conclusion}
+
 \section{Collective Properties of Nuclei}
 A major focus of this thesis is the enhancement of nuclear properties in non-spherical (or deformed) nuclei. It has been known for nearly a century that some nuclei are non-spherical.  Experimental confirmation of deformed nuclei came with the measurement spectroscopic electric quadrupole moment of the nucleus by Th. Schuler in 1936 [Add reference]. Theoretical study was backed up by Casamir in his works [Casamir citations]. The electric quadrupole is a second order tensor defined as the no spherical distribution of electric charge in the nucleus. As neutrons are uncharged this moment is just the distribution of protons. 
 \begin{itemize}
@@ -78,31 +134,7 @@ A major focus of this thesis is the enhancement of nuclear properties in non-sph
 \item Included discussion on the high angular momentum states
 \item included distinction between the intrinsic frame of the nucleus (rotating frame) and the laboratory frame of the nucleus. Included the tensor relationship between the rotating and laboratory frame.
 \end{itemize}
-\section{Lorentz Violation and Extension of the Standard Model}
-It is well known that the vacuum speed of light is constant and the cosmic speed limit which was famously first proposed by Einstein in 19** in his theory of special relativity. For the past century this theory has had unparalleled success with no suggestion of failing. The basis of special relativity is the invariance of Lorentz symmetry. \\
 
-Lorentz Symmetry is a fundamental symmetry which in essence states that there is not preferred reference frame of the universe and that the laws of physics are unchanged when the orientation of the system (rotation) or speed of the system (boosts) is changed. It is one of the most fundamental symmetries of physics. However modern physics suspects that it will not always be conserved and that, like other symmetries, Lorentz invariance is a low energy property of the universe but can be broken in high energy theories.
-
-Tests of Lorentz invariance date back to the famous Michelson and Morley experiment in the late 19th century %\cite{Michelson1887} 
-which returned a null result (Confirming there is no lumeriferous ether and also verifying Lorentz symmetry). 
-
-
-Due to its fundamental importance in the current standard model of particle physics all interactions must conserve Lorentz symmetry.
-\section{Neutron Quadrupole moment}
-The deviation of density from a spherical symmetry is known as the quadrupole moment. The spectroscopic moment along the $z$-axis of the nucleus is given by,
-\begin{align*}
-Q_{zz} = e \sum{N}\left(2z^2 - x^2 -y^2\right)
-\end{align*}
-where specifically the electric quadrupole moment which is the cahrge deviation from spherical symmetry is given by,
-\begin{align*}
-Q_{e} = eQ_{zz}
-\end{align*}
-\begin{itemize}
-\item Compared to proton quadrupole moment.
-\item include mathematical descritpion including charge and density.
-\item Discuss connection to Weak charge and PNC
-\item 
-\end{itemize}
 \section{Splitting of energy bands in deformed nuclei}
 In the Nilsson model the energy levels are split due to the 
 \section{Lorentz violating parameters in nuclei}
@@ -205,7 +237,6 @@ Therefore the total quadrupole moment is given by,
 \chapter{Results}
 \chapter{WQM Paper}
 Non-spherical nuclei present a lucrative avenue for studying the existence and magnitude of second order tensor properties due to the collective properties of deformed nuclei. In this work we focus on the quadrupole moment of the nonspherical  distribution of neutrons in the nucleus, $Q_{n}$,  the weak quadrupole moment (WQM), $Q_{W}^{(2)}$,  and the violation of Local Lorentz invariance (LLI) in the nucleon sector. These properties have yet to be experimentally detected though there are constraints for violation of LLI. In this work we will show how these properties are enhanced in deformed nuclei and therefore present a new possibility for  measurement or developing further constraints on their existence.  In Section \ref{sec:Deformed} we calculate the the neutron quadrupole moment of the nucleus (NQMN)  and local Lorentz invariance violation (LLIV) in deformed nuclei using the Nilsson model. In Section \ref{sec:Minimal} we discuss NQMN and LLIV in nuclei with a small  deformation and in Section \ref{sec:PNC} we discuss the NQMN and WQM in parity nonconserving (PNC) effects. 
-
 Measuring the NQMN, $Q_{n}$,  is a very difficult  task as neutrons are electrically neutral particles unlike the electric quadrupole moment of the nucleus which was first observed and measured nearly a century ago by H. Schuler and Th. Schmidt \cite{Schuler1935(1), Schuler1935(2), Casimir1935} by studying the hyperfine structure of rare earth elements. The NQMN is an important property which will give insight not only into the structure of  atomic nuclei but also other dense collections of neutrons such as neutron stars \cite{Brown2000, Furnstahl2002, Typel2001, Reinhard2010} and also the theory of atomic parity nonconservation. For the last two decades there has been increasing interest in understanding the distribution of neutrons compared to protons in atomic nuclei known as the neutron skin. This focus has largely been on the spherical distribution of neutrons (measurement of the root mean square radius of neutrons) and there has been a large amount of experimental effort in measuring the spherical distribution \cite{Clark2003, Trzcinska2001, Lenske2009, Abrahamyan2012}. 
 
 The PNC effects appear due to mixing of opposite parity states in atoms and molecules by the weak interaction between the nucleus and electrons. The field  of PNC in atoms and molecules has been thoroughly reviewed in Refs.  \cite{KhriplovichPNC,GingesReview,RobertsReview}. It was noted in Ref.  \cite{FS78} that the nuclear quadrupole moment induces a tensor PNC weak interaction between the nucleus and electrons (see also  \cite{KhriplovichPNC,KP91}). In Ref. \cite{Flambaum2016} it was argued that these tensor  effects of the weak quadrupole moments are strongly enhanced for deformed nuclei and may get a significant additional enhancement due to mixing of  close atomic and molecular levels of opposite parity with a  difference of the electron angular momenta $|J_1-J_2| \le 2$. These selection rules are similar to that for the effects of the time reversal ($T$) and parity ($P$) violating nuclear magnetic quadrupole moment (MQM). Therefore, nuclei, molecules and molecular levels  suggested for the MQM search in Ref. \cite{Flambaum2014},  for example,  $|\Omega |=1$ doublets in the molecules $^{177}$HfF+, $^{229}$ThO, $^{181}$TaN will also have enhanced effects of the weak quadrupole (see section \ref{sec:PNC}). Following our proposal, there has been recent experimental interest in using the weak quadrupole moment to study PNC effects in HfF$^{+}$ molecules (used to measure electron electric dipole moment \cite{Cairncross2017}) and parity violation in $^{173}$Yb \cite{Antypas2017} and $^{163}$Dy \cite{Leefer2017} atoms. 
@@ -648,15 +679,18 @@ We presented a versatile semi-empirical method to calculate several second order
 
 This enhancement in deformed nuclei can also be applied for other second order tensor observables of interest such as the time-reversal and parity violating magnetic quadrupole moment. Further study of these tensor properties in deformed nuclei  could lead to further understanding of fundamental physics.
 
-In this work we present a novel method for calculating the nuclear MQM for any nuclei that satisfy the angular momentum condition $I_t \geq 3/2$. In heavy nuclei with large quadrupole deformations there is an enhancement of the nuclear MQM  due to the collective effect of partially filled nucleon shells and therefore these nuclei present an opportunity for detecting and measuring $T$-,$P$- violating effects in the hadronic sector. The molecular systems which have been used to study the electron EDM with promising results are also excellent candidates for measuring the nuclear MQM  \cite{Skripnikov2017, Skripnikov2014ThO}. With increasing experimental capabilities  in paramagnetic molecular systems the possibility of measure these $T$-,$P$- violating effects is attractive. The nuclear MQM's and MQM molecular energy shifts presented in this work may allow experimentalists either detect or constrain the limits of fundamental $T$-,$P$- violating nucleon EDM ($d_p$), strong $CP$ parameter ($\bar{\theta}$) and chromo-EDMs $(\tilde{d}_{u} - \tilde{d}_d) $. 
+In this work we present a novel method for calculating the nuclear MQM for any nuclei that satisfy the angular momentum condition $I_t \geq 3/2$. In heavy nuclei with large quadrupole deformations there is an enhancement of the nuclear MQM  due to the collective effect of partially filled nucleon shells and therefore these nuclei present an opportunity for detecting and measuring $T$-,$P$- violating effects in the hadronic sector. The molecular systems which have been used to study the electron EDM with promising results are also excellent candidates for measuring the nuclear MQM  \cite{Skripnikov2017, Skripnikov2014ThO}. With increasing experimental capabilities  in paramagnetic molecular systems the possibility of measure these $T$-,$P$- violating effects is attractive. The nuclear MQM's and MQM molecular energy shifts presented in this work may allow experimentalists either detect or constrain the limits of fundamental $T$-,$P$- violating nucleon EDM ($d_p$), strong $CP$ parameter ($\bar{\theta}$) and chromo-EDMs $(\tilde{d}_{u} - e{d}_d) $. 
 
-\part{Atomic Calculations of Super Heavy Elements}
+\part{Theoretical calculations of Super Heavy Element properties}
 \chapter{Introduction}
-The CIPT method is a multi-electron method used to calculate the spectra of atoms. It was developed by V. A. Dzuba at UNSW Sydney and employs a combination of the configuration interaction and Perturbation Theory. In this Chapter we will outline the core components of the method and how it is applied to calculate novel atomic and nuclear properties of SHE elements. 
+Since the beginning of the 10th century the discovery of elements history the discovery and study of new elements has been a constant theme  in the scientific discipline. While early discoveries relied on the extracting naturally occurring elements from ores the discovery of transuranium elements (which are not naturally occurring on earth) requires significant investments in facilities in the
 
+
+
+Currently, all elements up to $Z=118$ (oganesson) have been synthesized and officially recognized by IUPAC. In particular the region of the periodic table for $Z>100$ are known as super heavy elements (SHEs). While these elements can be synthesized at a rate of a few atoms an hour, they are unstable. 
 The sparse theoretical results for elements $Z=105-111$ is due to the open $6d-$shell where current methods are not viable. For more than four valence electrons previous many-body methods become too computationally expensive due to the large diagonalisation problem. The computational cost is reduced by using a combination of the configuration interaction (CI) and perturbation theory (PT). In this section we will give a brief discussion of our implementation of the CIPT method. For an in depth discussion please refer to Ref. \cite{DBHF2017}. 
 
-he study of super heavy elements (SHE), $Z > 100$, has been an important field in atomic and nuclear physics for the 
+The study of super heavy elements (SHE), $Z > 100$, has been an important field in atomic and nuclear physics for the 
 past century \cite{Oganessian2009,  HHO2013}.  These exotic elements, which are not found in nature, are interesting
 particularly in relation to the existence of the `island of stability' where stable SHE isotopes are expected to be found 
 as predicted by theoretical nuclear shell models ~\cite{OUL2004, HHO2013, Leino2016, Oganessian2012}. 
@@ -780,10 +814,55 @@ g_{NR} =  1 + \dfrac{J(J + 1) - L(L+1) + S(S+1)}{2J(J+1)}.
 \end{align}
 and using the $L$ and $S$ values as fitting parameters. We stress that the presented $LS$ notations are approximations as the states of Og are highly relativistic and strongly mixed. \\
 
-
+\chapter{The CIPT method}
+As discussed in the previous chapter, the development of more efficient methods to calculate the atomic properties of atoms with partially filled shells are needed. In this chapter I discuss the recently developed method which combines the configuration interaction method and perturbation theory (written as CIPT method). In Section \ref{sec:HF} I outline the method used to calculate the single-electron atomic basis states using self-consistent Hartree-Fock method
 \section{Hartree-Fock Calculation of Basis States}
+All atomic calculations are performed \textit{ab initio}. The Hamiltonian for a many-body electron atom is given by,
+\begin{align}
+H\left(\textbf{r}_1,\textbf{r}_2, \textbf{r}_3, .... \textbf{r}_N\right) = \sum_{i=1}^{N} h_0\left(\textbf{r}_i\right) + \dfrac{1}{2}\sum_{i\neq j}\dfrac{1}{r_{ij}}.
+\end{align}
+The first term is the sum of single-electron relativistic Dirac Hamiltonians,
+\begin{align*}
+h_0\left(\textbf{r}\right) = c \boldsymbol{\alpha}\cdot\textbf{p} + \beta c^2 - \dfrac{Z}{r}.
+\end{align*}
+
+
+
+
 To generate the single electron wavefunctions for both Ta I and Db I  we use the $V^{N-1}$ approximation ($N$ is the total number of electrons) \cite{Kelly1964, Dzuba2005}. The Hartree-Fock (HF) calculations are performed for an open-shell atom with a valence $s$ electron removed ($5d^3 6s$ and $6d^3 7s$ for Ta  and Db respectively) where  single-electron basis states are calculated in the field of the frozen core. We use a  B-spline technique~\cite{Johnson1988}  with 40 B-spline states of order 9 in each partial wave in a box with radius $40 \ a_B$ with partial waves up to $l_{max}=4$. Many-electron basis states for the CI calculations are formed by making all possible single and double excitations from reference low-lying configurations. 
+
+
+Finally we have the single-determinant many-electron basis states $\left|i\right> = \Phi\left(r_1, r_2, ... , r{N_e}\right)$, where $r_j$ is the radial position of the $j$th electron.
+
 \section{Configuration Interaction + Perturbation Theory}
+Having generated the many-electron basis states we can now establish the CI matrix and calculate the energy levels of the atom of interest. We construct a different matrix for states of differing parity and definite angular momentum $J^{\pi}$ where $\pi = \pm$ (in this thesis we will refer to states having either even ($+$) or odd parity ($-$)). We populate each CI matrix with single and double excitations from designated low lying non-relativistic reference valence states ordered from smaller to largest energy. For example, to calculate the even parity states in Ta we use reference states $5d^3 6s^2$, $5d^4 6s^1$ and $5d^5$. This set of wavefunctions is then dived into two distinct sets, $\mathcal{P}$ and $\mathcal{Q}$. These two sets are,
+\begin{itemize}
+\item $\mathcal{P}$: A small set of low energy wavefunctions ($i \leq N_{\text{Eff}}$, where $N_{\text{Eff}}$ is the number of wavefunctions in the low energy set) that give dominant contributions to the CI wavefunction.
+\item $\mathcal{Q}$: A large set of high energy wavefunctions ($N_{\text{Eff}}<i \leq N_{\text{total}}$) that are corrections to the wavefunctions from $P$.
+\end{itemize}
+Here $N_{\text{Eff}}$ is the number of states in the effective CI matrix. Therefore, the total valence wavefunction is written as an expansion over single-determinant many-electron states $|i \rangle $,
+\begin{align*}\label{eq:psi}
+| \Psi \rangle = 
+\sum_{i=1}^{N_{\text{Eff}}} c_{i}|i\rangle + \sum_{i = N_{\text{Eff}} + 1}^{N_{\text{total}}} c_{i}|i\rangle .
+\end{align*}
+where $c_i$ are coefficients of expansion. The CI matrix is then divided according to the matrix elements between the two sets as seen in Figure \ref{fig:CIPT_matrix}.  The CI Hamiltonian is truncated by neglecting the off-diagonal matrix elements of the CI Hamiltonian between terms in $\mathcal{Q}$ ($\langle i | H^{\text{CI}} | j \rangle = 0 $ for $|i\rangle, |j\rangle \in Q$),  which reduces the problem of finding the wave function and corresponding energy to a matrix eigenvalue problem of the size $N_{\text{Eff}}$ with modified CI matrix
+\begin{equation} \label{eq:CI}
+(H^{\rm CI} - EI)X=0,
+\end{equation}
+where $I$ is unit matrix, the vector $X = \{c_1, \dots, c_{N_{\rm eff}}\}$ and the low energy matrix elements of $H^{\rm CI}$ are modified to include perturbative contributions between states in $P$ and $Q$.
+\begin{equation}
+\langle i|H^{\rm CI}|j\rangle \rightarrow \langle i|H^{\rm CI}|j\rangle + 
+\sum_k \frac{\langle i|H^{\rm CI}|k\rangle\langle k|H^{\rm
+    CI}|j\rangle}{E - E_k}. 
+    \label{eq:HCI}
+\end{equation}
+where $|i\rangle, |j\rangle \in \mathcal{P}$, $|k\rangle \in \mathcal{Q}$,  $E_k = \langle k|H^{\rm CI}|k\rangle$, and $E$ is the energy of the state of interest.  
+
+\begin{figure}
+\center
+\includegraphics[scale=1]{./figures/CIPT_matrix.eps}
+\caption{(First published in Ref. \cite{Dzuba2017}). CIPT matrix structure which is both real and symmetric. The matrix is divided up into three sections for the CIPT calculation. The upper left corner (blue) represents the effective matrix consisting of matrix elements for between states only in set P. The upper middle and right section (red) consists of the matrix elements between states in sets P and Q to be treated perturbatively. The remaining off-diagonal grey matrix elements between states only in set Q are discarded. \label{fig:CIPT_matrix}}
+\end{figure}
 \section{Relativistic and Radiative effects}
 In this work we include the effects of both the Breit interaction \cite{Breit1929, Mann1971} and quantum electrodynamic (QED) radiative corrections (self-energy and vacuum polarisation corrections) \cite{FG2005} for completeness. The Breit interaction which accounts for the magnetic interaction and retardation is included in the zero momentum transfer approximation,
 \begin{align}\label{eq:HB}
@@ -807,14 +886,64 @@ an important relaxation effect~\cite{DF2016} which is first order in $V_B$ or $V
 This relaxation effect reduces the size of the Breit or QED correction to the energy up to two times~\cite{DF2016}.
 Both, Breit and QED corrections grow with $Z$ faster than first power of $Z$, therefore it is important to check whether
 they give significant contributions to the energies of SHE. See section~\ref{sec:DbI} for more discussion. 
+\section{Estimation of the accuracy} \label{sec:Accuracy}
 
-\chapter{Dubnium (Z=105)}
-The ionisation potential is obtained by calculating the energy of the ground state of the ion and taking the difference 
-between ground states of the ion and the neutral atom. The same single-electron basis is used for the ion as for the
-neutral atom. 
+Theoretical uncertainty is dominated by incomplete treatment of inter-electron correlations. These correlations can be further separated into core-valence and valence-valence correlations. We will discuss each of these separately. For the SHE calculations, the core includes all states in closed shells
+from $1s$ to $5f$ containing one hundred electrons occupying one hundred states.
+All other states, including states of the $6d$ and $7s$ shells are treated as
+valence states. Only valence states are used in calculation of the CI matrix.
+This means that we neglect core-valence correlations. To estimate the corresponding uncertainties, we perform calculations of the energy levels of gold and roentgenium (Rg, $Z$=111). Both these elements have one external electron above a closed $5d$ or $6d$ shell. We perform the calculations using the correlation potential method~\cite{Dzuba1988, DFSS1987_2}. In this method, core-valence correlation corrections are obtained using the electron self-energy operator (correlation potential) $\Sigma$\footnote{Do not confuse this with  the QED self-energy operator which we included using the radiative potential method \cite{FG2005}. This is the many-body self-energy operator, which for example, has been defined in the textbook \cite{LandauStatPhysPart2}. We calculate this operator using a Feynman diagram technique with relativistic Hartree-Fock Green's functions \cite{Dzuba1988}.} calculated by summation of the diagrams in the many-body perturbation theory.  The operator $\Sigma $ is defined by the correlation correction to the energy of the valence electron on the orbital $n$, $\delta E_n = \langle n | \Sigma | n \rangle$.   For the Au and Rg calculations, the upper complete $d$-shell ($5d$ or $6d$) is attributed to the core, and the correlation interaction of the external electron with the core is described by a correlation potential $\Sigma$.   \\
 
-\section{Ta I } \label{sec:TaI}
+Calculation of $\Sigma$ involves a summation over all core states from
+$1s$ to $5d$ for Au or $6d$ for Rg. This summation is strongly dominated by the upper $d$-shell. E.g., the $5d$ shell gives about 90\% of the correlation correction to the energies of the $6s$ and $6p$ valence states of Au, and more than 80\% of the correlation correction to the energies of the $7s$ and $7p$ valence states of Rg (see Table \ref{tab:CPaccuracy}). This is because of the small energy interval between the energies of
+the $5d$ (or $6d$) state and the energies of lowest valence states.  Since correlation correction to the energy of the $s$ and $p$ valence states is about 20\%, the effect of neglecting inner-core contributions to the core-valence correlations is about 1 to 2\% of the energy of valence states.
 
+%This appears in the correlation
+%potential method via small energy denominator in the expression for $\Sigma$,
+%which is this small energy interval.
+
+\begin{table}
+\center
+\caption{Removal energies (cm$^{-1}$) for states of external electron of
+Au and Rg calculated in different approximations. RHF is relativistic
+Hartree-Fock, $\Sigma$($nd$) are Brueckner orbital energies calculated with correlation
+potential $\Sigma$, in which summation over core states is limited to $5d$ or
+$6d$ shell only. $\Sigma$(all) are the energies calculated with full summation over
+core states. \label{tab:CPaccuracy}}
+\begin{tabular}{l@{\hspace{0.7cm}}r@{\hspace{0.7cm}}r@{\hspace{0.7cm}}r@{\hspace{0.7cm}}r}
+\toprule
+\toprule
+\multicolumn{5}{c}{Au} \\
+  &  \centering    RHF &  $\Sigma$($5d$) &    $\Sigma$(all) &   Expt~\cite{NIST_ASD} \\
+  \midrule
+$6s_{1/2}$ &  60 179 &  75 539  & 77 878 &  74 409 \\
+$6p_{1/2}$ &  29 303 & 36 508  & 37 322 & 37 051 \\
+$6p_{3/2}$ &  26 664  & 32 314  & 32 785 & 33 324 \\
+$6d_{3/2}$  & 11 929  & 12 423  & 12 439 & 12 457 \\
+$6d_{5/2}$ &   11 875  & 12 344 &  12 357 & 12 376 \\
+\\
+\multicolumn{5}{c}{Rg} \\
+    &   \centering  RHF  &    $\Sigma$($6d$) &   $\Sigma$(all)  \\
+    \midrule
+$7s_{1/2}$  & 83 436 & 101 901 & 106 780 \\
+$7p_{1/2}$ &  38 006 &  49 996 &  52 269 \\
+$7p_{3/2}$ &  26 550 &  33 659 &  34 685 \\
+$7d_{3/2}$  & 11 859 &  12 594 &  12 656 \\
+$7d_{5/2}$  & 11 738  & 12 383  & 12 428 \\
+\bottomrule
+\bottomrule
+\end{tabular}
+\end{table}
+
+   It is interesting to note that in the second order of many-body perturbation theory, the correlation potential$\Sigma$ always overestimates the value of the correlation correction. This is because it does not include the effect of screening of inter-electron interaction by other atomic electrons. This effect appears in higher orders of perturbation theory. Its proper inclusion leads to very accurate results (see, e.g.~\cite{Dzuba1988, Dzuba2008}).
+   
+Since in the present work we do not go beyond the second order, we have the fortunate situation where neglecting inner-core contributions to $\Sigma$ has a similar affect on its value as the screening would do. In other words, the effect of neglecting the higher-order perturbative contributions on
+the calculated energies partially compensates the effect of neglecting
+screening of interelectron interactions. The data in Table \ref{tab:CPaccuracy} show that this is the case at least for the
+$6s$ state of Au (and probably for the $7s$ state of Rg) where the correlation correction
+is the largest in value. Therefore, it is reasonable to assume that the theoretical uncertainty is dominated by valence-valence correlations. The main source for it is the perturbative treatment of the excited configurations. The best way of estimating the uncertainty is to compare the theoretical and experimental energies for lighter elements. We did this in detail for W~\cite{DBHF2017}, which is the lighter analog of Sg, and for pairs Ta and Db~\cite{LDFDb2018}, and Rn and Og~\cite{LDFOg2018}. As follows from this comparison and from the analysis in Sections \ref{sec:Sg}, \ref{sec:Bh}, the theoretical uncertainty for the energies is on the level of $\sim$ 1000~cm$^{-1}$, sometimes a little higher (e.g.  $\sim$ 2000~cm$^{-1}$ for odd states of Bh). The uncertainty for ionization potentials is on the level of a few percent (see section \ref{sec:SHEIP}).
+
+\section{Comparison of CIPT calculations with experimental results in Ta}
 \begin{table}[p!]
 \begin{center}
 \caption{Comparison of experimental (from ref.\cite{NIST_ASD}) and CIPT spectra and ionisation potential of Ta I. The experimental excitation energies ($E_E$) and Land\'{e} g-factors ($g_E$) are compared to respective CIPT excitation energies ($E_T$) and Land\'{e} g-factors ($g_T$).   The final column is the difference between experimental and theoretical excitation energies $\Delta = E_{E} - E_{T}$. \label{tab:TaComparison}}
@@ -900,6 +1029,13 @@ complicated system with five external electrons. There are some smaller factors,
 ignoring triple excitations, etc.
 %Our calculations also supported the existence of the $J=11/2$ level at $E_E=  27 783$ cm$^{-1}$ which is listed as ambiguous \cite{NIST_ASD}.  
 For the CIPT calculations of the Db I spectrum we expect a similar accuracy as seen in Ta~I due to the similar electronic structure.\\
+
+
+\chapter{Energy Levels of superheavy elements}
+
+\chapter{Electric dipole transitions}
+
+\chapter{Isotope shifts in super heavy elements}
 
 \section{Db I} \label{sec:DbI}
 
@@ -1057,7 +1193,7 @@ where $J$ is the angular momentum of the odd parity state, $\alpha$ is the fine 
 \toprule
 \toprule
 \multicolumn{4}{c}{Ta I} & \multicolumn{6}{c}{Db I} \\ \\
- & State &   \parbox{1cm}{$A_{E1}$ \\ (a.u)} & \parbox{1.5cm}{$T_{E1}$ \\ $(\times 10^{6} \ \text{s}^{-1})$  } & & State &   \parbox{2cm}{$A_{E1}$ \\ (a.u)} & \parbox{1.5cm}{$T_{E1}$ \\ $(\times 10^{6} \ \text{s}^{-1})$  } &  \parbox{1cm}{$a  $ (cm$^{-1}$)} & \parbox{1.5cm}{$F $ \\ (cm$^{-1}$/fm$^{2}$)} \\
+ & State &   \multicolumn{1}{c}{\parbox{1cm}{$A_{E1}$ \\ (a.u)}} & \parbox{1.5cm}{$T_{E1}$ \\ $(\times 10^{6} \ \text{s}^{-1})$  } & & State &   \parbox{2cm}{$A_{E1}$ \\ (a.u)} & \parbox{1.5cm}{$T_{E1}$ \\ $(\times 10^{6} \ \text{s}^{-1})$  } &  \parbox{1cm}{$a  $ (cm$^{-1}$)} & \parbox{1.5cm}{$F $ \\ (cm$^{-1}$/fm$^{2}$)} \\
 \midrule
  (6) & $^6$G$^{\rm_o}_{3/2}$  & -0.270   & 0.194 & (6) & $^2$F$^{\rm_o}_{5/2}$  &   0.631  & 0.0385 & 32.16 & 3.11  \\
 (7) & $^2$F$^{\rm_o}_{5/2}$  & 0.214 &  0.090 & (7)  & $^2$D$^{\rm_o}_{3/2}$ & 1.53  &  1.80 & 18.70 & 1.81  \\
@@ -1146,28 +1282,7 @@ The paper progresses as follows; in Section \ref{sec:CIPT} we give a brief overv
 As mentioned above, an open $6d-$shell with more than three  valence electrons makes established many-body methods too computationally expensive to be viable. This computational cost is reduced using a combination of configuration interaction (CI) and perturbation theory (PT) which was first introduced in \cite{DBHF2017} and used in \cite{LDFDb2018, LDF118} for calculating the spectra of SHE Db ($Z=105$) and Og ($Z=118$). In this work we give a brief outline of the CIPT method and its implementation for the elements we calculate. For an in-depth discussion please refer to \cite{DBHF2017}. A fast version of this method has beed developed in~\cite{FCI}.
 
 To generate the single-electron wavefunctions for all the elements,  we use the $V^{N_e-1}$ approximation (where $N_e$ is the total number of electrons) \cite{Kelly1964, Dzuba2005} where the Hartree-Fock calculations are performed for the singly-charged open-shell atom with a   $6d^n7s$ configuration, where $n=4,5,6$ and $7$ for Sg, Bh, Hs and Mt respectively. The  single-electron basis states are calculated in the field of the frozen atomic core. The basis sets are generated using a  B-spline technique~\cite{Johnson1988}  with 40 B-spline states in each partial wave of order 9 in a box with radius $40 \ a_B$ (where $a_B$ is the Bohr radius) with partial waves up to $l_{max}=4$ (where $l$ is orbital angular momentum) and the many-electron basis states $|i \rangle = \Phi_i(r_1,\dots,r_{N_e})$ (where $r_j$ is the radial position of the $j$th electron)  for the CI calculations are formed by making all possible single and double excitations from reference low-lying non-relativistic configurations of the atom. This set of many-body electron wavefunctions is ordered from lowest to highest energy and divided into two sets, 
-\begin{itemize}
-\item $P$: A small set of low energy wavefunctions ($i \leq N_{\text{Eff}}$, where $N_{\text{Eff}}$ is the number of wavefunctions in the low energy set) that give dominant contributions to the CI wavefunction.
-\item $Q$: A large set of high energy wavefunctions ($N_{\text{Eff}}<i \leq N_{\text{total}}$) that are corrections to the wavefunctions from $P$.
-\end{itemize}
-The CI wavefunction is written as an expansion over single-determinant many-electron states $|i \rangle $ from these two sets,
-\begin{equation}
-| \Psi \rangle = 
-\sum_{i=1}^{N_{\text{Eff}}} c_{i}|i\rangle + \sum_{i = N_{\text{Eff}} + 1}^{N_{\text{total}}} c_{i}|i\rangle .
-\label{eq:psi}
-\end{equation}
-where $c_i$ are coefficients of expansion. The CI Hamiltonian is truncated by neglecting the off-diagonal matrix elements of the CI Hamiltonian between terms in $Q$ ($\langle i | H^{\text{CI}} | j \rangle = 0 $ for $|i\rangle, |j\rangle \in Q$),  which reduces the problem of finding the wave function and corresponding energy to a matrix eigenvalue problem of the size $P$ with modified CI matrix
-\begin{equation} \label{eq:CI}
-(H^{\rm CI} - EI)X=0,
-\end{equation}
-where $I$ is unit matrix, the vector $X = \{c_1, \dots, c_{N_{\rm eff}}\}$ and the low energy matrix elements of $H^{\rm CI}$ are modified to include perturbative contributions between states in $P$ and $Q$.
-\begin{equation}
-\langle i|H^{\rm CI}|j\rangle \rightarrow \langle i|H^{\rm CI}|j\rangle + 
-\sum_k \frac{\langle i|H^{\rm CI}|k\rangle\langle k|H^{\rm
-    CI}|j\rangle}{E - E_k}. 
-    \label{eq:HCI}
-\end{equation}
-where $|i\rangle, |j\rangle \in P$, $|k\rangle \in Q$,  $E_k = \langle k|H^{\rm CI}|k\rangle$, and $E$ is the energy of the state of interest. 
+
 
 Both the Breit interaction (magnetic interaction and retardation)\cite{Breit1929, Mann1971}  and quantum electrodynamic (QED) radiative corrections  (Ueling potential and electric and magnetic form factors) \cite{FG2005} are included in the calculations as described in our earlier works (see, e.g. \cite{FF113-115}).  As both the Breit and QED radiative corrections scale with atomic charge, $Z$ faster than the first power \cite{FF113-115}, their contribution to the energy levels of SHE is non-negligible. It was shown in \cite{LDFDb2018} that the magnitude of the combined correction to the energy levels of Db is at most  200~cm$^{-1}$.  A similar correction is expected for the SHE in this work.
 
@@ -1176,63 +1291,6 @@ For each level we calculate the Land\'{e} $g$-factor and compare it to the non-r
 g_{\text{NR}} =  1 + \dfrac{J(J + 1) - L(L+1) + S(S+1)}{2J(J+1)}.
 \end{align}
 Where possible, for each level we use $g_{\text{NR}}$ to find an analogous state in the lighter element to obtain an approximate label in the $LS$ coupling scheme. In fact, $LS$ notations do not make sense for the highly relativistic SHE states due to very large spin-orbit interaction (so the eigenvectors will look strongly mixed in $LS$ notation), we only use $LS$ notations for comparison with lighter elements. Otherwise, we label the $n$th sequential state of total angular momentum $J$ and parity by $n_{J}^{\text{parity}}$.
-
-\section{Estimation of the accuracy} \label{sec:Accuracy}
-
-Theoretical uncertainty is dominated by incomplete treatment of inter-electron correlations. These correlations can be further separated into core-valence and valence-valence correlations. We will discuss each of these separately. For the SHE calculations, the core includes all states in closed shells
-from $1s$ to $5f$ containing one hundred electrons occupying one hundred states.
-All other states, including states of the $6d$ and $7s$ shells are treated as
-valence states. Only valence states are used in calculation of the CI matrix.
-This means that we neglect core-valence correlations. To estimate the corresponding uncertainties, we perform calculations of the energy levels of gold and roentgenium (Rg, $Z$=111). Both these elements have one external electron above a closed $5d$ or $6d$ shell. We perform the calculations using the correlation potential method~\cite{Dzuba1988, DFSS1987_2}. In this method, core-valence correlation corrections are obtained using the electron self-energy operator (correlation potential) $\Sigma$\footnote{Do not confuse this with  the QED self-energy operator which we included using the radiative potential method \cite{FG2005}. This is the many-body self-energy operator, which for example, has been defined in the textbook \cite{LandauStatPhysPart2}. We calculate this operator using a Feynman diagram technique with relativistic Hartree-Fock Green's functions \cite{Dzuba1988}.} calculated by summation of the diagrams in the many-body perturbation theory.  The operator $\Sigma $ is defined by the correlation correction to the energy of the valence electron on the orbital $n$, $\delta E_n = \langle n | \Sigma | n \rangle$.   For the Au and Rg calculations, the upper complete $d$-shell ($5d$ or $6d$) is attributed to the core, and the correlation interaction of the external electron with the core is described by a correlation potential $\Sigma$.   \\
-
-Calculation of $\Sigma$ involves a summation over all core states from
-$1s$ to $5d$ for Au or $6d$ for Rg. This summation is strongly dominated by the upper $d$-shell. E.g., the $5d$ shell gives about 90\% of the correlation correction to the energies of the $6s$ and $6p$ valence states of Au, and more than 80\% of the correlation correction to the energies of the $7s$ and $7p$ valence states of Rg (see Table \ref{tab:CPaccuracy}). This is because of the small energy interval between the energies of
-the $5d$ (or $6d$) state and the energies of lowest valence states.  Since correlation correction to the energy of the $s$ and $p$ valence states is about 20\%, the effect of neglecting inner-core contributions to the core-valence correlations is about 1 to 2\% of the energy of valence states.
-
-%This appears in the correlation
-%potential method via small energy denominator in the expression for $\Sigma$,
-%which is this small energy interval.
-
-\begin{table}
-\center
-\caption{Removal energies (cm$^{-1}$) for states of external electron of
-Au and Rg calculated in different approximations. RHF is relativistic
-Hartree-Fock, $\Sigma$($nd$) are Brueckner orbital energies calculated with correlation
-potential $\Sigma$, in which summation over core states is limited to $5d$ or
-$6d$ shell only. $\Sigma$(all) are the energies calculated with full summation over
-core states. \label{tab:CPaccuracy}}
-\begin{tabular}{l@{\hspace{0.7cm}}r@{\hspace{0.7cm}}r@{\hspace{0.7cm}}r@{\hspace{0.7cm}}r}
-\toprule
-\toprule
-\multicolumn{5}{c}{Au} \\
-  &  \centering    RHF &  $\Sigma$($5d$) &    $\Sigma$(all) &   Expt~\cite{NIST_ASD} \\
-  \midrule
-$6s_{1/2}$ &  60 179 &  75 539  & 77 878 &  74 409 \\
-$6p_{1/2}$ &  29 303 & 36 508  & 37 322 & 37 051 \\
-$6p_{3/2}$ &  26 664  & 32 314  & 32 785 & 33 324 \\
-$6d_{3/2}$  & 11 929  & 12 423  & 12 439 & 12 457 \\
-$6d_{5/2}$ &   11 875  & 12 344 &  12 357 & 12 376 \\
-\\
-\multicolumn{5}{c}{Rg} \\
-    &   \centering  RHF  &    $\Sigma$($6d$) &   $\Sigma$(all)  \\
-    \midrule
-$7s_{1/2}$  & 83 436 & 101 901 & 106 780 \\
-$7p_{1/2}$ &  38 006 &  49 996 &  52 269 \\
-$7p_{3/2}$ &  26 550 &  33 659 &  34 685 \\
-$7d_{3/2}$  & 11 859 &  12 594 &  12 656 \\
-$7d_{5/2}$  & 11 738  & 12 383  & 12 428 \\
-\bottomrule
-\bottomrule
-\end{tabular}
-\end{table}
-
-   It is interesting to note that in the second order of many-body perturbation theory, the correlation potential$\Sigma$ always overestimates the value of the correlation correction. This is because it does not include the effect of screening of inter-electron interaction by other atomic electrons. This effect appears in higher orders of perturbation theory. Its proper inclusion leads to very accurate results (see, e.g.~\cite{Dzuba1988, Dzuba2008}).
-   
-Since in the present work we do not go beyond the second order, we have the fortunate situation where neglecting inner-core contributions to $\Sigma$ has a similar affect on its value as the screening would do. In other words, the effect of neglecting the higher-order perturbative contributions on
-the calculated energies partially compensates the effect of neglecting
-screening of interelectron interactions. The data in Table \ref{tab:CPaccuracy} show that this is the case at least for the
-$6s$ state of Au (and probably for the $7s$ state of Rg) where the correlation correction
-is the largest in value. Therefore, it is reasonable to assume that the theoretical uncertainty is dominated by valence-valence correlations. The main source for it is the perturbative treatment of the excited configurations. The best way of estimating the uncertainty is to compare the theoretical and experimental energies for lighter elements. We did this in detail for W~\cite{DBHF2017}, which is the lighter analog of Sg, and for pairs Ta and Db~\cite{LDFDb2018}, and Rn and Og~\cite{LDFOg2018}. As follows from this comparison and from the analysis in Sections \ref{sec:Sg}, \ref{sec:Bh}, the theoretical uncertainty for the energies is on the level of $\sim$ 1000~cm$^{-1}$, sometimes a little higher (e.g.  $\sim$ 2000~cm$^{-1}$ for odd states of Bh). The uncertainty for ionization potentials is on the level of a few percent (see section \ref{sec:SHEIP}).
 
 
 \section{Electric dipole transitions and isotope shifts} \label{sec:Isoshift}
@@ -1316,13 +1374,13 @@ where the square of the nuclear charge radius is calculated using the Fermi dist
 \end{align}
 where $\tilde{F}$ is an IS parameter to be calculated for each transition.
 \section{Calculation of energy levels, E1 transition rates and isotope shift} \label{sec:spectra}
-
+\begin{landscape}
 \begin{figure*}
 \center
 \includegraphics[scale=1]{./figures/Sg_Mt_Energy_Plot.eps} 
 \caption{Comparison of low-energy excitations of SHE and their respective lighter analogs. For each element, the states are split between odd and even parities. The solid (blue) lines represent states with $6s^2$ or $7s^2$ in the electronic configuration for the lighter elements and SHE respectively. The dashed (red) lines are all other states where an $s$ electron has been excited from the filled $6s$ or $7s$ shell. Experimental energies were used for W \textsc{i}, Bh \textsc{i}, Hs \textsc{i} and Ir \textsc{i}. \cite{NIST_ASD}\label{fig:EL}}
 \end{figure*}
-
+\end{landscape}
 Energy levels of SHE are calculated by solving the matrix eigenvalue problem (\ref{eq:CI}) separately for states of given value of the total angular momentum $J$ and parity. The specific details for each considered SHE are presented below. Most previous theoretical works on these SHE present the calculation of the first ionization potential, which we discuss in Section~\ref{sec:SHEIP}. Fig.~\ref{fig:EL} compares calculated spectra of low-lying states of SHE with experimental data on their lighter analogs. One can see a significant difference in the spectra of SHE and their lighter analogs, which is common for all considered atoms. Almost all low-lying odd states of lighter atoms correspond to the $6s-6p$ excitation from the ground state. In contrast to that, in SHE the $7s$ state is significantly lower on the energy scale than the $6d$ state due to relativistic effects. Therefore, dominant excitations occur from the $6d$ state, i.e. low-lying odd states correspond to the $6d-7p$ excitations from the ground state. Since the $6d-7p$ energy interval is smaller than the $6s-6p$ one, the density of odd states is higher for the SHE. 
 
 
@@ -1661,11 +1719,9 @@ The super heavy element (SHE) oganesson ($Z=118$) was first synthesized in 2006 
 \linebreak
 %Victor
 The existence of long lived SHEs is predicted to occur when the ratio of neutrons to protons ($N/Z$) is large enough for the neutron-proton attraction to overcome  the Coulombic repulsion between protons (which scales as $Z^2$). Therefore the number of neutrons must increase faster than the number of protons requiring extremely neutron-rich isotopes to be  long-living\cite{OUL2004, HHO2013}.  Early nuclear shell models predict the nuclear shells stabilize for the ``magic'' numbers $Z=114$ and $N=184$\cite{OUL2004, HHO2013}. Synthesizing these neutron-rich isotopes is an extremely difficult challenge as the collision of two nuclei with a smaller $N/Z$ will always result in a neutron poor element.  However an alternate route to identify these long lived SHEs may be through analysing astrophysical data. Such avenues have already been explored with astrophysical data of  Przybylski's star suggesting that elements up to $Z=99$ have probably  been identified\cite{Polukhina2012, Gopka2008, Fivet2007}.  They may be decay products of long lived nuclei (see e.g.   \cite{DFW17} and references therein).  It is suspected that neutron rich isotopes may be created in cosmic events where rapid neutron capture (``$r$-process'') can occur due to large neutron fluxes during supernovae explosions, neutron star - (black hole and neutron star) mergers \cite{Goriely2011, Fuller2017, Friebel2018, Schuetrumpf2015}. To predict  atomic transition frequencies  for the neutron-reach isotopes the  calculated isotopic shifts should be added to the atomic transition frequencies measured in laboratories for the neutron-poor isotopes \cite{DFW17}. Search for these SHE in astrophysical data requires the strong electric dipole (E1) transitions which we calculate in this work.
-
  There has been a large amount of  theoretical work on the chemical and physical properties of Og with calculations of solid state and molecular properties \cite{Kullie2012, Shee2015, Nash1999, Nash2005, Peter2016}, electron affinities\cite{Pitzer1975, EliavOg1996, PershinaOg2008, Hangele2012, Goidenko2003}, and ionisation potentials and polarisabilities \cite{PershinaOg2008, Desclaux1973, Nash2005, Jerabek2018}. While some odd parity states and electric dipole (E1) transitions in the Og spectrum have been calculated in \cite{Indelicato2007} we present a more complete spectrum with both odd and even states to compare against similar states in the Rn spectrum. \\
-There has been considerable work on both relativistic and quantum electrodynamic (QED) effects \cite{Pyykko1988, Jerabek2018, Goidenko2003, Eliav2015, Indelicato2007, Thierfelder2010} in Og. In this work we included both the Breit interaction and QED radiative effects. To aid in the experimental study of Og we use  theoretical methods to further study its physical properties. \\
-
-\section{CIPT calculation of R\MakeLowercase{n} I and O\MakeLowercase{g} I} \label{sec:CIPT}
+There has been considerable work on both relativistic and quantum electrodynamic (QED) effects \cite{Pyykko1988, Jerabek2018, Goidenko2003, Eliav2015, Indelicato2007, Thierfelder2010} in Og. In this work we included both the Breit interaction and QED radiative effects. To aid in the experimental study of Og we use  theoretical methods to further study its physical properties. 
+\section{CIPT calculation of } \label{sec:CIPT}
 \begin{table*} [t!]
 \begin{center}
 
@@ -1751,7 +1807,7 @@ Our calculated value of the ionisation potential of Og in Table~\ref{tab:RnOgSpe
 
 It has been shown that Og has a positive electron affinity which is an anomaly in the group of noble gases \cite{EliavOg1996, Goidenko2003, Eliav2015}. This is another consequence of the stabilized $8s$ orbital due to the large relativistic effects. Our calculation presented in Table \ref{tab:RnOgSpectrum}  confirms this with an electron affinity of 773 cm$^{-1}$ (0.095 eV) which is in good agreement with the coupled cluster value presented in \cite{Goidenko2003}. For comparison we also present the negative ion calculation for Rn I which is known to be unstable. All other negative ionic states of Og were found to be unstable.
 
-\section{Electric dipole transitions of O\MakeLowercase{g} I} \label{sec:E1}
+\section{Electric dipole transitions of} \label{sec:E1}
  While Og  follows the expected trend for elements in noble group where each consecutive element has both a smaller IP and first excitation energy. However Og has some properties which can be considered exotic even amongst the Group 18 elements. According to the calculated spectrum in Table~\ref{tab:RnOgSpectrum} it is the only noble element which has an allowed optical electric dipole (E1) transition ($\omega < $40~000 cm$^{-1}$) from the ground state, unlike Rn where the first odd state lies at 57~334 cm$^{-1}$. \\
  
  The E1 transition amplitudes, $A_{\text{E1}}$, between states which satisfy the conditions of opposite parity and $\Delta J \leq 1$   are calculated using the many-electron wavefunctions created in the CIPT method and the self-consistent random-phase approximation which 
@@ -1803,7 +1859,8 @@ $^1$P$_1^{\rm_o}$ & 36 689 & 2.09 & 145 & 204\\
 \end{table}
 Only the first transition in Table \ref{tab:E1_transitions} lies in the optical region and therefore it has the highest likelihood of being measured first. The large rate of the transition $^1$S$_0$~$\rightarrow$~$^1$P$_1^{\rm_o}$ is also promising for experimental measurement. 
 
-\section{Electron density of O\MakeLowercase{g} } \label{sec:Relativistic}
+\section{Electron density of } \label{sec:Relativistic}
+The electron density of SHE gives insight into the effectiveness of the codes.
 
 
 
@@ -2153,7 +2210,8 @@ $^{131}$Xe & $< 0$                  &         & \\
 \end{tabular}
 \end{table}
 
-
+\listoffigures
+\listoftables
 
 \bibliography{Thesis}
 \bibliographystyle{thesis}
