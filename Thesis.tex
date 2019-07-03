@@ -1,4 +1,4 @@
-\documentclass[10pt,a4paper, twoside]{report}
+\documentclass[8pt,a4paper, twoside]{report}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{amsmath}
@@ -18,6 +18,8 @@
 \usepackage{pdflscape}
 \usepackage{afterpage}
 \usepackage{hyperref}
+\usepackage{subcaption}
+\usepackage{caption}
 \hypersetup{
     linktoc=all,
     colorlinks,
@@ -76,7 +78,6 @@ of the calculations.
 \cite{LFMQM2018} \bibentry{LFMQM2018}
 \cite{LDFSg2019} \bibentry{LDFSg2019}
 \part{Violation of the fundamental symmetries in nuclei}
-\chapter{Introduction}
 Since its inception in the latter half of the of 20th century the Standard Model has remained a robust phenomenological theory and remains the most holistic and accurate description of the interactions (except gravitational) of known fundamental particles and forces in nature. However despite the success of the SM \cite{} there are  physical phenomena which cannot be described without the SM being revised or extended. Similar to how classical physics is a large spatial approximation to quantum theory, it is suspected that the standard model is a low energy approximation to a more fundamental theory of the universe.  Therefore, for the past several decades, there has been a concerted effort to detect, measure and explain phenomena which lie outside the current standard model of physics so called ``beyond the standard model'' (BSM) physics . An avenue to study BSM physics is the violation of fundamental symmetries of nature and their manifestations in physical systems.\\
 \linebreak
 There are two distinct approaches to measure BSM phenomena. As the SM is suspected to be a low energy approximation to a greater theory the naive approach to detect BSM physics is through high energy experiments however this presents a problem. The energy where SM breaks down and quantum gravitational effects become appreciable is at the Plank scale $M_P \approx 2.4 \times 10^{18}$ GeV. With current high energy experimental probes only reaching into the low TeV (current experiments at the Large Hadron Collider reach 13 TeV), directly measurements at this scale are currently untenable and more accessible methods need to be considered. Though BSM physics are inherently high energy phenomena, it is suspected that signatures of these effects can be observed heavily suppressed in low energy experiments. Low energy,  electroweak experiments occur on a mass scale $m_{ew} \approx 246$ GeV \cite{} and it is suspected that BSM effects are expected to be a ratio of the electroweak and Plank scale $m_{ew}/M_P \approx \times 10^{-16}$  \cite{Kostelecky1995}. \\
@@ -98,14 +99,50 @@ The three discrete symmetries parity ($P-$), time-reversal ($T-$) and charge-con
 One avenue of interest is the detection of the violation of fundamental symmetries is an avenue which is suspected to overthrow the model by suggesting a deeper underlying theory.  There are a number of discrete symmetries which form the basis of our current interpretation of the universe. They are time-reversal $T$ parity and charge conjugation (get the paragraph from Honours thesis). \\
 Bertolami (CPT violation and baryogenesis)
 Of these discrete symmetries only parity has been determined to be violated. This is a prediction of the standard model weak interaction and therefore the bubble has yet to burst on the standard model. In this thesis we will look at some processes which violate these symmetries. 
-\chapter{Fundamental symmetries and their violation}
+\chapter{Fundamental symmetries and their violation} 
+
+The violation of $T-$ is quite a profound result as it implies there is a preferred direction on the elementary particle scale.
+
+ The observed matter-antimatter asymmetry in the universe is an important open question in modern physics. Three necessary conditions were postulated by Sakarhov\cite{Sakharov1967} including the requirement that combined charge and parity ($CP$) symmetry  is violated. While the current standard model (SM)  includes a $CP$- violating mechanism through a $CP$- violating phase in the CKM matrix \cite{KM1973} this alone is insufficient to account for the observed matter anti-matter asymmetry by several orders of magnitude (see e.g. Refs.~\cite{Sakharov1967,Farrar1993, Huet1994, Pospelov2005, Canetti2012, FS2010}). Therefore, other sources and mechanisms of $CP$- violation beyond the current SM must exist and investigating these will give insight into new physics. \\ 
+\linebreak
+The violation of $CP$ symmetry was first detected in the decay modes of the kaon system \cite{Christenson1964} and more recently in the $B$ meson sector \cite{Belle2001, Aaij2013} however detection of $CP$- violation in other systems has not been confirmed. By the CPT theorem a mechanism which violates combined $CP$ symmetry must also violate time-reversal ($T$) symmetry. Therefore, the existence of  permanent electromagnetic moments which violate $T$ symmetry is a promising avenue for constraining theories which  incorporate a  higher degree of $CP$- violation than the SM such as supersymmetric theories which has already been tightly constrained by current experimental limits for electric dipole moments (EDMs)\cite{Pospelov2005, Safronova2017, Chupp2018}. 
 \section{Violation of discrete symmetries}
-There are three key discrete symmetry transformations in nature; parity ($P-$), charge conjugation ($C-$) and time reversal ($T-$). Up until the middle of the 20$^{\text{th}}$ it was unknown whether these symmetries were violated.  In 1956 T. D. Lee and C. N. Yang predicted the parity violation in the weak interaction\cite{Yang1956}.  This was experimentally confirmed a year later  by Wu \textit{et al.} in 1957 \cite{Wu1957} where it was found that the both $P-$ and $C-$ were violated in the beta decay of $^{60}$Co. While this was a ground breaking discovery and resulted in a Nobel prize for  T. D. Lee and C. N. Yang for the orginal prediction, the existence of parity violation was not forbidden in the electroweak sector of the Standard Model. Since this discovery the search for violation of the discrete symmetries in other mechanisms has rapidly expanded and now spans many disciplines of physics including high energy particle physics, atomic physics and nuclear physics.
+There are three key discrete symmetry transformations in nature; parity ($P-$), charge conjugation ($C-$) and time reversal ($T-$). Up until the middle of the 20$^{\text{th}}$ it was unknown whether these symmetries were violated, though the strong and electromagnetic forces were well tested for violation of fundamental symmetries.  In 1956 T. D. Lee and C. N. Yang predicted the violation of $P-$ in the weak interaction\cite{Yang1956}.  This was experimentally confirmed a year later  by Wu \textit{et al.} in 1957 \cite{Wu1957} where it was found that the both $P-$ and $C-$ were violated in the beta decay of $^{60}$Co. While this was a ground breaking discovery and resulted in a Nobel prize for  T. D. Lee and C. N. Yang for the orginal prediction, the existence of parity violation was not forbidden in the electro-weak sector of the SM and therefore not confirmation of BSM physics.   Since this discovery the search for violation of the discrete symmetries in other mechanisms has rapidly expanded and now spans many disciplines of physics including high energy particle physics, atomic physics and nuclear physics. \\
 
-Along with Lorentz invariance (see Section \ref{sec:Lorentz}) the invariance of combined $CPT$ symmetry is fundamental. The CPT thoerem states that any Lorentz invariant Lagrangian is necessarily invariant under $CPT$ transformations (see Refs. \cite{LandauVol4, KhriplovichCP, HenleyCP} for more details). Therefore as the current standard model is Lorentz invariant a violation of $CP-$ symmetry  necessarily implies a violation of $T-$. Like the $P-$ violation in the weak sector, the violation of combined $CP-$ symmetry does exist in the current Standard Model in the strong sector in the Cabbibo-Kobayashi-Maskawa (CKM) matrix \cite{Cabibbo1963, KM1973}. However the contribution to $CP-$ violation of this paper does not account for the magnitude of matter anti-matter asymmetry present in the universe. Therefore this necessitates the existence of other sources of $CP-$ violation not accounted for and therefore physics beyond the standard model. There has also been experimental verification of $CP-$ violation, with the first discovery in 1964 by Christenson \textit{et al.} \cite{Christenson1964} where it was found that the $CP-$ was violated in the decay of kaons for which V. Fitch and J. Cronin  were awarded the Nobel Prize in physics. More recently it was also found in the $B$ meson sector \cite{Belle2001, Aaij2013}.  
+As it was found both $P-$ and $C-$ were violated it was proposed that the combined $CP-$ symmetry was the new fundamental, invariant symmetry. There has also been experimental verification of $CP-$ violation, with the first discovery in 1964 by Christenson \textit{et al.} \cite{Christenson1964} where it was found that indirect $CP-$ symmetry was violated in the decay of kaons for which V. Fitch and J. Cronin  were awarded the Nobel Prize in physics.   Along with Lorentz invariance (see Section \ref{sec:Lorentz}) the invariance of combined $CPT$ symmetry is fundamental. The CPT theorem states that any Lorentz invariant Lagrangian is necessarily invariant under $CPT$ transformations (see Refs. \cite{LandauVol4, KhriplovichCP, HenleyCP} for more details). Soon after the discovery of $CP$ violation by Cronin \textit{et al.} violation of combined $CP-$ symmetry was found to exist in the current SM in the strong sector in the complex phase of the Cabbibo-Kobayashi-Maskawa (CKM) matrix \cite{Cabibbo1963, KM1973}. This effectively explained the observed $CP-$ violation, which did not suggest any BSM physics.  However the contribution to $CP-$ violation of this paper does not account for the magnitude of matter anti-matter asymmetry present in the universe. Therefore this necessitates the existence of other sources of $CP-$ violation not accounted for and therefore physics beyond the standard model. More recently direct $CP-$ violation in the Kaon systems \cite{Alavi1999, Fanti1999} along with both direct and indirect $CP-$ violation in the $B$ meson sector \cite{Belle2001, Aaij2013, Aubert2003} have been measured. These recent measurements in B mesons agree with the CKM model and do not suggests BSM physics. Along with these high energy particle decay processes, the existence of some permanent electromagnetic moments also violate fundamental symmetries.\\
 
-Along with high energy decay processes, the existence of some permanent electromagnetic moments also violate fundamental symmetries. The fundamental violating electrodynamic moment is the electron dipole moment (EDM). The existence of a permanent EDM violates both $P-$ and $T-$ (and therefore also $CP-$) symmetries. Consider a particle with angular moment $\textbf{I}$, the EDM $\textbf{d}$ must be aligned with the angular momentum $\textbf{d} = d\textbf{I}$. 
+The possibility of permanent electromagnetic moments which violate  discrete symmetries was was first proposed in 1950 \cite{Purcell1950, Landau1957}. The existence of a permanent electric dipole moment (EDM) violates both $T-$ and $P-$ symmetries (and therefore $CP-$ symmetry). This can be seen through the following simple argument. This electric dipole moment, $\textbf{d}$ is by definition given by,  
 
+\begin{align} \label{eq:edm1}
+\textbf{d} = e\int \textbf{r}\rho(\textbf{r})d^3r
+\end{align}
+
+where $\rho(\textbf{r})$ is the density of the particle. However, the electric dipole moment of a particle must be parallel to the angular momentum vector of as it is the only vector which characterizes the direction of the system. Therefore it necessarily must be equal to, 
+\begin{align} \label{eq:edm2}
+\textbf{d}  = d_z \dfrac{\textbf{I}}{I}.
+\end{align}
+This presents a contradiction, under $P-$ and $T-$ transformations eqns. (\ref{eq:edm1}) and (\ref{eq:edm2}) do not agree and therefore are violated. This is demonstrated in Figure \ref{fig:ParityTimeEDM}. Other than the EDM other orders of permanenent electromagnetic moments violate $T-$ symmetry including the magnetic quadrupole moment (MQM). These symmetry violating moments are expected to be  observed for elementary particles, such as electrons and quarks, and composite particles such as nuclei, atoms and baryons. Currently the best limits on $CP-$ violation in terms or the electron 
+
+
+ The fundamental violating electrodynamic moment is the electron dipole moment (EDM). Where the EDM is the lowest order electric moment which violates $CP-$ and $T-$ symmetry the lowest order magnetic moment is the magnetic quadrupole moment (MQM). The existence of a permanent EDM violates both $P-$ and $T-$ (and therefore also $CP-$) symmetries. Consider a particle with angular moment $\textbf{I}$, the EDM $\textbf{d}$ must be aligned with the angular momentum $\textbf{d} = d\textbf{I}$. 
+
+
+The EDM moment of a particle can be written as,
+
+
+
+\begin{align*}
+M_{kn} = - \int \left( r_k \epsilon_{npq} + r_n\epsilon_{kpq} \right)j_pr_q d^3r
+\end{align*}
+
+
+\begin{align*}
+M_{kn} = \dfrac{3}{2}\dfrac{M_{zz}}{I(2I-1)}\left[I_{k}I_{n} + I_{n}I_{k} - \dfrac{2}{3}I(I+1)\delta_{mk}\right]
+\end{align*}
+\begin{figure}
+\includegraphics[scale=0.3]{./figures/EDM.eps}
+\caption{\label{fig:ParityTimeEDM} This diagram show the $P$ and $T$ transforms of a particle with angular momentum $I$ and a finite EDM $\textbf{d}$. The spatial EDM defined in  is $P$-odd and $T$-even. However as the EDM must be in the direction of the angular momentum of the particle which is $P$-even and $T$-odd there is a contradiction and the EDM violates $P$ and $T$.}
+\end{figure}
 \section{Lorentz symmetry violation} \label{sec:Lorentz}
 Like the discrete symmetries, Lorentz symmetry is one of the most fundamental symmetries in nature. It forms the basis of modern physics as the cornerstone to special relativity. Local Lorentz invariance (LLI) states that there is no preferred reference frame of the universe and the laws of physics are unchanged when the orientation of the system (rotation) or speed of the system (boosts) is changed. Due to its importance, considerable effort has been made over the last century to test and quantify its validity through experiments \cite{Michelson1887, Kennedy1932, Ives1938, Robertson1949, LorentzTestSeries}.  \\
 \linebreak
@@ -115,12 +152,98 @@ The possiblility of these new physics has led to a renewed concerted effort in d
 \section{Violation in atomic and nuclear systems}
 As mentioned previously, while violation of the LLI and $CP-$ symmetries are spontaneously broken at extremely high energies, signatures of these violations may manifest at low energies. The realm of atomic and nuclear physics is a perfect domain to search for these signatures as they offer high sensitivity at relatively low cost. The concept of using atomic interactions to detect LLIV has long been considered \cite{Hughes1960, Drever1961, Prestage1985, Lamoreaux1986, Lamoreaux1989}
 
+
+
+
+
+$CP$- violating permanent electrodynamic moments are expected to be observed in composite particles and systems  such as atoms, nuclei and baryons and interpreted as parameters of $CP$- violating interactions in the lepton and quark-gluon sectors. In this paper we focus on the magnetic quadrupole moment (MQM) of the nucleus in particular, which is the lowest order magnetic moment that is forbidden in quantum systems by the time reversal invariance ($T$) and  parity ($P$).  For an in-depth review on symmetry violating electromagnetic moments including the MQM see Ref. \cite{GF2004, KhriplovichPNC, SFK1984, Roberts2015, KhriplovichCP, Pospelov2005}. The MQM of composite systems such as the deuteron \cite{Liu2012} have previously been investigated. The search for MQM in comparison with the electrostatic $T,P$-violating moments (EDM, Schiff and octupole moments) may have the following advantages:
+
+\begin{itemize}
+\item The nuclear EDM  in neutral atoms and molecules are completely screened \cite{Schiff1963}. The Schiff and octupole moments have an additional second power of a very small nuclear radius. The magnetic interaction is not screened. The MQM contribution to atomic EDM typically is an order of magnitude larger than the contribution of the Schiff moment and several orders of magnitude larger than the octupole contribution \cite{SFK1984, Flambaum1997}.  
+
+\item In quadrupole deformed nuclei MQM is enhanced by an order of magnitude \cite{Flambaum1994}, therefore, the MQM contribution to atomic EDM may be two orders of magnitude larger than the Schiff moment contribution.
+
+\item In the expression for the Schiff moment there is a partial cancellation between the first term and the second (screening) term. There is also a screening correction to the octupole moment \cite{ Flambaum1986, SFK1984, Flambaum2012}.
+
+\item In the Hg and Xe atoms  where the most accurate measurements of atomic EDM have been performed, the valence nucleon is a neutron. Therefore, the electrostatic moments (EDM, Schiff and octupole) moments do not appear directly, they exist due to the nuclear polarization effects \cite{Flambaum1986}. Due to the screening effect and the indirect polarization origin of the Schiff moment the nuclear calculations are rather unstable.
+In the case of the MQM moment both valence protons and neutrons  contribute directly, and the result is expected to be more accurate\cite{Flambaum2014}.  
+
+\end{itemize}
+ A promising method of measuring $CP$- violating moments is in diatomic molecular experiments where the effective electric field is significantly larger than those directly accessible in laboratory experiments.  There is a considerable body of work for calculating the effective electric field in diatomic molecular systems which may be experimentally viable. Both theoretical and experimental progress has been made in measuring the $T,P-$ odd effects in  YbF\cite{Hudson2011, Mosyagin1998, Quiney1998, Parpia1998, Kozlov1994, Nayak2009, Steimle2007, Abe2014}, HfF$^+$ \cite{Cossel2012, Loh2013, Petrov2007, Fleig2013, Meyer2006, Skripnikov2008Hf, Le2013, Skripnikov2017Hf, Cairncross2017}, ThO \cite{Petrov2014, Meyer2008, Skripnikov2013ThO, Skripnikov2014ThO, Titov2015ThO, Fleig2014, Denis2016, Baron2017}, ThF$^+$\cite{Loh2013, Skripnikov2015Th, Denis2015}, TaN \cite{Skripnikov2015Ta, Fleig2016TaN} and TaO$^+$ \cite{Fleig2018} particularly in relation to the nuclear Schiff moment and electron EDM.   In section \ref{sec:MQMmolecule} we present the molecular energy shift due to the nuclear MQM for these molecules.\\
+ \linebreak
+The collective enhancement of MQM for some  heavy deformed nuclei were estimated in \cite{Flambaum1994, Flambaum2014} where they considered the contribution using a spherical wave function basis. In this work we will use the Nilsson model of the the nucleus  which is an empirically successful single particle model which accounts for the quadrupole deformation of a nucleus by using an anisotropic oscillator potential \cite{Nilsson1955, Mottelson1955, BohrMottVol2}. In the Nilsson model the deformation breaks the degeneracy of the isotropic shell model which results in several overlapping partially filled nuclear shells containing a large number of nucleons.  Each nucleon in the Nilsson model is defined in the Nilsson basis $\left[Nn_z\Lambda\Omega\right]$ where $N$ is the principle shell number ($N = n_x + n_y + n_z$), $\Lambda$ is the projection of the orbital angular momentum on the deformation axis (chosen to be the $z$-axis) and $\Omega = \Lambda + \Sigma$ is the projection of the total angular momentum of the nucleon on the deformation axis.
+
+
+To illustrate why the MQM tensor should be enhanced in quadrupole deformed nuclei let us compare it with  the EDM vector property of nuclei. The direction of the EDM of a nucleon is characterised by its angular momentum projection on the deformed nucleus axis $\Omega$. In the case of the vector properties such as EDM and magnetic moment the contributions of $\Omega$ and $-\Omega$ cancel each other and  there is no enhancement in the quadrupole deformed nuclei. For the second rank tensors such as MQM and nuclear electric quadrupole moment the contributions of $\Omega$ and $-\Omega$ double the effect. There are many nucleons in the open shells of deformed nuclei and this leads to a collective enhancement of second rank tensor properties.
+
+
+\chapter{Deformed nuclei and the Nilsson Model}
+The understanding of nuclear structure and the development of models to describe observed nuclear properties has had a rich history throughout the $20^{\text{th}}$ century. Like other quantum many-body problems individually accounting for the dynamics of each individual nucleon is an intractable problem and approximations need to be applied. 
+
+The existence of non-spherical nuclei has been suspected since the 1930's where anomalous behaviour in the hyperfine structure in isotopes of Eu ($Z=63$) and Lu ($Z=71$) by H. Schuler and Th. Schmidt \cite{Schuler1935(1), Schuler1935(2)}. Soon after this discovery, H. B. G. Casimir published an explanation of these results through the existence of an permanent electric quadrupole moment of the nucleus which interacts with the atomic electrons \cite{Casimir1935, Casimir1936}. In a single particle picture of the nucleus, the existence of an unpaired proton with nuclear spin $I$ induces and electric quadrupole moment  $Q_{p,val}$ of the nucleus by the equation \cite{BohrMottVol1},
+\begin{align}
+Q_{p_val} &= - \dfrac{I-1/2}{I + 1}\left<r^2\right> \nonumber \\
+&=  - \dfrac{I-1/2}{I + 1}0.009A^{2/3} \ \text{barn}.
+\end{align}  
+However, when compared to experimental measurements of the electric quadrupole moment, this value is less. Therefore, the 
+
 \begin{figure}
-\includegraphics[scale=0.3]{./figures/EDM.eps}
-\caption{\label{fig:ParityTimeEDM} This diagram show the $P$ and $T$ transforms of a particle with angular momentum $I$ and a finite EDM $\textbf{d}$. The spatial EDM defined in  is $P$-odd and $T$-even. However as the EDM must be in the direction of the angular momentum of the particle which is $P$-even and $T$-odd there is a contradiction and the EDM violates $P$ and $T$.}
+\center
+\begin{subfigure}[b]{0.48\textwidth}
+\center
+\includegraphics{./figures/prolate.eps}
+\caption{Prolate deformation of a nucleus. Here the $z$ axis is the symmetry axis.}
+\end{subfigure}	
+\quad
+\begin{subfigure}[b]{0.48\textwidth}
+\center
+\includegraphics{./figures/oblate.eps}
+\caption{Oblate deformation of a nucleus. Here the $z$ axis is the symmetry axis.}
+\end{subfigure}
 \end{figure}
-The possibility of permanent electromagnetic moments which violate  discrete symmetries was was first proposed in 1950 \cite{Purcell1950}. The existence of a permanent electric dipole moment (EDM) violates $T-$. This is demonstrated in Figure \ref{fig:ParityTimeEDM}. Other than the EDM other orders of permanenent electromagnetic moments violate $T-$ symmetry including the magnetic quadrupole moment (MQM). These symmetry violating moments are expected to be  observed for elementary particles, such as electrons and quarks, and composite particles such as nuclei, atoms and baryons. Currently the best limits on $CP-$ violation in terms or the electron 
-\section{Deformed nuclei and the Nilsson Model}
+
+\begin{figure}
+\center
+\includegraphics[scale=1]{./figures/prolate_AM.eps}
+\caption{Projection of angular momentum of a prolate deformed nucleus onto the symmetry axis in the intrinsic frame. Here $I$ is the angular momentum of the nucleon and $\Omega$ is its projection on the axis of deformation.}
+\label{fig:prolate_AM}
+\end{figure}
+In the spherical shell model the orbit with angular momentum $I$ has degeneracy $2I + 1$ nucleons. This degeneracy is broken in the Nilsson model for deformed nuclei where the projection of the angular momentum onto the symmetry axis, $\Omega$, is the good quantum number. Each of these $\Omega$ states are doubly degenerate. The consequences of a deformed nucleus on the quantum states of the constituent nucleons can be deduced from two simple physical arguments. Consider the non-rotating, intrinsic (body) frame of the nucleus. Where $\Omega$ is the projection of the nucleons angular momentum $I$ on the deformation axis. 
+
+By definition the projection of total angular momentum on the symmetry axis $\Omega$ is the sum of the projection of the orbital angular momentum, $\Lambda$ and the projection of the spin angular moment$\Sigma = \pm 1/2$.  
+
+\begin{align*}
+\Omega = \pm\tfrac{1}{2}, \pm\tfrac{1}{2},  \pm\tfrac{1}{2},  ... , \pm I, 
+\end{align*}
+
+The complete Hamiltonian of the Nilsson model is given by,
+\begin{align}
+H = \dfrac{\textbf{p}^2}{2m} + \dfrac{1}{2}m \left[\omega_x\left(\textbf{x}^2 + \textbf{y}^2\right) + \omega_z \textbf{z}^2\right] + C\textbf{l}\cdot \textbf{s} + D \textbf{l}^2
+\end{align}
+
+The $\textbf{l}\cdot \textbf{s}$ and $\textbf{l}^2$ terms ensure the proper order of energies of the single particle levels for spherical nuclei. Considering quadrupole demormations only, the energies on the perpendicular are equal $\omega_x = \omega_y = \omega_{\perp}$. These are related to the average nucleon energy by 
+\begin{align*}
+\omega_{\perp^{2}} = \omega_0^2\left(1 + \dfrac{2}{3}\delta\right) \\
+\omega_z^2 = \omega_0^2\left(1 - \dfrac{4}{3}\delta\right)
+\end{align*}
+Setting the constraint that the nuclear volume remains constant as the deformation changes.
+
+\begin{align*}
+\delta \approx 0.95 \beta
+\end{align*}
+
+Casimir came to the conclusion that the measured quadrupole moments cannot be due to the a single proton and must be a collective effect of the the nucleus. 
+
+Collective properties of the nucleus include large quadrupole moments and nuclear fission. Non-spherical nuclei were first explored in depth by Rainwater in 1950 \cite{Rainwater1950}
+
+The only oblate candidates are those where the protons or neutrons  are near the end of a major shell ($N$). Therefore the vast majority of nuclei are prolate deformed, however the Nilsson model is also applicable for oblate nuclei.
+
+"The nuclear shell structure and the equilibrium shape of the nucleus are intimately related" \cite{Mottelson1955}. The deformation of the nucelar field implies important modifications of the nucleonic motion. Each orbit may be occupied twice, corresponding to the two possible signs of $\Omega$. The absence of degeneracuies implies a very simply coupling scheme for the particle motion. Thus, in an odd-A nucleus the ground-state spin is equal to the value of $\Omega$ for the orbit occupied by the last nucleon except for $\Omega=1/2$ \cite{Nilsson1955}. 
+
+In the regions of closed major shells the equilbrium shape of the nucleus is spherical \cite{Nilsson1955}. 
+
+To classify each constituent nucleon in the deformed nucleus we use the Nilsson model of deformed nuclei \cite{Nilsson1955, BohrMottVol2}. The independent particle model will only describe how a single nucleon will behave in the mean field/potential. In the case of an atom this is a relatively simple and stable approach. This is because in an atom, to a first approximation, the electrons experience a potential from the much larger point like nucleus. It is only in lower approximations that you take into account the inter electron potential by using methods such as Hartree Fock. However in the nucleus there is no centre source of potential, it all comes from the inter-nucleon interactions which is not completely understood. Therefore any mean field potential ascribed to the nucleus is going to be inherently unstable, especially when considering larger nuclei. This results in a anisotropy of the nucleus which has interesting properties when trying to understand nuclear physics.
+
 In this paper we will use the empirically successful Nilsson model \cite{Nilsson1955, BohrMottVol2} (deformed oscillator model)  to describe the single particle model states of the constituent nucleons in deformed nuclei and calculate the magnitude of the quadrupole and momentum tensors. The Nilsson Hamiltonian which governs the system is,
 \begin{align} \label{eq:NilssonHamiltonian}
 H_{Nilsson} &= -\dfrac{\hbar^2}{2m}\Delta +\dfrac{m}{2}\left( \omega_z^2 z^2 + \omega_{\perp}^2\left( x^2 +  y^2\right) \right)
@@ -129,20 +252,12 @@ which has the form of an asymmetric 3D oscillator model where we have chosen the
 
 Consider the magnetic dipole moment  which is proportional to  the projection of the total angular momentum $\Omega$ to the nuclear axis. In an even-even nucleus all the nucleons are paired and therefore the magnetic dipole moment of the $+\Omega$ state cancels with the $-\Omega$ state resulting in no net magnetic dipole moment of the nucleus. For an odd $A$ nucleus  the magnetic dipole moment of the entire nucleus is simply the dipole moment of the odd nucleon. This is the well known Schmidt model of the nucleus. The cases for second order tensor properties of the nucleus are different. For  nucleons in the  $+\Omega$ and the $-\Omega$ states tensor properties  are additive. Therefore there is a collective effect and many nucleons contribute to the tensor properties of the nucleus.
 
-Due to the rotation of the nucleus the tensor properties transform between the body-fixed (intrinsic) frame which rotates  and the laboratory frame. A second order tensor observable $T$ between these two frames has the relationship\cite{BohrMottVol2}
-\begin{align} \label{eq:RotationalFactor}
-T^{Lab} = \dfrac{I\left(2I - 1\right)}{\left(I + 1 \right)\left(2I + 3\right)}T^{Intrinsic},
-\end{align}
-where $I=I_z= \left|\Omega\right|$ is the projection of total nuclear angular momentum (nuclear spin) on the symmetry axis. This expression shows that only in nuclei with spin $I > 1/2$ we can detect these second order tensor properties.
-
 In the Nilsson model we consider the nucleus in the intrinsic frame which rotates with the nucleus. However the nucleus itself rotates with respect to the fixed laboratory frame \cite{BohrMottVol2}. Due to this rotation the tensor properties transform between the intrinsic  and laboratory frame. The relationship between these two frames is \cite{BohrMottVol2}
 \begin{align} \label{eq:RotationalFactor}
 A^{Lab} = \dfrac{I\left(2I - 1\right)}{\left(I + 1 \right)\left(2I + 3\right)}A^{Intrinsic},
 \end{align}
 where $I=I_z= \left|\Omega\right|$ is the projection of total nuclear angular momentum (nuclear spin) on the symmetry axis. This expression shows that only in nuclei with spin $I > 1/2$ can we detect these second order tensor properties. 
 
-Searching for $CP-$ violating EDMs through direct measurement is difficult
-A major focus of this thesis is the enhancement of nuclear properties in non-spherical (or deformed) nuclei. It has been known for nearly a century that some nuclei are non-spherical.  Experimental confirmation of deformed nuclei came with the measurement spectroscopic electric quadrupole moment of the nucleus by Th. Schuler in 1936 [Add reference]. Theoretical study was backed up by Casamir in his works [Casamir citations]. The electric quadrupole is a second order tensor defined as the no spherical distribution of electric charge in the nucleus. As neutrons are uncharged this moment is just the distribution of protons. 
 \begin{itemize}
 \item Included discussion of possible nuclear models.
 \item Included in depth discussion of the Nilsson model with positives and negatives
@@ -151,7 +266,7 @@ A major focus of this thesis is the enhancement of nuclear properties in non-sph
 \item included distinction between the intrinsic frame of the nucleus (rotating frame) and the laboratory frame of the nucleus. Included the tensor relationship between the rotating and laboratory frame.
 \end{itemize}
 \chapter{The weak quadrupole moment and Lorentz violation in nuclei}
-\textit{The results of this chapter have been published in } \\
+\textit{The results of this chapter have been published in reference \cite{LFWQM2018} } \\
 \linebreak
 Non-spherical nuclei present a lucrative avenue for studying the existence and magnitude of second order tensor properties due to the collective properties of deformed nuclei. In this work we focus on the quadrupole moment of the nonspherical  distribution of neutrons in the nucleus, $Q_{n}$,  the weak quadrupole moment (WQM), $Q_{W}^{(2)}$,  and the violation of Local Lorentz invariance (LLI) in the nucleon sector. \\
 \linebreak
@@ -386,34 +501,8 @@ where $G_F$ is the Fermi weak constant, $\gamma_5$ is the standard Dirac matrix,
 Also the PNC effects of the tensor weak interaction which has different selection rules are strongly enhanced  and can be measured in atoms and molecules having close opposite parity energy levels with the difference of the electron angular momenta equal to 2. Corresponding states can be mixed by the tensor weak interaction but not the scalar (proportional to the  weak charge) and vector (proportional to the nuclear anapole moment) components. If the difference of the electron angular momenta is 1 the effects of the anapole and the weak quadrupole may be separated due the difference in their contributions to the different hyperfine components of the electromagnetic transitions. Corresponding atomic calculations have been performed in Ref.  \cite{FDC17}. Measurements of the tensor PNC effects in atoms and molecules will allow one to extract  the neutron quadrupole moment of the nuclei. \\
 
 \chapter{The magnetic quadrupole moment of the nucleus}
-\textit{The results of this chapter have been published in } \\
+\textit{The results of this chapter have been published in reference \cite{LFMQM2018}} \\
 \linebreak
- The observed matter-antimatter asymmetry in the universe is an important open question in modern physics. Three necessary conditions were postulated by Sakarhov\cite{Sakharov1967} including the requirement that combined charge and parity ($CP$) symmetry  is violated. While the current standard model (SM)  includes a $CP$- violating mechanism through a $CP$- violating phase in the CKM matrix \cite{KM1973} this alone is insufficient to account for the observed matter anti-matter asymmetry by several orders of magnitude (see e.g. Refs.~\cite{Sakharov1967,Farrar1993, Huet1994, Pospelov2005, Canetti2012, FS2010}). Therefore, other sources and mechanisms of $CP$- violation beyond the current SM must exist and investigating these will give insight into new physics. \\ 
-\linebreak
-The violation of $CP$ symmetry was first detected in the decay modes of the kaon system \cite{Christenson1964} and more recently in the $B$ meson sector \cite{Belle2001, Aaij2013} however detection of $CP$- violation in other systems has not been confirmed. By the CPT theorem a mechanism which violates combined $CP$ symmetry must also violate time-reversal ($T$) symmetry. Therefore, the existence of  permanent electromagnetic moments which violate $T$ symmetry is a promising avenue for constraining theories which  incorporate a  higher degree of $CP$- violation than the SM such as supersymmetric theories which has already been tightly constrained by current experimental limits for electric dipole moments (EDMs)\cite{Pospelov2005, Safronova2017, Chupp2018}. \\
-\linebreak
-$CP$- violating permanent electrodynamic moments are expected to be observed in composite particles and systems  such as atoms, nuclei and baryons and interpreted as parameters of $CP$- violating interactions in the lepton and quark-gluon sectors. In this paper we focus on the magnetic quadrupole moment (MQM) of the nucleus in particular, which is the lowest order magnetic moment that is forbidden in quantum systems by the time reversal invariance ($T$) and  parity ($P$).  For an in-depth review on symmetry violating electromagnetic moments including the MQM see Ref. \cite{GF2004, KhriplovichPNC, SFK1984, Roberts2015, KhriplovichCP, Pospelov2005}. The MQM of composite systems such as the deuteron \cite{Liu2012} have previously been investigated. The search for MQM in comparison with the electrostatic $T,P$-violating moments (EDM, Schiff and octupole moments) may have the following advantages:
-
-\begin{itemize}
-\item The nuclear EDM  in neutral atoms and molecules are completely screened \cite{Schiff1963}. The Schiff and octupole moments have an additional second power of a very small nuclear radius. The magnetic interaction is not screened. The MQM contribution to atomic EDM typically is an order of magnitude larger than the contribution of the Schiff moment and several orders of magnitude larger than the octupole contribution \cite{SFK1984, Flambaum1997}.  
-
-\item In quadrupole deformed nuclei MQM is enhanced by an order of magnitude \cite{Flambaum1994}, therefore, the MQM contribution to atomic EDM may be two orders of magnitude larger than the Schiff moment contribution.
-
-\item In the expression for the Schiff moment there is a partial cancellation between the first term and the second (screening) term. There is also a screening correction to the octupole moment \cite{ Flambaum1986, SFK1984, Flambaum2012}.
-
-\item In the Hg and Xe atoms  where the most accurate measurements of atomic EDM have been performed, the valence nucleon is a neutron. Therefore, the electrostatic moments (EDM, Schiff and octupole) moments do not appear directly, they exist due to the nuclear polarization effects \cite{Flambaum1986}. Due to the screening effect and the indirect polarization origin of the Schiff moment the nuclear calculations are rather unstable.
-In the case of the MQM moment both valence protons and neutrons  contribute directly, and the result is expected to be more accurate\cite{Flambaum2014}.  
-
-\end{itemize}
- A promising method of measuring $CP$- violating moments is in diatomic molecular experiments where the effective electric field is significantly larger than those directly accessible in laboratory experiments.  There is a considerable body of work for calculating the effective electric field in diatomic molecular systems which may be experimentally viable. Both theoretical and experimental progress has been made in measuring the $T,P-$ odd effects in  YbF\cite{Hudson2011, Mosyagin1998, Quiney1998, Parpia1998, Kozlov1994, Nayak2009, Steimle2007, Abe2014}, HfF$^+$ \cite{Cossel2012, Loh2013, Petrov2007, Fleig2013, Meyer2006, Skripnikov2008Hf, Le2013, Skripnikov2017Hf, Cairncross2017}, ThO \cite{Petrov2014, Meyer2008, Skripnikov2013ThO, Skripnikov2014ThO, Titov2015ThO, Fleig2014, Denis2016, Baron2017}, ThF$^+$\cite{Loh2013, Skripnikov2015Th, Denis2015}, TaN \cite{Skripnikov2015Ta, Fleig2016TaN} and TaO$^+$ \cite{Fleig2018} particularly in relation to the nuclear Schiff moment and electron EDM.   In section \ref{sec:MQMmolecule} we present the molecular energy shift due to the nuclear MQM for these molecules.\\
- \linebreak
-The collective enhancement of MQM for some  heavy deformed nuclei were estimated in \cite{Flambaum1994, Flambaum2014} where they considered the contribution using a spherical wave function basis. In this work we will use the Nilsson model of the the nucleus  which is an empirically successful single particle model which accounts for the quadrupole deformation of a nucleus by using an anisotropic oscillator potential \cite{Nilsson1955, Mottelson1955, BohrMottVol2}. In the Nilsson model the deformation breaks the degeneracy of the isotropic shell model which results in several overlapping partially filled nuclear shells containing a large number of nucleons.  Each nucleon in the Nilsson model is defined in the Nilsson basis $\left[Nn_z\Lambda\Omega\right]$ where $N$ is the principle shell number ($N = n_x + n_y + n_z$), $\Lambda$ is the projection of the orbital angular momentum on the deformation axis (chosen to be the $z$-axis) and $\Omega = \Lambda + \Sigma$ is the projection of the total angular momentum of the nucleon on the deformation axis.
-
-
-To illustrate why the MQM tensor should be enhanced in quadrupole deformed nuclei let us compare it with  the EDM vector property of nuclei. The direction of the EDM of a nucleon is characterised by its angular momentum projection on the deformed nucleus axis $\Omega$. In the case of the vector properties such as EDM and magnetic moment the contributions of $\Omega$ and $-\Omega$ cancel each other and  there is no enhancement in the quadrupole deformed nuclei. For the second rank tensors such as MQM and nuclear electric quadrupole moment the contributions of $\Omega$ and $-\Omega$ double the effect. There are many nucleons in the open shells of deformed nuclei and this leads to a collective enhancement of second rank tensor properties.
-
-
-
 
 \iffalse
 \section{Magnetic quadrupole moment in deformed nuclei}
@@ -1881,7 +1970,36 @@ In this work we calculated the spectrum and E1 transitions for Og I including th
 
 \appendix
 
+
+
 \chapter{Nilsson Orbitals}
+
+\begin{figure}
+\centering
+\begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{./figures/Nilsson/proton_deformed50.png}
+    \caption{$50<Z<82$}
+\end{subfigure}	
+\quad
+\begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{./figures/Nilsson/proton_deformed82.png}
+    \caption{$Z>82$}
+\end{subfigure}
+\\
+\begin{subfigure}[b]{0.48\textwidth}
+    \includegraphics[width=\textwidth]{./figures/Nilsson/neutron_deformed82.png}
+    \caption{$82<N<126$}
+\end{subfigure}	
+\quad
+\begin{subfigure}[b]{0.48\textwidth}
+    \includegraphics[width=\textwidth]{./figures/Nilsson/neutron_deformed126.png}
+    \caption{$N>126$}
+\end{subfigure}
+\caption{Nilsson energy diagrams for both protons and neutrons for prolate deformed nuclei. Here $\delta$ is a degree of deformation. The numbers in circles represent the magic numbers in the spherical limit. These figures have been taken from \cite{BohrMottVol2}}
+
+\end{figure}
+
+
 
 \begin{table} 
 \center
