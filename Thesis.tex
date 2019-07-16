@@ -12,6 +12,7 @@
 \usepackage{setspace}
 \pagestyle{headings}
 \usepackage{pbox}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{chngpage}
 \usepackage{afterpage}
 \usepackage{booktabs}
@@ -20,12 +21,16 @@
 \usepackage{hyperref}
 \usepackage{subcaption}
 \usepackage{caption}
+\usepackage{fancyhdr}
+\usepackage{etoolbox}
+\usepackage{fmtcount}
+\usepackage{titlesec}
 \hypersetup{
     linktoc=all,
     colorlinks,
-    citecolor=blue,
+    citecolor=Blue,
     filecolor=black,
-    linkcolor=black,
+    linkcolor=Blue,
     urlcolor=black
 }
 
@@ -42,13 +47,53 @@
 \defaultaddspace=.5em
 } %This allows the use 'booktabs' rules
 \nobibliography*
-\onehalfspacing
+\setlength{\headheight}{15pt}
+
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{ \markboth{#1}{} }
+\renewcommand{\sectionmark}[1]{ \markright{#1} }
+
+\fancyhf{}
+\fancyfoot[LE,RO]{\thepage}
+\fancyhead[RO]{B. G. C. Lackenby}
+\fancyhead[LE]{\textit{ \nouppercase{\leftmark}} }
+%\fancyhead[LO]{\textit{ \nouppercase{\rightmark}} }
+
+\fancypagestyle{plain}{ %
+  \fancyhf{} % remove everything
+  \renewcommand{\headrulewidth}{0pt} % remove lines as well
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+
+\colorlet{sectitlecolor}{red!60!black}
+\colorlet{sectboxcolor}{cyan!30}
+\colorlet{secnumcolor}{BrickRed}
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{{\textcolor{secnumcolor}{\thesection}}}{1em}{}
+ 
+%default cahpter settings  
+%\titleformat{\chapter}[display]
+%  {\normalfont\Huge\bfseries}{\chaptername \ \thechapter}{20pt}{\Huge}
+  
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries}
+{\chaptertitlename~\Numberstring{chapter}}
+{20pt}
+{\Huge}
+  
+\makeatletter
+\patchcmd{\@makechapterhead}{\thechapter}{\NUMBERstring{chapter}}{}{}
+\patchcmd{\chaptermark}{\thechapter}{\NUMBERstring{chapter}}{}{}
+\makeatother
+
 \begin{document}
 \onehalfspacing
 \title{PhD Thesis \\
 Violation of the fundamental symmetries and atomic structure of superheavy elements}
 \begin{figure}
-\center
+\centering
 \includegraphics[scale=1]{./figures/unsw-crest.eps}
 \end{figure}
 \author{Bryce G. C. Lackenby}
@@ -78,6 +123,7 @@ of the calculations.
 \cite{LFMQM2018} \bibentry{LFMQM2018}
 \cite{LDFSg2019} \bibentry{LDFSg2019}
 \part{Violation of  fundamental symmetries in nuclei}
+\chapter{Introduction}
 Since its inception in the latter half of the of 20th century the Standard Model has remained a robust phenomenological theory and remains the most holistic and accurate description of the interactions (except gravitational) of known fundamental particles and forces in nature. However despite the success of the SM \cite{} there are  physical phenomena which cannot be described without the SM being revised or extended. Similar to how classical physics is a large spatial approximation to quantum theory, it is suspected that the standard model is a low energy approximation to a more fundamental theory of the universe.  Therefore, for the past several decades, there has been a concerted effort to detect, measure and explain phenomena which lie outside the current standard model of physics so called ``beyond the standard model'' (BSM) physics . An avenue to study BSM physics is the violation of fundamental symmetries of nature and their manifestations in physical systems.\\
 \linebreak
 There are two distinct approaches to measure BSM phenomena. As the SM is suspected to be a low energy approximation to a greater theory the naive approach to detect BSM physics is through high energy experiments however this presents a problem. The energy where SM breaks down and quantum gravitational effects become appreciable is at the Plank scale $M_P \approx 2.4 \times 10^{18}$ GeV. With current high energy experimental probes only reaching into the low TeV (current experiments at the Large Hadron Collider reach 13 TeV), directly measurements at this scale are currently untenable and more accessible methods need to be considered. Though BSM physics are inherently high energy phenomena, it is suspected that signatures of these effects can be observed heavily suppressed in low energy experiments. Low energy,  electroweak experiments occur on a mass scale $m_{ew} \approx 246$ GeV \cite{} and it is suspected that BSM effects are expected to be a ratio of the electroweak and Plank scale $m_{ew}/M_P \approx \times 10^{-16}$  \cite{Kostelecky1995}. \\
@@ -134,16 +180,21 @@ M_{kn} = \dfrac{3}{2}\dfrac{M_{zz}}{I(2I-1)}\left[I_{k}I_{n} + I_{n}I_{k} - \dfr
 \end{figure}
 Experiments aimed at measuring these permanent EM moments present a promising avenue for possibly detect or at least constraining 
 \section{Lorentz symmetry violation} \label{sec:Lorentz}
+Tests of Lorentz violation also span both high-energy, cosmological scales down to low energy precision tests. $\gamma$ ray bursts are a potential test of quantum gravity  \cite{Amelino1998}. A superluminal charged particle will rapidly radiate photons until it no longer exceeds the speed of light \cite{Coleman1997}. A review on potential high energy Lorentz violating tests can be found in Ref. \cite{Coleman1999}. 
+
 Like the discrete symmetries, Lorentz symmetry is one of the most fundamental symmetries in nature. It forms the basis of modern physics as the cornerstone to special relativity. Local Lorentz invariance (LLI) states that there is no preferred reference frame of the universe and the laws of physics are unchanged when the orientation of the system (rotation) or speed of the system (boosts) is changed. Due to its importance, considerable effort has been made over the last century to test and quantify its validity through experiments \cite{Michelson1887, Kennedy1932, Ives1938, Robertson1949, LorentzTestSeries}.  \\
 \linebreak
 In the current SM Lorentz invariance, along with combined CPT, is always conserved. However, there are many proposals for new physics BSM such as GUT and String theories that require LLI to be violated \cite{Kostelecky1989,  Damour, Gambini1999, Pospelov2012, Kostelecky1995, Mavromatos2007, Liberati2013}.  Like the discrete symmetries above, LLI is suspected to be a low-energy effective property which is spontaneously broken at higher energies due to an underlying theory. Unlike violation of the discrete symmetries however,  there  are no sources of LLIV in the SM and any measurement of some anisotropy will be the result of some unknown greater underlying theory. Therefore an extension to the SM in Refs. \cite{Colladay1997, Colladay1998, Kostelecky1999, LorentzDataTables2017} has been proposed which contains LLIV terms in the SM Lagrangian while preserving other desirable properties of the SM such as renormalizability and gauge invariance. This extension to the SM provides a framework to represent and quantify particular LLIV mechanisms in experiments. \\
 \linebreak
 The possiblility of these new physics has led to a renewed concerted effort in detecting LLIV using modern experimental methods using more sophisticated techniques. These include  resonance cavity experiments \cite{Muller2005, Muller2003, Wolf2004}, Doppler shift experiments \cite{Lane2005, Saathoff2003} and clock comparison experiments \cite{Prestage1985, Chupp1989, Hohensee2013, Dzuba2016}. These experiments rely on measuring slight variations in results when the orientation or speed of the system is changed and therefore require extremely precise measurements. Currently, these experiments have only resulted in null measurements, however they have constrained the LLIV parameters in the SM extension extensively. A yearly review on the current status of LLIV can be found in \cite{LorentzDataTables2019} which provides an exhaustive list of the constraints on LLIV parameters in the SM extension.
-\section{Violation in atomic and nuclear systems}
+
+
+
+\section{Violation in nuclear, atomic and molecular systems}
 As mentioned previously, while violation of the LLI and $CP-$ symmetries are spontaneously broken at extremely high energies, signatures of these violations may manifest at low energies. The realm of atomic and nuclear physics is a perfect domain to search for these signatures as they offer high sensitivity at relatively low cost. The concept of using atomic interactions to detect LLIV has long been considered \cite{Hughes1960, Drever1961, Prestage1985, Lamoreaux1986, Lamoreaux1989}
 
 
-
+Atoms provide an optimal space to test the Standard Model as all SM interactions are found in atomic theory and can be probed.
 
 
 $CP$- violating permanent electrodynamic moments are expected to be observed in composite particles and systems  such as atoms, nuclei and baryons and interpreted as parameters of $CP$- violating interactions in the lepton and quark-gluon sectors. In this paper we focus on the magnetic quadrupole moment (MQM) of the nucleus in particular, which is the lowest order magnetic moment that is forbidden in quantum systems by the time reversal invariance ($T$) and  parity ($P$).  For an in-depth review on symmetry violating electromagnetic moments including the MQM see Ref. \cite{GF2004, KhriplovichPNC, SFK1984, Roberts2015, KhriplovichCP, Pospelov2005}. The MQM of composite systems such as the deuteron \cite{Liu2012} have previously been investigated. The search for MQM in comparison with the electrostatic $T,P$-violating moments (EDM, Schiff and octupole moments) may have the following advantages:
@@ -164,6 +215,8 @@ In the case of the MQM moment both valence protons and neutrons  contribute dire
  
  
  The PNC effects appear due to mixing of opposite parity states in atoms and molecules by the weak interaction between the nucleus and electrons. The field  of PNC in atoms and molecules has been thoroughly reviewed in Refs.  \cite{KhriplovichPNC,GingesReview,RobertsReview}. It was noted in Ref.  \cite{FS78} that the nuclear quadrupole moment induces a tensor PNC weak interaction between the nucleus and electrons (see also  \cite{KhriplovichPNC,KP91}). In Ref. \cite{Flambaum2016} it was argued that these tensor  effects of the weak quadrupole moments are strongly enhanced for deformed nuclei and may get a significant additional enhancement due to mixing of  close atomic and molecular levels of opposite parity with a  difference of the electron angular momenta $|J_1-J_2| \le 2$. These selection rules are similar to that for the effects of the time reversal ($T$) and parity ($P$) violating nuclear magnetic quadrupole moment (MQM). Therefore, nuclei, molecules and molecular levels  suggested for the MQM search in Ref. \cite{Flambaum2014},  for example,  $|\Omega |=1$ doublets in the molecules $^{177}$HfF+, $^{229}$ThO, $^{181}$TaN will also have enhanced effects of the weak quadrupole (see section \ref{sec:PNC}). Following our proposal, there has been recent experimental interest in using the weak quadrupole moment to study PNC effects in HfF$^{+}$ molecules (used to measure electron electric dipole moment \cite{Cairncross2017}) and parity violation in $^{173}$Yb \cite{Antypas2017} and $^{163}$Dy \cite{Leefer2017} atoms. 
+ 
+Violation of LLIV in nuclear systems using the tensor interaction does not require study of nuclear transitions like other LLIV parameters as the angular momentum projections are different. The $C_0^{(2)} = c_{xx} + c_{yy} - 2c_{zz}$ is the LLIV tensor interaction in the laboratory frame where the quantization axis (same as the deformation axis deformed nuclei, see next chapter) lies along the $z$ axis.
 \chapter{Properties of deformed nuclei}
 The existence of non-spherical nuclei has been suspected since the 1930s where anomalous behaviour was observed in the hyperfine structure in isotopes of Eu ($Z=63$) and Lu ($Z=71$) by H. Schuler and Th. Schmidt \cite{Schuler1935(1), Schuler1935(2)}. Soon after this discovery, H. B. G. Casimir published an explanation of these results and posited the anomaly could be explained by the existence of an permanent electric quadrupole moment of the nucleus which interacts with the atomic electrons \cite{Casimir1935, Casimir1936}. The origin of this nuclear quadrupole moment was orginally ascribed to the existence of an unpaired valence proton with nuclear spin $I_t$ which induces and electric quadrupole moment  $Q_{p,\text{val}}$ of the nucleus by the equation \cite{BohrMottVol1},
 \begin{align}\label{eq:valQ}
@@ -171,15 +224,15 @@ Q_{p,\text{val}} &=  - \dfrac{I_t-1/2}{I_t + 1}0.009A^{2/3} \ \text{barn}.
 \end{align}  
 This single particle description is incomplete for several reasons. Firstly, it does not account for the quadrupole moments of nuclei with unpaired neutrons which also have significant quadrupole moments, for example $^{163}_{66}$Dy has an unpaired neutron with an experimental quadrupole moment $Q_p = +2.318(2) \ \text{barn}$ \cite{Stone2005}. Secondly, the magnitude of a quadrupole moment from a single proton is significantly less than those observed in experiment. For example consider $^{181}_{73}$Ta, which has total nuclear spin $I_t=7/2^{+}$, using eqn (\ref{eq:ValQ}) results in a quadrupole moment of $Q_{p,\text{val}} = -0.192 \ \text{barn}$. This is significant less (along with opposite sign) than the experimental $Q_p = +3.17(2) \ \text{barn}$. Therefore the quadrupole moment of a nucleus must be a collective effect of the nucleus involving a large amount of the nuclear matter and cannot be accounted for by a single nucleon. 
 \begin{figure}
-\center
+\centering
 \begin{subfigure}[b]{0.48\textwidth}
-\center
+\centering
 \includegraphics{./figures/prolate.eps}
 \caption{Prolate deformation of a nucleus. Here the $z$ axis is the symmetry axis.}
 \end{subfigure}	
 \quad
 \begin{subfigure}[b]{0.48\textwidth}
-\center
+\centering
 \includegraphics{./figures/oblate.eps}
 \caption{Oblate deformation of a nucleus. Here the $z$ axis is the symmetry axis.}
 \end{subfigure}
@@ -196,7 +249,7 @@ Both the spin-orbit term ($\textbf{l}\cdot \textbf{s}$) and the  $\textbf{l}^2 -
 \end{align*}
   In the spherical shell model the orbit with angular momentum $I$ has degeneracy $2I + 1$ nucleons. This degeneracy is broken in the Nilsson model for deformed nuclei where the projection of the angular momentum onto the symmetry axis, $\Omega$, is the good quantum number (see Figure \ref{fig:prolate_AM}). Each of these $\Omega$ states are doubly degenerate. The consequences of a deformed nucleus on the quantum states of the constituent nucleons can be deduced from two simple physical arguments. Consider the non-rotating, intrinsic (body) frame of the nucleus. Where $\Omega$ is the projection of the nucleons angular momentum $I$ on the deformation axis. 
 \begin{figure}
-\center
+\centering
 \includegraphics[scale=1]{./figures/prolate_AM.eps}
 \caption{Projection of angular momentum of a prolate deformed nucleus onto the symmetry axis in the intrinsic frame. Here $I$ is the angular momentum of the nucleon and $\Omega$ is its projection on the axis of deformation.}
 \label{fig:prolate_AM}
@@ -228,8 +281,21 @@ The collective enhancement of MQM for some  heavy deformed nuclei were estimated
 To illustrate why the MQM tensor should be enhanced in quadrupole deformed nuclei let us compare it with  the EDM vector property of nuclei. The direction of the EDM of a nucleon is characterised by its angular momentum projection on the deformed nucleus axis $\Omega$. In the case of the vector properties such as EDM and magnetic moment the contributions of $\Omega$ and $-\Omega$ cancel each other and  there is no enhancement in the quadrupole deformed nuclei. For the second rank tensors such as MQM and nuclear electric quadrupole moment the contributions of $\Omega$ and $-\Omega$ double the effect. There are many nucleons in the open shells of deformed nuclei and this leads to a collective enhancement of second rank tensor properties.
 \section{The distribution of neutrons in the nucleus}
 Measuring the NQMN, $Q_{n}$,  is a very difficult  task as neutrons are electrically neutral particles unlike the electric quadrupole moment of the nucleus which was first observed and measured nearly a century ago by H. Schuler and Th. Schmidt \cite{Schuler1935(1), Schuler1935(2), Casimir1935} by studying the hyperfine structure of rare earth elements. The NQMN is an important property which will give insight not only into the structure of  atomic nuclei but also other dense collections of neutrons such as neutron stars \cite{Brown2000, Furnstahl2002, Typel2001, Reinhard2010} and also the theory of atomic parity nonconservation. For the last two decades there has been increasing interest in understanding the distribution of neutrons compared to protons in atomic nuclei known as the neutron skin. This focus has largely been on the spherical distribution of neutrons (measurement of the root mean square radius of neutrons) and there has been a large amount of experimental effort in measuring the spherical distribution \cite{Clark2003, Trzcinska2001, Lenske2009, Abrahamyan2012}. 
+
+
+Rewriting equations (\ref{eq:CollectiveMDim}), (\ref{eq:CollectiveQDim})  and, the relation between the longitudinal  and perpendicular frequencies in dimentionless quantities $\eta = \bar{\omega}/\omega_z$ and $\xi = \bar{\omega}/\omega_{\perp}$ we have the equations,
+\begin{align}
+3 &= \dfrac{1}{\eta} + \dfrac{2}{\xi} \label{eq:average} 
+\end{align}
+
+The nucleon angular momentum dependence shows up in the order of the split energy branches in the Nilsson plots \cite{Nilsson1955, BohrMottVol2}.
+%It should be noted that there is no explicit dependence on the angular momentum of the nucleons. This is because the angular momentum dependence is in the order of the nucleons in the Nilsson plots used to find the nucleonic configuration. 
+The parameters $\eta$ and $\xi$ can be viewed as deformation parameters of the nuclei. For positive deformation $\eta > 1$ (prolate) and for negative deformation $\eta < 1$ (oblate). As there is a predominance on nuclear prolate deformations in nature most of the nuclei we consider will be prolate. \\
+
+
 \chapter{The weak quadrupole moment and Lorentz violation in nuclei}
 \textit{The results of this chapter have been published in reference \cite{LFWQM2018} } \\
+Int his chapter I present the calculations of the local Lorentz invariance violating (LLIV) parameters $C_{2}^{(0)}$ and the weak quadrupole moments (WQM) of deformed nuclei. \\   
 \linebreak
 Non-spherical nuclei present a lucrative avenue for studying the existence and magnitude of second order tensor properties due to the collective properties of deformed nuclei. In this chapter we focus on the quadrupole moment of the nonspherical  distribution of neutrons in the nucleus, $Q_{n}$,  the weak quadrupole moment (WQM), $Q_{W}^{(2)}$,  and the violation of Local Lorentz invariance (LLI) in the nucleon sector. \\
 \linebreak
@@ -246,7 +312,7 @@ The limits on the LLIV parameters  obtained using astrophysical measurements and
 \delta H = \left[-c_{ij} -\dfrac{1}{2}c_{00}\delta_{ij}\right]\dfrac{p_ip_j}{m^2},
 \end{align}
  where $m$ is the nucleon mass,  to describe the tensor parameter $c_{ij}$  for the LLIV interaction \cite{Kostelecky1999} in the laboratory frame. 
-\subsection{Quadrupole moment of neutron distribution in deformed nuclei}
+\section{Quadrupole moment of neutron distribution in deformed nuclei}
 
 The quadrupole moment tensor along the symmetry axis of the nucleus in cartesian coordinates is given by
 \begin{align}\label{eq:QMomentStandard}
@@ -265,11 +331,11 @@ where $\nu = p,n$ for the $i$th proton or neutron respectively. The total quadru
 Q_{\nu} &= \sum_{i} q_{i,\nu} \nonumber\\
 &= \dfrac{\hbar}{m}\left[\dfrac{1}{\omega_z}\sum_{i}\left(2n_z + 1\right)_{i,\nu} - \dfrac{1}{\omega_{\perp}}\sum_{i}\left(N -n_z + 1\right)_{i,\nu}\right]. \label{eq:CollectiveMDim} 
 \end{align}
-\subsection{Lorentz invariance violation  in deformed nuclei}
-Taking the expectation value of (\ref{eq:HamilQuadShift}) we find that the LLIV energy shift  for a nucleus with $N_{\nu}$ nucleons is given by 
+\section{Lorentz invariance violation  in deformed nuclei}
+Taking the expectation value of equation (\ref{eq:HamilQuadShift}), we find that the LLIV energy shift  for a nucleus with $N_{\nu}$ nucleons with angular momentum projection $I_{\nu}$ is given by 
 %\cite{Kostelecky1999},
 \begin{align} \label{eq:MomentumEnergyShift}
-<\delta H>_{\nu} = \dfrac{1}{6m}C_{0, \nu}^{(2)}\sum_{N=1}^{N_{\nu}}\left<I,I\left|\hat{M}\right|I,I\right> 
+<\delta H>_{\nu} = \dfrac{1}{6m}C_{0, \nu}^{(2)}\sum_{N=1}^{N_{\nu}}\left<I_{\nu},I_{\nu}\left|\hat{M}\right|I_{\nu},I_{\nu}\right> 
 \end{align}
 where the $\hat{M} = 2\hat{p}_z^2 - \hat{p}_x^2 - \hat{p}_y^2$ is the momentum tensor operator for $p_ip_j$ in the SME in cartesian coordinates. We use the standard notion $C_{0, \nu}^{(2)} = c_{xx} + c_{yy} -2c_{zz}$ \cite{Kostelecky1999}. We define the single nucleon LLIV momentum tensor as,
 \begin{align} \label{eq:LLIVMomentum}
@@ -295,11 +361,6 @@ This will result in a quadrupole energy shift given by
 \left<\delta H\right>_{\nu} = \dfrac{M_{\nu}}{6m} C_{0,\nu}^{(2)}.
 \end{align}
 
-\subsection{Example calculation of $Q_{\nu}$ and $M_{\nu}$ for the $^{173}$Yb nucleus}
-Rewriting equations (\ref{eq:CollectiveMDim}), (\ref{eq:CollectiveQDim})  and, the relation between the longitudinal  and perpendicular frequencies in dimentionless quantities $\eta = \bar{\omega}/\omega_z$ and $\xi = \bar{\omega}/\omega_{\perp}$ we have the equations,
-\begin{align}
-3 &= \dfrac{1}{\eta} + \dfrac{2}{\xi} \label{eq:average} 
-\end{align}
 \begin{align}
 Q_{\nu} = \dfrac{41.5\text{ MeV}\text{fm}^2}{\hbar\bar{\omega}}\left[\eta\sum_{i}\left(2n_z + 1\right)_{i,\nu}  - \xi\sum_{i}\left(N - n_z + 1\right)_{i,\nu}\right]&
 \label{eq:QDimensionless}
@@ -307,18 +368,16 @@ Q_{\nu} = \dfrac{41.5\text{ MeV}\text{fm}^2}{\hbar\bar{\omega}}\left[\eta\sum_{i
 \begin{align}
 M_{\nu} = \hbar\bar{\omega}m\left[\dfrac{1}{\eta}\sum_{i}\left(2n_z + 1\right)_{i,\nu} - \dfrac{1}{\xi}\sum_{i}\left(N - n_z + 1\right)_{i,\nu}\right]. & \label{eq:MDimensionless}
 \end{align}
-The nucleon angular momentum dependence shows up in the order of the split energy branches in the Nilsson plots \cite{Nilsson1955, BohrMottVol2}.
-%It should be noted that there is no explicit dependence on the angular momentum of the nucleons. This is because the angular momentum dependence is in the order of the nucleons in the Nilsson plots used to find the nucleonic configuration. 
-The parameters $\eta$ and $\xi$ can be viewed as deformation parameters of the nuclei. For positive deformation $\eta > 1$ (prolate) and for negative deformation $\eta < 1$ (oblate). As there is a predominance on nuclear prolate deformations in nature most of the nuclei we consider will be prolate. \\
-
+\section{Example calculation of $Q_{\nu}$ and $M_{\nu}$ for the $^{173}$Yb nucleus}
 To illustrate the process of calculating NQMN and LLIV values we will present the calculation of $^{173}$Yb as an example. To begin we find the nuclear configuration of protons and neutrons in the deformed field using the energy level plots presented in \cite{Nilsson1955,BohrMottVol2} by filling each non-degenerate $\Omega$ energy branch with two nucleons until all the nucleons have been distributed. To find the correct deformation, $\delta$, from which to fill we use the experimental value of the nuclear spin (which is solely due to the unpaired nucleon). The filling must be done such that the unpaired nucleon is in the correct spin state. The nuclear spin of $^{173}$Yb is $5/2^{-}$ due to an unpaired neutron. Using the method described above we find that this is possible with a minimum deformation of $\delta \approx 0.3$. Here we will only present the configuration of the partially filled $N$ shells. The numbers for each full shell is given in Table \ref{table:FullShellNz}. The incomplete neutron and proton shells in $^{173}$Yb are $N = 5,6$ and $N = 4,5$ respectively. The nucleon configuration of the incomplete shells are given in Table \ref{table:YbConfig}.
 \begin{landscape}
 \begin{table*} 
-\center
-\begin{tabular}{|p{1.5cm}|l|c|c|p{1.5cm}|l|c|c|}
+\centering
+\caption{Nilsson configuration of $^{173}$Yb nucleons: This table shows the nuclear configuration of nucleons in the Nilsson model for $^{173}$Yb generated from the Nilsson plots in Ref. \cite{BohrMottVol2}. This table shows only partially filled $N$ shells. All preceding shells are completely filled. \label{table:YbConfig}}
+\begin{tabular}{p{1.5cm}lcc@{\hspace{1cm}}p{1.5cm}lcc}
 \toprule
 \toprule
-\multicolumn{2}{|c|}{\parbox[c][][c]{2cm}{\vspace{3pt}Neutrons in incomplete shells\vspace{3pt}}} & $\sum \left(2n_z + 1\right)_n$ & $\sum \left(N - n_z + 1\right)_n$ & \multicolumn{2}{|c|}{\parbox[c][][c]{2cm}{\vspace{3pt}Protons in incomplete shells\vspace{3pt}}} & $\sum \left(2n_z + 1\right)_p$ & $\sum \left(N - n_z + 1\right)_p$\\ 
+\multicolumn{2}{c}{\parbox[c][][c]{2cm}{\vspace{3pt}Neutrons in incomplete shells\vspace{3pt}}} & $\sum \left(2n_z + 1\right)_n$ & $\sum \left(N - n_z + 1\right)_n$ & \multicolumn{2}{c}{\parbox[c][][c]{2cm}{\vspace{3pt}Protons in incomplete shells\vspace{3pt}}} & $\sum \left(2n_z + 1\right)_p$ & $\sum \left(N - n_z + 1\right)_p$\\ 
 \midrule
  $2f_{7/2}$: &\parbox[c][][l]{2cm}{\begin{flushleft}
  $\pm 1/2[530]$, $\pm 3/2[521]$, $ \pm 5/2[512]$\end{flushleft} }&  30 & 24 & $1g_{7/2}$: & \parbox[c][][c]{2cm}{\begin{flushleft}
@@ -335,29 +394,31 @@ $\pm 1/2[521]$ \end{flushleft} } & 6 & 8 \\
 $\pm 1/2[440]$, $\pm 3/2[431]$, $ \pm 5/2[422]$, $\pm 7/2[413]$, $\pm 9/2[404]$ \end{flushleft} }  & 50 & 30 \\
  $1i_{13/2}$: & \parbox[c][][l]{2cm}{\begin{flushleft}
  $\pm 1/2[660]$, $\pm 3/2[651]$, $\pm 5/2[642] $, $\pm 7/2[633]$\end{flushleft}} & 80 & 20 & $1h_{11/2}$: & \parbox[c][][l]{2cm}{\begin{flushleft}
-$\pm 1/2[550]$, $\pm 3/2[541]$, $\pm 5/2[532]$, $\pm 7/2[523]$ \end{flushleft} } & 64 & 20 \\ \cline{1-2} \cline{5-6}
-\multicolumn{2}{|c|}{Total} & 229 & 108 & \multicolumn{2}{c|}{Total}& 166 & 90  \\
+$\pm 1/2[550]$, $\pm 3/2[541]$, $\pm 5/2[532]$, $\pm 7/2[523]$ \end{flushleft} } & 64 & 20 \\  
+\multicolumn{2}{c}{Total} & 229 & 108 & \multicolumn{2}{c}{Total}& 166 & 90  \\
 \bottomrule
 \bottomrule
 \end{tabular}
-\caption{Nilsson configuration of $^{173}$Yb nucleons: This table shows the nuclear configuration of nucleons in the Nilsson model for $^{173}$Yb generated from the Nilsson plots in \cite{BohrMottVol2}. This table shows only partially filled $N$ shells. All preceding shells are completely filled. \label{table:YbConfig}}
+
 \end{table*}
 \end{landscape}
-Summing up the contribution for all the $^{173}$Yb filled shells from Table \ref{table:FullShellNz} and the partially filled shells from Table \ref{table:YbConfig} the total values for  neutrons are $\sum(2n_z + 1)_{n} = 439$, $\sum(N - n_z + 1)_n = 318$ and protons $\sum(2n_z + 1)_{p} = 266$, $\sum(N - n_z + 1)_p = 190$. Using (\ref{eq:RotationalFactor}) to transfer the measured value of the quadrupole moment in the lab frame $Q_p^{Lab} = 4.39$ barn (where 1 barn = 100 fm$^2$ = $10^{-24}$ cm$^{2}$) to the internal (rotating) frame we have $Q_{p}^{int} = 12.66\ \text{barn}$. Using equations (\ref{eq:QDimensionless}) and the values for $\sum\left(2n_z + 1\right)_{p}$, $\sum\left(N - n_z + 1\right)_p$ and $Q^{int}_p$ we find the dimensionless deformation parameters $\eta = 1.18$ and $\xi = 0.93$ for $^{173}$Yb. We can find the NQMN and the proton and neutron LLIV tensors using (\ref{eq:QDimensionless}) and (\ref{eq:MDimensionless}). Finally in the lab frame using (\ref{eq:RotationalFactor}) we have,
+Summing up the contribution for all the $^{173}$Yb filled shells from Table \ref{table:FullShellNz} and the partially filled shells from Table \ref{table:YbConfig} the total values for  neutrons are $\sum(2n_z + 1)_{n} = 439$, $\sum(N - n_z + 1)_n = 318$ and protons $\sum(2n_z + 1)_{p} = 266$, $\sum(N - n_z + 1)_p = 190$. Using equation (\ref{eq:RotationalFactor}) to transform the measured value of the quadrupole moment in the lab frame $Q_p^{Lab} = 4.39$ barn (where 1 barn = 100 fm$^2$ = $10^{-24}$ cm$^{2}$) to the internal (rotating) frame we have $Q_{p}^{int} = 12.66\ \text{barn}$. Using equation (\ref{eq:QDimensionless}), the values for $\sum\left(2n_z + 1\right)_{p}$, $\sum\left(N - n_z + 1\right)_p$ and $Q^{int}_p$ we find the dimensionless deformation parameters $\eta = 1.18$ and $\xi = 0.93$ for $^{173}$Yb. We can find the NQMN and the proton and neutron LLIV tensors using (\ref{eq:QDimensionless}) and (\ref{eq:MDimensionless}). Finally in the lab frame using (\ref{eq:RotationalFactor}) we have,
+Using equations (\ref{eq:QDimensionless}) and  (\ref{eq:MDimensionless}) to calculate the total NQMN and LLIV momentum tensors in the intrinsic frame, and equation (\ref{eq:RotationalFactor}) to transform back to the laboratory frame we find,
 \begin{align*}
-Q_{n}^{Lab} &= 4.53 \text{ barn} \\
-M_{p}^{Lab} &= 54.30 \quad m\text{ MeV}\\
-M_{n}^{Lab} &= 77.25 \quad m\text{ MeV}
+Q_{n}^{\text{Lab}} &= 4.53 \text{ barn} \\
+M_{p}^{\text{Lab}} &= 54.30 \quad m\text{ MeV}\\
+M_{n}^{\text{Lab}} &= 77.25 \quad m\text{ MeV}
 \end{align*}
+for the $^{173}$Yb. 
 From (\ref{eq:LLIVEnergyShift}) we find that the LLIV energy shift of the nucleus is,
 \begin{align*}
-\left<\delta H\right>_{p} &= 9.05 \quad C^{(2)}_{0,p} \text{MeV} \\
-\left<\delta H\right>_n &=  12.875 \quad C^{(2)}_{0,n} \text{MeV}
+\left<\delta H\right>_{p} &= 9.05 \quad C^{(2)}_{0,p} \ \text{MeV} \\
+\left<\delta H\right>_n &=  12.875 \quad C^{(2)}_{0,n} \ \text{MeV}
 \end{align*}
-Considering only the contribution of the unpaired neutron in the Schmidt model (see Section \ref{sec:Minimal} or Refs. \cite{Kostelecky1999,Flambaum2016}) gives energy shifts $\left<\delta H\right>_{p} = 0 \ C^{(2)}_{0,p} \text{MeV}$ and $\left<\delta H\right>_n = 0.8 \ C^{(2)}_{0,n} \text{MeV}$. The collective contribution of paired nucleons in the core gives non zero LLIV energy shifts for both protons and neutrons (in the Schmidt model either the proton or neutron LLIV shift will always be zero) and enhances the LLIV energy shifts by an order of magnitude.\\
-This method can be completed with all the other deformed nuclei, the Nilsson quantum numbers can be found in Table \ref{table:NzNumbers} and the quadrupole moment values are presented in Table \ref{table:LLIVDeformed}.\\
+Considering only the contribution of the unpaired neutron in the Schmidt model (see Section \ref{sec:Minimal} or Refs. \cite{Kostelecky1999,Flambaum2016}) gives energy shifts $\left<\delta H\right>_{p} = 0 \ C^{(2)}_{0,p} \text{MeV}$ and $\left<\delta H\right>_n = 0.8 \ C^{(2)}_{0,n} \text{MeV}$. The collective contribution of paired nucleons in the core gives non zero LLIV energy shifts for both protons and neutrons (in the Schmidt model either the proton or neutron LLIV shift will always be zero) and enhances the LLIV energy shifts by an order of magnitude. This method can be completed with all the other deformed nuclei, the Nilsson quantum numbers can be found in Table \ref{table:NzNumbers} and the quadrupole moment values are presented in Table \ref{table:LLIVDeformed}.\\
+\linebreak
 \begin{table}[h!]
-\center
+\centering
 \begin{tabular}{ccccccc}
 \toprule
 \toprule
@@ -383,36 +444,36 @@ $^{229}$Th & 362 & 268 & & 625 & 502 & 1.22\\
 \caption{Sum of proton and neutron Nilsson quantum numbers and deformation parameters for deformed nuclei: This table shows the sum of $2n_z + 1$ and $N - n_z + 1$ for all nucleons in the nuclei.}
 \label{table:NzNumbers}
 \end{table}
-To understand the propagation of error in the calculations consider an error of 5\% in $Q_p$ (experimental value is $Q_p = 2.80(4)$ barn). Using (\ref{eq:CollectiveMDim}), (\ref{eq:CollectiveQDim}) with the Nilsson numbers for $^{173}$Yb results in an error of $\approx 5\%$ for  $Q_n$  and an error of $\approx 25\%$ for $M_{\nu}$. This large error is not unique to our calculation of $M_{\nu}$ since it involves the subtraction of large numbers. Consider the results from \cite{Brown2016} where a sophisticated $s-d$ model resulted in similar uncertainty for slight variations of an effective charge for the quadrupole moment operator.
+To understand the propagation of error in the calculations consider an error of 5\% in $Q_p$ (experimental value is $Q_p = 2.80(4)$ barn). Using equations  (\ref{eq:CollectiveMDim}), (\ref{eq:CollectiveQDim}) along with the Nilsson numbers for $^{173}$Yb results in an error of $\approx 5\%$ for  $Q_n$  and an error of $\approx 25\%$ for $M_{\nu}$. This large error is not unique to our calculation of $M_{\nu}$ since it involves the subtraction of large numbers. Consider the results from \cite{Brown2016} where a sophisticated numerical $s-d$ model resulted in similar uncertainty for slight variations of an effective charge for the quadrupole moment operator.
 
 \section{Nuclei with a small deformation} \label{sec:Minimal}
 
 For nuclei with very small deformations the splitting of energy levels with different angular momentum projections is small.
 % and the major shells ($N$) are nearly completely full.
- In these circumstances the effect of nuclear pairing becomes significant resulting in mixing of the nucleon configurations. Therefore the Nilsson model approach is no longer applicable as it assumes that there is no mixing when counting the nucleon occupation numbers. For these near-spherical nuclei we need to approach the second order tensor properties differently.  It is well known that the Schmidt model (valence, $Q_{\nu, val}$) value of nuclear quadrupole is smaller than the true quadrupole value. Therefore we assume that this discrepancy is explained by the quadrupole moment due to a small deformation (deformed, $Q_{\nu, def}$), i.e. the true quadrupole moment is the sum of these two contributions, $Q_{\nu} = Q_{\nu, val} + Q_{\nu, def}$. We also assume that $Q_{\nu,deformed}$ for protons and neutrons is related to the total number of protons and neutrons,
+ In these circumstances the effect of nuclear pairing becomes significant resulting in mixing of the nucleon configurations. Therefore the Nilsson model approach is no longer applicable as it assumes that there is no mixing when counting the nucleon occupation numbers. For these near-spherical nuclei we need to approach the second order tensor properties differently.  It is well known that the Schmidt model (valence, $Q_{\nu, \text{val}}$) value of nuclear quadrupole is smaller than the true quadrupole value. Therefore we assume that this discrepancy is explained by the quadrupole moment due to a small deformation (deformed, $Q_{\nu, \text{def}}$), i.e. the true quadrupole moment is the sum of these two contributions, $Q_{\nu} = Q_{\nu, \text{val}} + Q_{\nu, \text{def}}$. We also assume that $Q_{\nu,\text{def}}$ for protons and neutrons is related to the total number of protons and neutrons,
 \begin{align} \label{eq:Val+Deformed}
-\dfrac{1}{Z}Q_{p, def} = \dfrac{1}{N}Q_{n,def}.
+\dfrac{1}{Z}Q_{p, \text{def}} = \dfrac{1}{N}Q_{n,\text{def}}.
 \end{align}
-Then using measured $Q_{p}$ values from \cite{Stone2005} we can find an estimate for the neutron quadrupole moment of slightly deformed nuclei. As an example consider the $^{201}$Hg nucleus which has an electric quadrupole moment $Q_{p} = 0.35 $ barn with a valence neutron. There is no proton Schmidt contribution to $Q_{p}$ meaning the quadrupole moment due to the deformation is 
+Then using measured $Q_{p}$ values from \cite{Stone2005} we can find an estimate for the neutron quadrupole moment of slightly deformed nuclei. As an example consider the $^{201}$Hg nucleus which has a small electric quadrupole moment $Q_{p} = 0.35 $ barn with a valence neutron. There is no proton Schmidt contribution to $Q_{p}$ meaning the quadrupole moment due to the deformation is 
 \begin{align*}
-Q_{p,def} = Q_{p} = 0.35 \ \text{barn}
+Q_{p,\text{def}} = Q_{p} = 0.35 \ \text{barn}
 \end{align*}
-From Eq. (\ref{eq:Val+Deformed}) the contribution to $Q_{n}$ due to deformation is $Q_{n,def} = 0.53 \ \text{barn}$. The Schmidt model contribution of a valence nucleon is given by \cite{BohrMottVol1, Flambaum2016}
+From Eq. (\ref{eq:Val+Deformed}) the contribution to $Q_{n}$ due to deformation is $Q_{n,\text{def}} = 0.53 \ \text{barn}$. The Schmidt model contribution of a valence nucleon is given by \cite{BohrMottVol1, Flambaum2016}
 \begin{align} \label{eq:SchmidtQuad}
-Q_{n}^{Lab} &= -\dfrac{I - 1/2}{I + 1}\left<r^2\right> \\
+Q_{n}^{\text{Lab}} &= -\dfrac{I - 1/2}{I + 1}\left<r^2\right> \\
 &= -\dfrac{I - 1/2}{I + 1}0.009A^{2/3} \text{ barn}.
 \end{align}
- The $^{201}$Hg nucleus has a valence neutron in the $f_{5/2}$ state with angular projection $I =3/2$. Using \ref{eq:SchmidtQuad} the valence contribution is $Q_{n,val} = -0.15 \ \text{barn}$. Therefore the total NQMN for $^{201}$Hg is $Q_{n} = 0.38 \ \text{barn}$ where all values are in the labratory frame. As expected this value is larger than $Q_{p}$. For the LLIV tensor we use the method outlined in \cite{Flambaum2016} which relates the LLIV energy shift to the quadrupole moment of the nucleus,
+ The $^{201}$Hg nucleus has a valence neutron in the $f_{5/2}$ state with angular projection $I =3/2$. Using equation (\ref{eq:SchmidtQuad}) the valence contribution is $Q_{n,\text{val}} = -0.15 \ \text{barn}$. Therefore the total NQMN for $^{201}$Hg is $Q_{n} = 0.38 \ \text{barn}$ where all values are in the labratory frame. As expected this value is larger than $Q_{p}$. For the LLIV tensor we use the method outlined in \cite{Flambaum2016} which relates the LLIV energy shift to the quadrupole moment of the nucleus,
 \begin{align} \label{eq:LLIVsd}
 \left<\delta H\right>_{\nu} = \dfrac{M_\nu}{6m} C_{0, \nu}^{(2)} = 1100A^{-2/3}Q_{\nu} C_{0, \nu}^{(2)} \ \text{MeV}.
 \end{align}
-In this work we use the total quadrupole moment including the valence and deformed contribution discussed above. Similar to the NQMN this will give non zero values for both nucleons unlike the Schmidt model. Using \ref{eq:LLIVsd} for $^{201}$Hg nucleus we have $\left<\delta H\right>_{n} = 17 \ C_{0, n}^{(2)} \ \text{MeV}$ and $\left<\delta H\right>_{p} = 11.2 \ C_{0, p}^{(2)} \ \text{MeV}$. Similar calculations can be performed for $Q_n$ and $M_{\nu}$ in other slightly deformed nuclei such as $^{131}$Xe, $^{133}$Cs which are presented in Table \ref{table:LLIVDeformed}. In \cite{Brown2016} the LLIV and quadrupole moments were calculated for $^{21}$Ne, $^{131}$Xe and $^{201}$Hg numerically using a self-consistent mean field theory. 
+In this work we use the total quadrupole moment including the valence and deformed contribution discussed above. Similar to the NQMN this will give non zero values for both nucleons unlike the Schmidt model. Using equation (\ref{eq:LLIVsd}) for $^{201}$Hg nucleus we have $\left<\delta H\right>_{n} = 17 \ C_{0, n}^{(2)} \ \text{MeV}$ and $\left<\delta H\right>_{p} = 11.2 \ C_{0, p}^{(2)} \ \text{MeV}$. Similar calculations can be performed for $Q_n$ and $M_{\nu}$ in other slightly deformed nuclei such as $^{131}$Xe, $^{133}$Cs which are presented in Table~\ref{table:LLIVDeformed}. In \cite{Brown2016} the LLIV and quadrupole moments were calculated for $^{21}$Ne, $^{131}$Xe and $^{201}$Hg numerically using a self-consistent mean field theory. 
 %Victor
-Our results for $^{21}$Ne, where we  use the large deformation method, are in a reasonable agreement  with Ref.  \cite{Brown2016} results for both $Q_{n}$ and $M_{\nu}$ ($Q_n = 0.097 \ \text{barn}$, $M_{p} = 2.8 \ m\text{ MeV}$ and $M_n = 4.2 \ m\text{ MeV}$). For nuclei  $^{201}$Hg  and $^{131}$Xe, where we use the small deformation method, there is a reasonable agreement for $Q_n$ and significant differences for $M_{\nu}$. In Ref.  \cite{Brown2016}  they obtained for $^{201}$Hg  $Q_n = 0.584 \ \text{barn}$, $M_{p} = -20.5 \ m\text{ MeV}$ and $M_n = 1.5 \ m\text{ MeV}$,  and for $^{131}$Xe their results are $Q_n = -0.136 \ \text{barn}$, $M_{p} = -4.7 \ m\text{ MeV}$ and $M_n = 5.17 \ m\text{ MeV}$.
+Our results for $^{21}$Ne, where we  use the large deformation method, are in a reasonable agreement  with the results of Ref.~\cite{Brown2016} results for both $Q_{n}$ and $M_{\nu}$ ($Q_n = 0.097 \ \text{barn}$, $M_{p} = 2.8 \ m\text{ MeV}$ and $M_n = 4.2 \ m\text{ MeV}$). For nuclei  $^{201}$Hg  and $^{131}$Xe, where we use the small deformation method, there is a reasonable agreement for $Q_n$ and significant differences for $M_{\nu}$. In Ref.~\cite{Brown2016}  they obtained for $^{201}$Hg  $Q_n = 0.584 \ \text{barn}$, $M_{p} = -20.5 \ m\text{ MeV}$ and $M_n = 1.5 \ m\text{ MeV}$,  and for $^{131}$Xe their results are $Q_n = -0.136 \ \text{barn}$, $M_{p} = -4.7 \ m\text{ MeV}$ and $M_n = 5.17 \ m\text{ MeV}$.
 
 \begin{landscape}
 \begin{table*}[t!]
-\center
+\centering
 \begin{tabular}{ccccccccc}
 \toprule
 \toprule
@@ -440,7 +501,7 @@ $^{229}$Th & $\tfrac{5}{2}^+$ & +4.3(9) & 6.62 & 14 & -78 & 2 & -13 & -6.25\\
 \end{table*}
 \end{landscape}
 \section{Weak quadrupole moments and parity nonconservation in atomic and molecular systems\label{sec:PNC}} 
-As previously mentioned above a consequence of studying the NQMN will be a further insight into parity nonconservation (PNC) effects in atomic and molecular systems. PNC has been intensively studied in atomic systems (see e.g. book \cite{KhriplovichPNC} and reviews \cite{RobertsReview, GingesReview}).  The $P$-odd weak nucleon-electron interaction is given by,
+As mentioned in Section~\ref{sec:violation_in_atoms} previously mentioned above a consequence of studying the NQMN will be further insight into parity nonconservation (PNC) effects in atomic and molecular systems. PNC has been intensively studied in atomic systems (see e.g. book \cite{KhriplovichPNC} and reviews \cite{RobertsReview, GingesReview}).  The $P$-odd weak nucleon-electron interaction is given by,
 \begin{align} \label{eq:eNWeak}
 H_W = -\frac{G_F}{2\sqrt{2}}\gamma_{5}\left[Zq_{w, p}\rho_{p}(r) + Nq_{w, n}\rho_{n}(r)\right]
 \end{align}
@@ -449,13 +510,13 @@ Here $G_F$ is the Fermi weak constant, $q_{w,\nu}$ and $\rho_{\nu}(r)$ are the n
 q_{w,p} &= 1 - 4\sin^2\theta_W \approx 0.08 ,\\
 q_{w,n} &= -1,
 \end{align*}
-where $\theta_W$ is the Weinberg angle.  Previously the interaction (\ref{eq:eNWeak}) treated either the shapes of the proton and neutron densities  the same  or included a correction due to some neutron skin (see e.g. review \cite{RobertsReview}).  The quadrupole moment in the nuclear density produces the tensor weak interaction which is proportional to the weak quadrupole moment (WQM) defined as  \cite{FDC17}
+where $\theta_W$ is the Weinberg angle.  Previously the interaction given by equation (\ref{eq:eNWeak}) treated either the shapes of the proton and neutron densities  the same  or included a correction due to some neutron skin (see e.g. review \cite{RobertsReview}).  The quadrupole moment in the nuclear density produces the tensor weak interaction which is proportional to the weak quadrupole moment (WQM) defined as  \cite{FDC17}
 \begin{align*}
 Q_{W}^{(2)} = q_{w,p}Q_{p} + q_{w,n}Q_n.
 \end{align*}
-Similar to the weak charge of a nucleus the WQM is dominated by the neutron contribution:  $Q_{W}^{(2)} \approx q_{w,n}Q_n$  with a small correction due to the proton contribution. \\
+Similar to the weak charge of a nucleus the WQM is dominated by the neutron contribution,  $Q_{W}^{(2)} \approx q_{w,n}Q_n$,  with a small correction due to the proton contribution. \\
 
-The nuclear WQM induces PNC effects in atomic and molecular systems where the effective single electron  PNC Hamiltonian for the nuclear WQM in atomic systems is presented in ref. \cite{FDC17} and is given by,
+The nuclear WQM induces PNC effects in atomic and molecular systems where the effective single electron  PNC Hamiltonian for the nuclear WQM in atomic systems is presented in Ref.~\cite{FDC17} and is given by,
 \begin{align*}
 H_{WQM}=-\dfrac{G_F}{2\sqrt{2}}\gamma_5Y_{20}\rho_{0}\dfrac{\sqrt{5\pi}Q_{W}^{(2)}}{\left<r^2\right>}
 \end{align*}
@@ -466,7 +527,7 @@ Also the PNC effects of the tensor weak interaction which has different selectio
 \chapter{The magnetic quadrupole moment of the nucleus}
 \textit{The results of this chapter have been published in reference \cite{LFMQM2018}} \\
 \linebreak
-In this chapter I present the calcuation of the nuclear MQM in specific deformed nuclei along with the associated energy shifts in polar diatomic molecules. The results are presented in terms of fundamental $T-$ and $P-$ violating parameters in the neutron EDM, $d_n$ , the quark chromo-EDMs and the .
+In this chapter I present the calcuation of the nuclear MQM in specific deformed nuclei along with the induced energy shifts in polar diatomic molecules. The results are presented in terms of fundamental $T-$ and $P-$ violating parameters in the neutron EDM, $d_n$ , the quark chromo-EDMs and the $CP-$ violating QCD $\bar{\theta}$ term.
 \iffalse
 \section{Magnetic quadrupole moment in deformed nuclei}
 TP violating nuclear moments induce a spin hedgehog wavefunction.
@@ -757,6 +818,23 @@ calculation of IPs, polarizabilities, electron affinities, etc. but not energy l
 Atomic properties of elements with $Z=119-122$, which also have simple electron structure, having from one to four valence
 electrons,  have also been theoretically studied~\cite{Landau2001a, Lim2005, Dinh120_2008, Dinh2008a, Gaigalas2010, Borschevsky2013, Skripnikov2013, Dzuba2013, Ginges2015, Eliav2015}. A review of SHE atomic calculations can be found  e.g. in 
 Refs.~\cite{Eliav2015,Schwerdtfeger2014}.
+
+Theoretical study of electron structure of superheavy elements (SHE, nuclear charge $Z>103$) is an important area of research closing the gaps in relevant experimental data. While all SHE up to oganesson (Og, $Z=118$) have been synthesized and named \cite{Karol2016, HHO2013, OUL2004}, experimental data on their spectra are absent.
+
+%The study of superheavy elements (SHE, nuclear charge $Z>103$) is a huge area of research including nuclear physics, chemistry and atomic physics (see, e.g. \cite{}). Theoretical study of electron structure of SHE is an important part of it. It is closely related to the chemical properties of SHE and currently it is the main source of information about spectroscopic properties of SHE. 
+%While all SHE elements up to Og ($Z=118$) have been synthesized and officially recognized and named \cite{Karol2016, HHO2013, OUL2004} the experimental data on their spectra  are absent.
+The heaviest elements for which experimental spectroscopic data are available are nobelium (No, $Z=102$)~\cite{Laatiaoui2016, Chhetri2018} and lawrencium (Lr, $Z=103$)~\cite{SAB15}. Ionization potential (IP) has been measured for both atoms and the frequency of the strong $7s^2 \ ^1$S$_0$ $\rightarrow$ $7s7p \ ^1$P$_1^{\rm o}$ electric dipole transition is measured for No. For heavier SHE the data come only from theory. There are many accurate calculations for atoms with relatively simple electronic structure, which includes atoms and ions with few electrons above closed shells (usually not more that four,
+%and atoms or ions with one or two holes in a closed shell and/or one or two electrons above the closed-shell core 
+see, e.g. Refs.~\cite{eliav2015,pershina2015,E-E113,P-E113,E114a,E114b,E114c,E114d,E115,FF113-115,DD113-114}). This constitutes less then a half of the SHE in the range $104 \leq Z \leq 118$.
+Most of the SHE have an open $6d$ or $7p$ shell with more than four electrons. Till recently, the only available tool to perform calculations for such systems was the multi-configuration Dirac-Fock method (MCDF, see, e.g. review~\cite{Fischer2016}). Some of the  MCDF results we discuss in section \ref{sec:SHEIP}. There are some model calculations of the basic parameters of the atoms, such as IP~\cite{Borsch115-117} and polarizabilities~\cite{Dzuba2016}. Accurate {\em ab initio} calculations of the spectra are practically absent. This is an unfortunate situation since from the study of relatively simple SHE we know that strong relativistic effects often bring significant difference in properties of SHE compared to their lighter analogs. Similar effects are expected for all SHE, including those with open shells. To address the problem,  we have developed efficient versions of the configuration interaction (CI) approach, which allows study of atoms with any number of valence electrons. This includes the so-called CIPT method (configuration interaction with perturbation theory,~\cite{DBHF2017}) and its fast version, the FCI method (fast configuration interaction~\cite{FCI}). Both methods are based on the idea that off-diagonal matrix elements between highly excited states can be neglected in the CI matrix. This allows one to reduce the problem to a much smaller matrix with modified matrix elements. The methods were tested on such open-shell systems as Yb and No (including states with excitations from the $4f$ and $5f$ subshells)~\cite{DBHF2017,FCI}, Ta~\cite{LDFDb2018}, W and I~\cite{DBHF2017}, and superheavy elements Db~\cite{LDFDb2018} and Og~\cite{LDF118}. 
+Db is the first SHE with an open $6d$ shell that has been studied using the CIPT method~\cite{DBHF2017,Berengut-Db}. Its ground-state configuration is [Rn]$5f^{14}7s^25d^3$, i.e. it has five valence electrons above closed shells, which makes it difficult to use other methods. Lighter neighbours of Db, Rf (four valence electrons) and Lr (three valence electrons) were studied with the use of the powerful CI+all-order method~\cite{NoLrRf,IPNoLrRf}.
+The use of the latter approach for Db is very problematic and is practically impossible for heavier elements. Following the successful use of the CIPT for Db, we apply it in the present work to heavier elements Sg, Bh, Hs and Mt ($106 \leq Z \leq 109$).
+ 
+
+%important in modern physics and fundamental research. From the complex underpinnings of many-body interactions, relativistic effects in many body systems, probing fundamental interactions and symmetries, and even further understanding the composition of cosmoslogical bodies. All SHE elements up to Og ($Z=118$) have been synthesized and officially recognized and named \cite{Karol2016, HHO2013, OUL2004}.  As these SHE isotopes are created in nuclear reactors at rates of a few atoms per day at best, established experimental techniques such as optical spectroscopy are unfeasible, however recent success with laser spectroscopy in the superheavy region have been promising\cite{Laatiaoui2014, Laatiaoui20161, Ferrer2017}with recent experimental success in measuring the ionization potentials of No ($Z=102$) \cite{Laatiaoui2016} and Lr ($Z=103$) \cite{SAB15} and measurement of the $^1$S$_0$ $\rightarrow$ $^1$P$_0^{\rm_o}$ transition in No. While these results provide a promising outlook for future measurements in the SHE region we must rely on theoretical approaches to further study and understand both the atomic and nuclear properties of SHEs.\\
+%\linebreak
+%While SHEs with a small number of electrons (holes) above (below) complete atomic shells have been studied using sophisticated many-body computational techniques (see e.g. \cite{Eliav2015}) difficulties arise when there are more than four electrons (holes) above (below) the shells. Therefore, although the ionization potentials \cite{Johnson1999, Johnson2002, Dzuba2016} and electron polarizabilities \cite{Dzuba2016} have been calculated using semi-empirical methods, further spectroscopic properties have not been calculated such as the excitiation spectrum and electric dipole (E1) transitions. Using a computational method combining the configuration interaction and perturbation theory (CIPT) (introduced and discussed in Ref. \cite{DBHF2017}) calculating the excitation spectrum of these elements becomes tractable. The nonexistent experimental results for any Sg \textsc{i} ($Z=106$), Bh \textsc{i} ($Z=107$), Hs \textsc{i} ($Z=108$) or Mt \textsc{i} ($Z=109$) makes a direct comparison for accuracy impossible. However we can test the accuracy of the calculations for each SHE through comparison with their respective elemental homologue. Using the same parameters for the CIPT calculation of the lighter elements spectra and compare with experimental results we can find the relative uncertainty of our calculations. This method has been applied to Ta~\textsc{i}\cite{LDFDb2018}, W~\textsc{i}\cite{DBHF2017} and Rn~\textsc{i}\cite{LDFOg2018}. \\
+%\linebreak
  
 While established numerical methods have been used for SHEs with relatively simple atomic structure, difficulties arise 
 for more than four valences electrons in the open subshells in many-electron atoms ($Z=105-111$) due to the extremely 
@@ -901,7 +979,7 @@ where $I$ is unit matrix, the vector $X = \{c_1, \dots, c_{N_{\rm eff}}\}$ and t
 where $|i\rangle, |j\rangle \in \mathcal{P}$, $|k\rangle \in \mathcal{Q}$,  $E_k = \langle k|H^{\rm CI}|k\rangle$, and $E$ is the energy of the state of interest.  
 
 \begin{figure}
-\center
+\centering
 \includegraphics[scale=1]{./figures/CIPT_matrix.eps}
 \caption{(First published in Ref. \cite{Dzuba2017}). CIPT matrix structure which is both real and symmetric. The matrix is divided up into three sections for the CIPT calculation. The upper left corner (blue) represents the effective matrix consisting of matrix elements for between states only in set P. The upper middle and right section (red) consists of the matrix elements between states in sets P and Q to be treated perturbatively. The remaining off-diagonal grey matrix elements between states only in set Q are discarded. \label{fig:CIPT_matrix}}
 \end{figure}
@@ -945,7 +1023,7 @@ the $5d$ (or $6d$) state and the energies of lowest valence states.  Since corre
 %which is this small energy interval.
 
 \begin{table}
-\center
+\centering
 \caption{Removal energies (cm$^{-1}$) for states of external electron of
 Au and Rg calculated in different approximations. RHF is relativistic
 Hartree-Fock, $\Sigma$($nd$) are Brueckner orbital energies calculated with correlation
@@ -987,7 +1065,7 @@ is the largest in value. Therefore, it is reasonable to assume that the theoreti
 
 \section{Comparison of CIPT calculations with experimental results in Ta}
 \begin{table}[p!]
-\begin{center}
+\centering
 \caption{Comparison of experimental (from ref.\cite{NIST_ASD}) and CIPT spectra and ionisation potential of Ta I. The experimental excitation energies ($E_E$) and Land\'{e} g-factors ($g_E$) are compared to respective CIPT excitation energies ($E_T$) and Land\'{e} g-factors ($g_T$).   The final column is the difference between experimental and theoretical excitation energies $\Delta = E_{E} - E_{T}$. \label{tab:TaComparison}}
 \begin{tabular}{cl@{\hspace{0.5cm}}l@{\hspace{0.5cm}}c@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r}
 \toprule
@@ -1051,7 +1129,6 @@ is the largest in value. Therefore, it is reasonable to assume that the theoreti
 \bottomrule
 \bottomrule
 \end{tabular}
-\end{center}
 \end{table}
 
 To demonstrate the accuracy of the CIPT method we compare the theoretical and experimental spectra of Ta~I. As Ta lies in the same group but one period lower, we believe theoretical accuracy of the CIPT Ta spectrum would indicate the accuracy we can expect for Db. Electron states of neutral Ta have an open $5d$ shell, its ground state configuration is [Xe]$4f^{14}5d^3 6s^2$. As the $6s$ electrons are easily excited, we should treat the atom as a system with five external electrons. Note that a slightly more complicated atom, tungsten, which has one more external electron, was already successfully studied using the CIPT method~\cite{DBHF2017}. Therefore, we expect similar or better accuracy for Ta. For low lying even parity states of Ta we used the basis states of the $5d^3 6s^2$, $5d^4 6s$ and $5d^5$  configurations in the effective CI matrix. All other configurations, which were obtained by exciting one or two electrons from these configurations, were included perturbatively. Similarly for the odd parity states we used the states of the $5d^3 6s 6p$, $5d^2 6s^2 6p$ configurations in the effective CI matrix, while other configurations are included perturbatively.
@@ -1094,7 +1171,7 @@ first with no Breit or QED corrections, second with only Breit correction includ
 with both corrections included (see Table~\ref{table:DbISpectrum}).
 \begin{table*}[p!]
 \begin{adjustwidth}{-1.3cm}{-1.3cm}
-\center 
+\centering 
 \caption{Spectrum for the low lying energy levels of Db I and Db II using the CIPT method. Here $E_{NC}$ are the excitation energies when neither Breit nor radiative corrections are included in the calculations, $\Delta_B$ and $\Delta_R$ are the changes in energy from $E_{NC}$ when Breit and radiative corrections are included respectively. The final energy $E$ is the excitation spectrum when both Breit and radiative corrections are included \textit{ab initio}. The accuracy of these levels is expected to be similar to Ta I presented in Table \ref{tab:TaComparison}. (Originally published in \cite{LDFDb2018}). \label{table:DbISpectrum}} 
 \begin{tabular}{cllcrrrrr}
 \toprule
@@ -1229,7 +1306,7 @@ T_{E1} = \dfrac{4}{3}\left(\alpha \omega\right)^3\dfrac{ A_{E1}^2}{2J + 1}
 where $J$ is the angular momentum of the odd parity state, $\alpha$ is the fine structure constant and $\omega$ is the frequency of the transitions in atomic units. All calculations obey the selection rules for E1 transitions, a change in parity and change in angular momenta $|\Delta J| \leq 1 $. We present the E1 transitions for Ta I and Db I in Table \ref{table:E1Amplitudes}.\\
 
 \begin{table*}[t!] 
-\center
+\centering
 \caption{Allowed electric dipole transitions between the  ground states of Ta I ($^4F_{3/2}$) and its low lying odd parity states.  The numbers next to the states correspond to the numbered spectra in Tables \ref{tab:TaComparison}. The transition amplitudes $D_{E1}$ are in atomic units. (Originally published in \cite{LDFDb2018}) \label{table:E1Amplitudes} }
 \begin{tabular}{cl@{\hspace{0.75cm}}r@{\hspace{0.75cm}}r@{\hspace{0.75cm}}}  % @{} adds extra padding to the columns 
 \toprule
@@ -1267,35 +1344,35 @@ where $J$ is the angular momentum of the odd parity state, $\alpha$ is the fine 
 \end{table*}
 
 \begin{table*}[t!] 
-\center
+\centering
 \caption{Allowed electric dipole transitions and associated isotope shift parameters $a$ and $F$  between the  ground state of Db I ($^4F_{3/2}$) and its low lying odd parity states.  The numbers next to the states correspond to the numbered spectra in Table \ref{table:DbISpectrum}. The transition amplitudes $D_{E1}$ are in atomic units. The isotope shift calculation was performed for $^{268}$Db ($\left<r^{2}\right>_{268} = 36.770$ fm$^2$) and $^{289}$Db ($\left<r^{2}\right>_{289}=38.470$ fm$^2$). (Originally published in \cite{LDFDb2018}) \label{table:E1Amplitudes} }
-\begin{tabular}{cl@{\hspace{0.75cm}}r@{\hspace{0.75cm}}r@{\hspace{0.75cm}}|r@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r}  % @{} adds extra padding to the columns 
+\begin{tabular}{cl@{\hspace{0.75cm}}r@{\hspace{0.75cm}}r@{\hspace{0.75cm}}|r@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r}  % @{} adds extra padding to the columns 
 \toprule
 \toprule
-\multicolumn{6}{c}{Db I} \\ \\
-& State &   \parbox{1.5cm}{$D_{E1}$ \\ (a.u)} & \parbox{1.5cm}{$A_{E1}$ \\ $(\times 10^{6} \ \text{s}^{-1})$  } &  \parbox{1cm}{$a  $ (cm$^{-1}$)} & \parbox{1.5cm}{$F $ \\ (cm$^{-1}$/fm$^{2}$)} \\
+\multicolumn{7}{c}{Db I} \\ \\
+& State &   \parbox{1.5cm}{$D_{E1}$ \\ (a.u)} & \parbox{1.5cm}{$A_{E1}$ \\ $(\times 10^{6} \ \text{s}^{-1})$  } &  \parbox{1cm}{$a  $ (cm$^{-1}$)} & \parbox{1.5cm}{$F $ \\ (cm$^{-1}$/fm$^{2}$)} &  \multicolumn{1}{c}{\parbox{1cm}{$\tilde{F} $ \\ (cm$^{-1}$) }} \\
 \midrule
- (6) & $^2$F$^{\rm_o}_{5/2}$  &   0.631  & 0.0385 & 32.16 & 3.11  \\
- (7)  & $^2$D$^{\rm_o}_{3/2}$ & 1.53  &  1.80 & 18.70 & 1.81  \\
-(8) &  $^2$P$^{\rm_o}_{1/2}$  & 0.558 &  0.672 & -3.42 & -0.33 \\
- (10) & $^4$F$^{\rm_o}_{5/2}$    & -0.531 &  0.268 & 27.33 & 2.64  \\
- (11) & $^2$P$^{\rm_o}_{1/2}$    & 0.384 & 0.476 & 15.78 & 1.52  \\
-(12)  & $^6$F$^{\rm_o}_{3/2}$ & 0.180 &  0.0527 & 14.93 & 1.44  \\
- (13) & $^4$F$^{\rm_o}_{5/2}$  &    -0.339 & 0.213 & 8.39 & 0.81 \\
- (15) & $^2$D$^{\rm_o}_{3/2}$  &   -0.343  & 0.437 & -18.84 & -1.82    \\
-(17)  & $^6$F$^{\rm_o}_{3/2}$  &    1.22  & 7.85 & -0.33 & -0.03  \\
- (18) & $^4$D$^{\rm_o}_{1/2}$  &    0.0968 & 0.105 & 13.58 & 1.31  \\
- (19) & $^4$F$^{\rm_o}_{5/2}$ &    -0.163 & 0.0996& -1.54 & -0.51 \\
- (20) & $^2$D$^{\rm_o}_{3/2}$  &    0.784 & 3.83 & -4.88 & -0.47 \\
- (22) & $^4$F$^{\rm_o}_{5/2}$  &    -1.01 & 4.70  & -19.24 & -1.86 \\
- (23)  & $^2$P$^{\rm_o}_{3/2}$  &   -0.150 & 0.173 & 16.75 & 1.62 \\
- (26) & $^4$F$^{\rm_o}_{5/2}$  &    -0.890 & 4.49  & 6.22 & 0.60 \\
- (28) & $^2$S$^{\rm_o}_{1/2}$ &     -0.570 & 6.83 & -4.42 & -0.43 \\
- (30) & $^4$D$^{\rm_o}_{3/2}$ &   -0.114 & 0.139 & 16.04 & 1.55  \\
- (32) & $^2$D$^{\rm_o}_{5/2}$ &  0.228 & 0.393 & 3.31 & 0.32 \\
- (33)  & $^4$P$^{\rm_o}_{3/2}$ &   -0.388 & 2.01 & 6.68 &  0.64  \\
- (36) & $^6$F$^{\rm_o}_{5/2}$ &    -0.0174   & 0.00270 & 14.86 & 1.44 \\
- (37)  & $^4$D$^{\rm_o}_{1/2}$  &   1.49 & 59.7 & -28.14 & -2.72  \\
+ (6) & $^2$F$^{\rm_o}_{5/2}$  &   0.631  & 0.0385 & 32.16 & 3.11 & 23.78  \\
+ (7)  & $^2$D$^{\rm_o}_{3/2}$ & 1.53  &  1.80 & 18.70 & 1.81 & 13.83 \\
+(8) &  $^2$P$^{\rm_o}_{1/2}$  & 0.558 & 14.05 & 1.43 & 10.98 \\
+ (10) & $^4$F$^{\rm_o}_{5/2}$    & -0.531 &  0.268 & 27.33 & 2.64 & 20.21  \\
+ (11) & $^2$P$^{\rm_o}_{1/2}$    & 0.384 & 0.476 & 15.78 & 1.52 & 11.67 \\
+(12)  & $^6$F$^{\rm_o}_{3/2}$ & 0.180 &  0.0527 & 14.93 & 1.44 & 11.04 \\
+ (13) & $^4$F$^{\rm_o}_{5/2}$  &    -0.339 & 0.213 & 8.39 & 0.81 & 6.21 \\
+ (15) & $^2$D$^{\rm_o}_{3/2}$  &   -0.343  & 0.437 & -18.84 & -1.82 & -13.93   \\
+(17)  & $^6$F$^{\rm_o}_{3/2}$  &    1.22  & 7.85 & -0.33 & -0.03 & -0.24 \\
+ (18) & $^4$D$^{\rm_o}_{1/2}$  &    0.0968 & 0.105 & 13.58 & 1.31 & 10.04 \\
+ (19) & $^4$F$^{\rm_o}_{5/2}$ &    -0.163 & 0.0996& -1.54 & -0.51 & -1.14 \\
+ (20) & $^2$D$^{\rm_o}_{3/2}$  &    0.784 & 3.83 & -4.88 & -0.47 & -3.61 \\
+ (22) & $^4$F$^{\rm_o}_{5/2}$  &    -1.01 & 4.70  & -19.24 & -1.86 & -14.23 \\
+ (23)  & $^2$P$^{\rm_o}_{3/2}$  &   -0.150 & 0.173 & 16.75 & 1.62 & 12.38 \\
+ (26) & $^4$F$^{\rm_o}_{5/2}$  &    -0.890 & 4.49  & 6.22 & 0.60 & 4.60 \\
+ (28) & $^2$S$^{\rm_o}_{1/2}$ &     -0.570 & 6.83 & -4.42 & -0.43 & -3.27 \\
+ (30) & $^4$D$^{\rm_o}_{3/2}$ &   -0.114 & 0.139 & 16.04 & 1.55 & 11.86  \\
+ (32) & $^2$D$^{\rm_o}_{5/2}$ &  0.228 & 0.393 & 3.31 & 0.32 & 2.45 \\
+ (33)  & $^4$P$^{\rm_o}_{3/2}$ &   -0.388 & 2.01 & 6.68 &  0.64 & 4.94 \\
+ (36) & $^6$F$^{\rm_o}_{5/2}$ &    -0.0174   & 0.00270 & 14.86 & 1.44 & 10.99 \\
+ (37)  & $^4$D$^{\rm_o}_{1/2}$  &   1.49 & 59.7 & -28.14 & -2.72 & -20.81 \\
 \bottomrule
 \bottomrule
 \end{tabular}
@@ -1333,22 +1410,7 @@ Table~\ref{table:E1Amplitudes}.
 
 
 \chapter{$Z=106-112$}
-Theoretical study of electron structure of superheavy elements (SHE, nuclear charge $Z>103$) is an important area of research closing the gaps in relevant experimental data. While all SHE up to oganesson (Og, $Z=118$) have been synthesized and named \cite{Karol2016, HHO2013, OUL2004}, experimental data on their spectra are absent.
 
-%The study of superheavy elements (SHE, nuclear charge $Z>103$) is a huge area of research including nuclear physics, chemistry and atomic physics (see, e.g. \cite{}). Theoretical study of electron structure of SHE is an important part of it. It is closely related to the chemical properties of SHE and currently it is the main source of information about spectroscopic properties of SHE. 
-%While all SHE elements up to Og ($Z=118$) have been synthesized and officially recognized and named \cite{Karol2016, HHO2013, OUL2004} the experimental data on their spectra  are absent.
-The heaviest elements for which experimental spectroscopic data are available are nobelium (No, $Z=102$)~\cite{Laatiaoui2016, Chhetri2018} and lawrencium (Lr, $Z=103$)~\cite{SAB15}. Ionization potential (IP) has been measured for both atoms and the frequency of the strong $7s^2 \ ^1$S$_0$ $\rightarrow$ $7s7p \ ^1$P$_1^{\rm o}$ electric dipole transition is measured for No. For heavier SHE the data come only from theory. There are many accurate calculations for atoms with relatively simple electronic structure, which includes atoms and ions with few electrons above closed shells (usually not more that four,
-%and atoms or ions with one or two holes in a closed shell and/or one or two electrons above the closed-shell core 
-see, e.g. Refs.~\cite{eliav2015,pershina2015,E-E113,P-E113,E114a,E114b,E114c,E114d,E115,FF113-115,DD113-114}). This constitutes less then a half of the SHE in the range $104 \leq Z \leq 118$.
-Most of the SHE have an open $6d$ or $7p$ shell with more than four electrons. Till recently, the only available tool to perform calculations for such systems was the multi-configuration Dirac-Fock method (MCDF, see, e.g. review~\cite{Fischer2016}). Some of the  MCDF results we discuss in section \ref{sec:SHEIP}. There are some model calculations of the basic parameters of the atoms, such as IP~\cite{Borsch115-117} and polarizabilities~\cite{Dzuba2016}. Accurate {\em ab initio} calculations of the spectra are practically absent. This is an unfortunate situation since from the study of relatively simple SHE we know that strong relativistic effects often bring significant difference in properties of SHE compared to their lighter analogs. Similar effects are expected for all SHE, including those with open shells. To address the problem,  we have developed efficient versions of the configuration interaction (CI) approach, which allows study of atoms with any number of valence electrons. This includes the so-called CIPT method (configuration interaction with perturbation theory,~\cite{DBHF2017}) and its fast version, the FCI method (fast configuration interaction~\cite{FCI}). Both methods are based on the idea that off-diagonal matrix elements between highly excited states can be neglected in the CI matrix. This allows one to reduce the problem to a much smaller matrix with modified matrix elements. The methods were tested on such open-shell systems as Yb and No (including states with excitations from the $4f$ and $5f$ subshells)~\cite{DBHF2017,FCI}, Ta~\cite{LDFDb2018}, W and I~\cite{DBHF2017}, and superheavy elements Db~\cite{LDFDb2018} and Og~\cite{LDF118}. 
-Db is the first SHE with an open $6d$ shell that has been studied using the CIPT method~\cite{DBHF2017,Berengut-Db}. Its ground-state configuration is [Rn]$5f^{14}7s^25d^3$, i.e. it has five valence electrons above closed shells, which makes it difficult to use other methods. Lighter neighbours of Db, Rf (four valence electrons) and Lr (three valence electrons) were studied with the use of the powerful CI+all-order method~\cite{NoLrRf,IPNoLrRf}.
-The use of the latter approach for Db is very problematic and is practically impossible for heavier elements. Following the successful use of the CIPT for Db, we apply it in the present work to heavier elements Sg, Bh, Hs and Mt ($106 \leq Z \leq 109$).
- 
-
-%important in modern physics and fundamental research. From the complex underpinnings of many-body interactions, relativistic effects in many body systems, probing fundamental interactions and symmetries, and even further understanding the composition of cosmoslogical bodies. All SHE elements up to Og ($Z=118$) have been synthesized and officially recognized and named \cite{Karol2016, HHO2013, OUL2004}.  As these SHE isotopes are created in nuclear reactors at rates of a few atoms per day at best, established experimental techniques such as optical spectroscopy are unfeasible, however recent success with laser spectroscopy in the superheavy region have been promising\cite{Laatiaoui2014, Laatiaoui20161, Ferrer2017}with recent experimental success in measuring the ionization potentials of No ($Z=102$) \cite{Laatiaoui2016} and Lr ($Z=103$) \cite{SAB15} and measurement of the $^1$S$_0$ $\rightarrow$ $^1$P$_0^{\rm_o}$ transition in No. While these results provide a promising outlook for future measurements in the SHE region we must rely on theoretical approaches to further study and understand both the atomic and nuclear properties of SHEs.\\
-%\linebreak
-%While SHEs with a small number of electrons (holes) above (below) complete atomic shells have been studied using sophisticated many-body computational techniques (see e.g. \cite{Eliav2015}) difficulties arise when there are more than four electrons (holes) above (below) the shells. Therefore, although the ionization potentials \cite{Johnson1999, Johnson2002, Dzuba2016} and electron polarizabilities \cite{Dzuba2016} have been calculated using semi-empirical methods, further spectroscopic properties have not been calculated such as the excitiation spectrum and electric dipole (E1) transitions. Using a computational method combining the configuration interaction and perturbation theory (CIPT) (introduced and discussed in Ref. \cite{DBHF2017}) calculating the excitation spectrum of these elements becomes tractable. The nonexistent experimental results for any Sg \textsc{i} ($Z=106$), Bh \textsc{i} ($Z=107$), Hs \textsc{i} ($Z=108$) or Mt \textsc{i} ($Z=109$) makes a direct comparison for accuracy impossible. However we can test the accuracy of the calculations for each SHE through comparison with their respective elemental homologue. Using the same parameters for the CIPT calculation of the lighter elements spectra and compare with experimental results we can find the relative uncertainty of our calculations. This method has been applied to Ta~\textsc{i}\cite{LDFDb2018}, W~\textsc{i}\cite{DBHF2017} and Rn~\textsc{i}\cite{LDFOg2018}. \\
-%\linebreak
 In this work we present the low-lying odd and even states of SHE $Z=106$-$109$ including the allowed E1 transition amplitudes and rates from the ground state to odd parity states. We also calculate the ionization potential and isotope shift parameters for these elements.\\
 
 The paper progresses as follows; in Section \ref{sec:CIPT} we give a brief overview of the CIPT technique and how we implement it for the SHE. In Section \ref{sec:Accuracy} we discuss the accuracy of the calculations. In Section \ref{sec:Isoshift} we give a brief discussion on the calculation of E1 transitions and corresponding isotope shift parameters between synthesized and predicted meta-stable SHE. In sections  \ref{sec:Sg}, \ref{sec:Bh}, \ref{sec:Hs} and \ref{sec:Mt} we discuss the results of the CIPT on  Sg~\textsc{i}, Bh~\textsc{i}, Hs~\textsc{i} and Mt~\textsc{i} atoms respectively.  For reference we present the low-lying spectrum for Sg~\textsc{i} and Bh~\textsc{i} in Table \ref{tab:SHESpectrumSgBh} and Hs~\textsc{i} and Mt~\textsc{i} in Table \ref{tab:SHESpectrumHsMt}  and the E1 transitions and isotope shift parameters in  Table \ref{tab:SHEE1transitionSgBh}. In Section \ref{sec:SHEIP} we present the ionization potentials of the four elements and compare them with other calculations. 
@@ -1393,7 +1455,7 @@ A_{\text{E1}} = \dfrac{4}{3}\left(\alpha \omega\right)^3\dfrac{ D_{\text{E1}}^2}
 where $J$ is the angular momentum of the upper state, $\alpha$ is the fine structure constant and $\omega$ is the frequency of the transitions in atomic units. All calculated amplitudes, $D_{\text{E1}}$, obey the selection rules for E1 transitions. The accuracy of these calculations cannot be tested directly due to the lack of experimental data on SHE and therefore we must rely on comparisons in lighter elements. Using the above method we calculated the E1 transition amplitudes and transition rates for the lighter analogs and compared them to available experimental data in Table \ref{tab:E1_comp}. The accuracy for the E1 amplitudes is $\sim$ 50\% which is sufficient to identify the strongest transitions. The calculated rates are \textit{ab initio} using the amplitudes and energies calculated in the CIPT method.  \\
 \begin{landscape}
 \begin{table*}[h]
-\center
+\centering
 \caption{Comparison of E1 transition amplitudes and rates between experimental and CIPT values for the lighter analogs of SHE, W \textsc{I}, Re \textsc{I}, Os \textsc{I}, and Ir \textsc{I}. Here $D_{\text{E1}}$, $A_{\text{E1}}$ and $gf$ are the transition amplitude, rate and oscillator strength respectively. The experimental E1 amplitudes were calculated using the experimental energies, transition rates from experimental sources and Eq.~(\ref{eq:E1}). To calculate oscillator strengths for comparison with Re I transitions from Ref. \cite{Ortiz2012},  we use the formula $gf = 3.062\times 10^{-6} \omega D^2_{\text{E1}}$ where $\omega$ is in cm$^{-1}$ and $D_{\text{E1}}$ is in (a.u.).  \label{tab:E1_comp}}
 \begin{tabular}{c@{\hspace{0.5cm}}c@{\hspace{1cm}}c@{\hspace{0.5cm}}c@{\hspace{0.5cm}}c@{\hspace{0.5cm}}c@{\hspace{0.5cm}}c@{\hspace{0.5cm}}c@{\hspace{0.5cm}}}
 \toprule
@@ -1454,7 +1516,7 @@ where $\tilde{F}$ is an IS parameter to be calculated for each transition.
 \section{Calculation of energy levels, E1 transition rates and isotope shift} \label{sec:spectra}
 \begin{landscape}
 \begin{figure*}
-\center
+\centering
 \includegraphics[scale=1]{./figures/Sg_Mt_Energy_Plot.eps} 
 \caption{Comparison of low-energy excitations of SHE and their respective lighter analogs. For each element, the states are split between odd and even parities. The solid (blue) lines represent states with $6s^2$ or $7s^2$ in the electronic configuration for the lighter elements and SHE respectively. The dashed (red) lines are all other states where an $s$ electron has been excited from the filled $6s$ or $7s$ shell. Experimental energies were used for W \textsc{i}, Bh \textsc{i}, Hs \textsc{i} and Ir \textsc{i}. \cite{NIST_ASD}\label{fig:EL}}
 \end{figure*}
@@ -1466,8 +1528,8 @@ Energy levels of SHE are calculated by solving the matrix eigenvalue problem (\r
 
 
 \begin{table*}[t] 
-\caption{Low-energy spectrum of even- and odd-parity states in Bh \textsc{i}.   We present the energy and Land\'e $g$-factor for each state $J^{\text{parity}}$. We present $LS$- notations only for comparison with lighter analogs.  For SHE states where an analogous state cannot be found in the lighter analog the term is labeled according to the sequential number of the state ($n$) for the given $J^{\text{parity}}$ group, $n_{J}^{\text{parity}}$.\label{tab:SHESpectrumSgBh}}
- 		\center 
+\caption{Low-energy spectrum of even- and odd-parity states in Bh \textsc{i}.   We present the energy and Land\'e $g$-factor for each state $J^{\text{parity}}$. We present $LS$- notations only for comparison with lighter analogs.  For SHE states where an analogous state cannot be found in the lighter analog the term is labeled according to the sequential number of the state ($n$) for the given $J^{\text{parity}}$ group, $n_{J}^{\text{parity}}$.\label{tab:SHESpectrumBh}}
+ 		\centering
  		\begin{tabular}{cl@{\hspace{0.5cm}}c@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r} 
  		\toprule 
  \toprule 
@@ -1521,8 +1583,8 @@ Energy levels of SHE are calculated by solving the matrix eigenvalue problem (\r
  \end{tabular} 
  \end{table*} 
  \begin{table*}[t] 
-\caption{Low-energy spectrum of even- and odd-parity states in Sg \textsc{i}.   We present the energy and Land\'e $g$-factor for each state $J^{\text{parity}}$. We present $LS$- notations only for comparison with lighter analogs.  For SHE states where an analogous state cannot be found in the lighter analog the term is labeled according to the sequential number of the state ($n$) for the given $J^{\text{parity}}$ group, $n_{J}^{\text{parity}}$.\label{tab:SHESpectrumSgBh}}
- 		\center 
+\caption{Low-energy spectrum of even- and odd-parity states in Sg \textsc{i}.   We present the energy and Land\'e $g$-factor for each state $J^{\text{parity}}$. We present $LS$- notations only for comparison with lighter analogs.  For SHE states where an analogous state cannot be found in the lighter analog the term is labeled according to the sequential number of the state ($n$) for the given $J^{\text{parity}}$ group, $n_{J}^{\text{parity}}$.\label{tab:SHESpectrumSg}}
+ 		\centering 
  		\begin{tabular}{cl@{\hspace{0.5cm}}c@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r@{\hspace{1cm}}l} 
  		\toprule 
  \toprule 
@@ -1621,8 +1683,8 @@ We also present the isotopic shift parameters for the Hs E1 optical transitions 
 \subsection{The Meitnerium Atom} \label{sec:Mt}
 
 		\begin{table*}[t] 
-\caption{Low-lying spectrum of even and odd states parity for Hs \textsc{i} .   We present the energy and Land\'e g-factor for each state $J^{\text{parity}}$. We present $LS$- notations only for comparison with lighter analogs. For SHE states where an analogous state cannot be found in the lighter analog the term is labeled according to the sequential number of the state ($n$) for the given $J^{\text{parity}}$ group, $n_{J}^{\text{parity}}$.\label{tab:SHESpectrumHsMt}}
- 		\center 
+\caption{Low-lying spectrum of even and odd states parity for Hs \textsc{i} .   We present the energy and Land\'e g-factor for each state $J^{\text{parity}}$. We present $LS$- notations only for comparison with lighter analogs. For SHE states where an analogous state cannot be found in the lighter analog the term is labeled according to the sequential number of the state ($n$) for the given $J^{\text{parity}}$ group, $n_{J}^{\text{parity}}$.\label{tab:SHESpectrumHs}}
+ 		\centering 
  		\begin{tabular}{cl@{\hspace{0.5cm}}c@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r@{\hspace{1cm}}l@{\hspace{0.5cm}}c@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r} 
  		\toprule 
  \toprule  		
@@ -1674,8 +1736,8 @@ We also present the isotopic shift parameters for the Hs E1 optical transitions 
  \end{table*} 
  
  		\begin{table*}[t] 
-\caption{Low-lying spectrum of even and odd states parity for  Mt \textsc{i}.   We present the energy and Land\'e g-factor for each state $J^{\text{parity}}$. We present $LS$- notations only for comparison with lighter analogs. For SHE states where an analogous state cannot be found in the lighter analog the term is labeled according to the sequential number of the state ($n$) for the given $J^{\text{parity}}$ group, $n_{J}^{\text{parity}}$.\label{tab:SHESpectrumHsMt}}
- 		\center 
+\caption{Low-lying spectrum of even and odd states parity for  Mt \textsc{i}.   We present the energy and Land\'e g-factor for each state $J^{\text{parity}}$. We present $LS$- notations only for comparison with lighter analogs. For SHE states where an analogous state cannot be found in the lighter analog the term is labeled according to the sequential number of the state ($n$) for the given $J^{\text{parity}}$ group, $n_{J}^{\text{parity}}$.\label{tab:SHESpectrumMt}}
+ 		\centering 
  		\begin{tabular}{cl@{\hspace{0.5cm}}c@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r@{\hspace{1cm}}l@{\hspace{0.5cm}}c@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r} 
  		\toprule 
  \toprule  		
@@ -1716,61 +1778,118 @@ We use the same method as for previous elements to calculate the low-lying spect
  We also present the allowed E1 transitions for Mt and the respective isotope shift parameters in Table~ \ref{tab:SHEE1transitionSgBh}. The high energy of the odd states in Mt~\textsc{i} result in a small number of allowed E1 transitions within optical region from the ground state compared to Bh and Hs.  Promising transitions for future measurement include $^6$F$_{11/2}^{\circ} \rightarrow ^4$F$_{9/2}$ ($\omega =$~38~027~cm$^{-1}$) and $^{6}$D$_{9/2}^{\circ} \rightarrow ^4$F$_{9/2}$ ($\omega =$ 33~505~cm$^{-1}$). All other rates are two or more orders of magnitude smaller. For the synthesized and metastable isotopes we use the RMS nuclear radii values, $R_{rms,\text{276}} = 5.9265$ fm  and $R_{rms,\text{293}} = 6.0330$ fm.
  
   \begin{table*}[t] 
- \caption{Strong electric dipole transitions and isotopic shift parameters for Sg \textsc{i}, Bh \textsc{i}, Hs~\textsc{i} and Mt~\textsc{i}. Only direct optical transitions to the ground state satisfying the E1 transition selection rules are shown. Here $D_{\text{E1}}$ is the transition amplitude in a.u., $A_{\text{E1}}$ is the transition rate, $a$, $F$, and $\tilde{F}$ are calculated isotopic shift parameters for the charge radius discussed in Section \ref{sec:Isoshift}. The numbers in parentheses correspond to the numbered states in Tables \ref{tab:SHESpectrumSgBh} and \ref{tab:SHESpectrumHsMt}  for the respective element. \label{tab:SHEE1transitionSgBh}}
-\begin{tabular}{l@{\hspace{0.01cm}}c@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r|l@{\hspace{0.05cm}}cr@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r@{\hspace{0.25cm}}r}  % @{} adds extra padding to the columns 
+ \caption{Strong electric dipole transitions and isotopic shift parameters for Sg \textsc{i}. Only direct optical transitions to the ground state satisfying the E1 transition selection rules are shown. Here $D_{\text{E1}}$ is the transition amplitude in a.u., $A_{\text{E1}}$ is the transition rate, $a$, $F$, and $\tilde{F}$ are calculated isotopic shift parameters for the charge radius. The numbers in parentheses correspond to the numbered states in Table \ref{tab:SHESpectrumSg}. \label{tab:SHEE1transitionSg}}
+\begin{tabular}{l@{\hspace{0.01cm}}c@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r}  % @{} adds extra padding to the columns 
 \toprule
 \toprule
-& State &   \parbox{1cm}{$D_{\text{E1}}$ \\ (a.u)} & \parbox{1cm}{$A_{\text{E1}}$ \\ { \small $(\times 10^{6} \ \text{s}^{-1})$ }} & \parbox{1cm}{$a  $ \\ (cm$^{-1}$)} & \parbox{1cm}{$F $ \\ ($\frac{\text{cm}^{-1}}{\text{fm}^{2}}$)} &   \multicolumn{1}{c}{\parbox{1cm}{$\tilde{F} $ \\ (cm$^{-1}$) }} & & State &   \parbox{1cm}{$D_{\text{E1}}$ \\ (a.u)} & \parbox{1cm}{$A_{\text{E1}}$ \\ $(\times 10^{6} \ \text{s}^{-1})$ } & \parbox{1cm}{$a  $ \\ (cm$^{-1}$)} & \parbox{1cm}{$F $ \\ ($\frac{\text{cm}^{-1}}{\text{fm}^{2}}$)} & \multicolumn{1}{c}{\parbox{1cm}{$\tilde{F} $ \\ (cm$^{-1}$) }}  \\
+& State &   \parbox{1cm}{$D_{\text{E1}}$ \\ (a.u)} & \parbox{1cm}{$A_{\text{E1}}$ \\ { \small $(\times 10^{6} \ \text{s}^{-1})$ }} & \parbox{1cm}{$a  $ \\ (cm$^{-1}$)} & \parbox{1cm}{$F $ \\ ($\frac{\text{cm}^{-1}}{\text{fm}^{2}}$)} &   \multicolumn{1}{c}{\parbox{1cm}{$\tilde{F} $ \\ (cm$^{-1}$) }} \\
 \midrule
- 		\multicolumn{7}{c}{Sg \textsc{i} (Ground state: $^5$D$_0$)} &  \multicolumn{7}{c}{Bh \textsc{i} (Ground State: $^6$S$_{5/2}$)} \\
+ 		\multicolumn{7}{c}{Sg \textsc{i} (Ground state: $^5$D$_0$)}  \\
  		\\
-(8) &  1$_1^{\rm_o}$        & 0.639 & 1.36 & 9.41& 2.04 & 11.9  &(9)  & $^6$D$_{3/2}^{\rm_o}$     & -0.172 & 0.107 & 18.1 & 3.74 & 22.8  \\ 
-(12) & 2$_{1}^{\rm_o}$          & -0.160 & 0.192 & -2.95 & -0.639 & -3.73 & (10) & $^8$P$_{5/2}^{\rm_o}$     & -0.474 &  0.812 & 83.4 & 17.2 & 105 \\ 
-(14) & 3$_{1}^{\rm_o}$         & 1.17  & 13.4 & 4.90 & 1.06 & 6.18 & (11) &  $^6$P$_{3/2}^{\rm_o}$     & -0.494 & 1.38 & -101 & -20.7 & -127 \\ 
-(19) & $^3$P$_1^{\rm_o}$      & -0.163 & 0.353 & -19.7 & -4.25 & -24.8 & (12) &  $^6$D$_{5/2}^{\rm_o}$     & -0.0391 & 0.00611 & -120 & -24.6 & -151 \\ 
-(25) & 5$_{1}^{\rm_o}$   & 0.592 & 6.97 & 6.58 & 1.42 & 8.30 & (13)  & $^8$P$_{7/2}^{\rm_o}$     & 0.500 & 0.858 & 84.5 & 17.4 & 107 \\ 
-(30) &  6$_{1}^{\rm_o}$     & -0.412 & 3.95 & 7.01 & 1.52 & 8.85  & (14)  & $^6$D$_{7/2}^{\rm_o}$     & 0.345 & 0.471 & -63.3 & -13.0 & -79.7 \\ 
-(37) &  7$_{1}^{\rm_o}$ & -0.302 & 2.67&  1.66 & 0.36 & 2.10 & (16) & $^6$F$_{5/2}^{\rm_o}$     & 1.51 & 16.6 & -160 & -33.0 & -202 \\
- (42) & 8$_{1}^{\rm_o}$   & 0.148& 0.761 & 3.55 & 0.768 & 4.48 & (18)  & 3$_{3/2}^{\rm_o}$  & 1.50 & 30.0 & -64.9 & -13.4 & -81.7 \\
-(51) & 9$_{1}^{\rm_o}$   & 0.524 & 11.9 & -4.77& -1.03& -6.01  & (19) & 3$_{7/2}^{\rm_o}$   & 1.75 & 23.3 & 44.0 & 9.06& 55.4 \\
-\multicolumn{6}{c}{} & &  (20) & 4$_{5/2}^{\rm_o}$   &  -0.433 & 1.90 & -101 & -20.7 & -127  \\
-\multicolumn{6}{c}{} & &  (21) & 4$_{7/2}^{\rm_o}$   &  1.88 & 31.2 & -380 & -78.4 & -479 \\
-\multicolumn{6}{c}{} & & (22) & 4$_{3/2}^{\rm_o}$  &   -0.998 & 18.6 & -41.3 & -8.51& -52 \\
-\multicolumn{6}{c}{} & & (24) & 5$_{5/2}^{\rm_o}$  &   -0.101 & 0.131 & -105 & -21.6 & -132 \\
-\multicolumn{6}{c}{} & & (26) & 5$_{3/2}^{\rm_o}$   &   0.438 & 4.27 & -135 & -27.9 & -170 \\
-\multicolumn{6}{c}{} & & (27) & 6$_{5/2}^{\rm_o}$  &   -1.06 & 17.1 & -364 & -74.9 & -458 \\
-\multicolumn{6}{c}{} & & (28) & 5$_{7/2}^{\rm_o}$  &  0.0665 & 0.0361 & -34.7 & -7.15 & -43.7 \\
-\multicolumn{6}{c}{} & & (29) & 6$_{3/2}^{\rm_o}$    &  0.160 & 0.615 & -70.6 & -14.5 & -88.9 \\
-\multicolumn{6}{c}{} &  & (30) & 7$_{5/2}^{\rm_o}$    &  -0.539 & 4.86 & -335 & -69.0 & -422\\
-\multicolumn{6}{c}{} & & (33) & 6$_{7/2}^{\rm_o}$   &   -0.674 & 6.18 & -129 & -26.6 & -163 \\
-\multicolumn{6}{c}{} & &  (34) & 7$_{3/2}^{\rm_o}$   &  0.387 & 4.09 & -513 & -106 & -647 \\
-\multicolumn{6}{c}{} & &  (37) & 8$_{5/2}^{\rm_o}$   &  0.232 & 1.10 & -561 & -116 & -707\\
-\multicolumn{6}{c}{} & &  (38) & 7$_{7/2}^{\rm_o}$  &  0.516 & 4.13 & -364 & -75.1 & -459 \\
-\midrule
- 		\multicolumn{7}{c}{Hs \textsc{i} (Ground State: $^5$D$_{4}$)} & \multicolumn{7}{c}{Mt \textsc{i} (Ground State: $^4$F$_{9/2}$)}\\
- 		\\
-(8)  & 1$_{3}^{\rm_o}$     & 0.501 &  0.276 & 22.7 & 4.45 & 28.9& (7)	& 1$_{7/2}^{\rm_o}$	  & 0.0537 & 0.00765 & 27.5& 5.10 & 34.5 \\
-(10) & 2$_{3}^{\rm_o}$      & 0.224 & 0.269 & 22.9 & 4.49 & 28.8 &   (8)	& 1$_{9/2}^{\rm_o}$	 & 0.432 & 0.550 & 27.6 & 5.13 & 34.7 \\
-(11) & $^7$D$_{4}^{\rm_o}$    & -1.11 & 5.66 & -29.1 & -5.70 & -36.6  & (13)	&	$^{6}$D$_{9/2}^{\rm_o}$  & 1.27 & 12.3 & -51.7 & -9.60 & -64.9  \\
-(14) & $^7$D$_5^{\rm_o}$     & 0.999 &  5.41& -26.2 & -5.15 & -33.0 &  (15) & 2$_{7/2}^{\rm_o}$	   & -0.294 & 0.946 & 33.3 & 6.18 & 41.8 \\
-(15) & 3$_{3}^{\rm_o}$     & 0.208 & 0.370 & 16.2 & 3.18 & 20.4  & (17)	&	$^6$F$_{11/2}^{\rm_o}$    & -1.89 & 33.3 & -47.9& -8.89& -60.1 \\
-(17) & 2$_{4}^{\rm_o}$      & 0.0934 & 0.0603 & 5.54 & 1.09 & 6.98 &  (19) 	& 3$_{9/2}^{\rm_o}$	    & 0.0954 & 0.112 & 19.0 & 3.53 & 23.9  \\ 
-(19) & 3$_{4}^{\rm_o}$      & 0.120 & 0.112 & 18.5 & 3.62 & 23.2 & (20) 	& 2$_{11/2}^{\rm_o}$	    & 0.170 & 0.344 & 25.7 & 4.78 & 32.3  \\
-(21) & 4$_{3}^{\rm_o}$      & -0.150 & 0.253 & 20.7 & 4.05 & 26.0 & \\
-(23) & 2$_{5}^{\rm_o}$      & -1.13 & 9.88 & 12.3 & 2.42 & 15.5   &\\
- (24) & 5$_{3}^{\rm_o}$    & 1.70 & 35.5 & 12.3 & 2.41 & 15.5  &\\
-(25) & 4$_{4}^{\rm_o}$      & 0.798 & 6.52 & 7.84 & 1.54 & 9.87  &\\ 
-(26)  &  $^7$D$_{3}^{\rm_o}$   & -0.493 & 3.20 & -33.3 & -6.53 & -41.9  &\\ 
-(29) & $^7$P$_{3}^{\rm_o}$  & -0.511 & 3.91 & -15.8 & -3.11 & -19.9  &\\ 
-(30) &5$_{4}^{\rm_o}$     & -0.297 & 1.04 & 1.95 & 0.382 & 2.45  & \\ 
-(32) & $^7$P$_{4}^{\rm_o}$  & 0.425 &  2.41 & -9.56 & -1.87 & -12.0 &\\ 
-(33) &3$_{5}^{\rm_o}$     & 2.64 & 77.5 & 5.16 & 1.01 & 6.49  & \\ 
-(35) & 7$_{3}^{\rm_o}$    & 2.10 & 80.0 & -2.30 & -0.451 & -2.89  &\\ 
+(8) &  1$_1^{\rm_o}$        & 0.639 & 1.36 & 9.41& 2.04 & 11.9   \\ 
+(12) & 2$_{1}^{\rm_o}$          & -0.160 & 0.192 & -2.95 & -0.639 & -3.73 \\ 
+(14) & 3$_{1}^{\rm_o}$         & 1.17  & 13.4 & 4.90 & 1.06 & 6.18  \\ 
+(19) & $^3$P$_1^{\rm_o}$      & -0.163 & 0.353 & -19.7 & -4.25 & -24.8  \\ 
+(25) & 5$_{1}^{\rm_o}$   & 0.592 & 6.97 & 6.58 & 1.42 & 8.30  \\ 
+(30) &  6$_{1}^{\rm_o}$     & -0.412 & 3.95 & 7.01 & 1.52 & 8.85  \\ 
+(37) &  7$_{1}^{\rm_o}$ & -0.302 & 2.67&  1.66 & 0.36 & 2.10  \\
+ (42) & 8$_{1}^{\rm_o}$   & 0.148& 0.761 & 3.55 & 0.768 & 4.48  \\
+(51) & 9$_{1}^{\rm_o}$   & 0.524 & 11.9 & -4.77& -1.03& -6.01 \\
 \bottomrule
 \bottomrule
 \end{tabular}
 
 \end{table*}
+
+  \begin{table*}[t] 
+ \caption{Strong electric dipole transitions and isotopic shift parameters for Bh \textsc{i}. Only direct optical transitions to the ground state satisfying the E1 transition selection rules are shown. Here $D_{\text{E1}}$ is the transition amplitude in a.u., $A_{\text{E1}}$ is the transition rate, $a$, $F$, and $\tilde{F}$ are calculated isotopic shift parameters for the charge radius. The numbers in parentheses correspond to the numbered states in Table \ref{tab:SHESpectrumBh}. \label{tab:SHEE1transitionBh}}
+\begin{tabular}{l@{\hspace{0.01cm}}c@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r}  % @{} adds extra padding to the columns 
+\toprule
+\toprule
+& State &   \parbox{1cm}{$D_{\text{E1}}$ \\ (a.u)} & \parbox{1cm}{$A_{\text{E1}}$ \\ { \small $(\times 10^{6} \ \text{s}^{-1})$ }} & \parbox{1cm}{$a  $ \\ (cm$^{-1}$)} & \parbox{1cm}{$F $ \\ ($\frac{\text{cm}^{-1}}{\text{fm}^{2}}$)} &   \multicolumn{1}{c}{\parbox{1cm}{$\tilde{F} $ \\ (cm$^{-1}$) }}  \\
+\midrule
+ \multicolumn{7}{c}{Bh \textsc{i} (Ground State: $^6$S$_{5/2}$)} \\
+ 		\\
+(9)  & $^6$D$_{3/2}^{\rm_o}$     & -0.172 & 0.107 & 18.1 & 3.74 & 22.8  \\ 
+(10) & $^8$P$_{5/2}^{\rm_o}$     & -0.474 &  0.812 & 83.4 & 17.2 & 105 \\ 
+(11) &  $^6$P$_{3/2}^{\rm_o}$     & -0.494 & 1.38 & -101 & -20.7 & -127 \\ 
+(12) &  $^6$D$_{5/2}^{\rm_o}$     & -0.0391 & 0.00611 & -120 & -24.6 & -151 \\ 
+(13)  & $^8$P$_{7/2}^{\rm_o}$     & 0.500 & 0.858 & 84.5 & 17.4 & 107 \\ 
+(14)  & $^6$D$_{7/2}^{\rm_o}$     & 0.345 & 0.471 & -63.3 & -13.0 & -79.7 \\ 
+(16) & $^6$F$_{5/2}^{\rm_o}$     & 1.51 & 16.6 & -160 & -33.0 & -202 \\
+(18)  & 3$_{3/2}^{\rm_o}$  & 1.50 & 30.0 & -64.9 & -13.4 & -81.7 \\
+(19) & 3$_{7/2}^{\rm_o}$   & 1.75 & 23.3 & 44.0 & 9.06& 55.4 \\
+(20) & 4$_{5/2}^{\rm_o}$   &  -0.433 & 1.90 & -101 & -20.7 & -127  \\
+(21) & 4$_{7/2}^{\rm_o}$   &  1.88 & 31.2 & -380 & -78.4 & -479 \\
+(22) & 4$_{3/2}^{\rm_o}$  &   -0.998 & 18.6 & -41.3 & -8.51& -52 \\
+(24) & 5$_{5/2}^{\rm_o}$  &   -0.101 & 0.131 & -105 & -21.6 & -132 \\
+(26) & 5$_{3/2}^{\rm_o}$   &   0.438 & 4.27 & -135 & -27.9 & -170 \\
+(27) & 6$_{5/2}^{\rm_o}$  &   -1.06 & 17.1 & -364 & -74.9 & -458 \\
+(28) & 5$_{7/2}^{\rm_o}$  &  0.0665 & 0.0361 & -34.7 & -7.15 & -43.7 \\
+(29) & 6$_{3/2}^{\rm_o}$    &  0.160 & 0.615 & -70.6 & -14.5 & -88.9 \\
+(30) & 7$_{5/2}^{\rm_o}$    &  -0.539 & 4.86 & -335 & -69.0 & -422\\
+(33) & 6$_{7/2}^{\rm_o}$   &   -0.674 & 6.18 & -129 & -26.6 & -163 \\
+(34) & 7$_{3/2}^{\rm_o}$   &  0.387 & 4.09 & -513 & -106 & -647 \\
+(37) & 8$_{5/2}^{\rm_o}$   &  0.232 & 1.10 & -561 & -116 & -707\\
+(38) & 7$_{7/2}^{\rm_o}$  &  0.516 & 4.13 & -364 & -75.1 & -459 \\
+\bottomrule
+\bottomrule
+\end{tabular}
+
+\end{table*}
+  \begin{table*}[t] 
+ \caption{Strong electric dipole transitions and isotopic shift parameters for Hs~\textsc{i}. Only direct optical transitions to the ground state satisfying the E1 transition selection rules are shown. Here $D_{\text{E1}}$ is the transition amplitude in a.u., $A_{\text{E1}}$ is the transition rate, $a$, $F$, and $\tilde{F}$ are calculated isotopic shift parameters for the charge radius. The numbers in parentheses correspond to the numbered states in Table \ref{tab:SHESpectrumHs}. \label{tab:SHEE1transitionHs}}
+\begin{tabular}{l@{\hspace{0.01cm}}c@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r}  % @{} adds extra padding to the columns 
+\toprule
+\toprule
+& State &   \parbox{1cm}{$D_{\text{E1}}$ \\ (a.u)} & \parbox{1cm}{$A_{\text{E1}}$ \\ { \small $(\times 10^{6} \ \text{s}^{-1})$ }} & \parbox{1cm}{$a  $ \\ (cm$^{-1}$)} & \parbox{1cm}{$F $ \\ ($\frac{\text{cm}^{-1}}{\text{fm}^{2}}$)} &   \multicolumn{1}{c}{\parbox{1cm}{$\tilde{F} $ \\ (cm$^{-1}$) }}  \\
+\midrule
+ 		\multicolumn{7}{c}{Hs \textsc{i} (Ground State: $^5$D$_{4}$)} \\
+ 		\\
+(8)  & 1$_{3}^{\rm_o}$     & 0.501 &  0.276 & 22.7 & 4.45 & 28.9 \\
+(10) & 2$_{3}^{\rm_o}$      & 0.224 & 0.269 & 22.9 & 4.49 & 28.8  \\
+(11) & $^7$D$_{4}^{\rm_o}$    & -1.11 & 5.66 & -29.1 & -5.70 & -36.6   \\
+(14) & $^7$D$_5^{\rm_o}$     & 0.999 &  5.41& -26.2 & -5.15  \\
+(15) & 3$_{3}^{\rm_o}$     & 0.208 & 0.370 & 16.2 & 3.18 & 20.4   \\
+(17) & 2$_{4}^{\rm_o}$      & 0.0934 & 0.0603 & 5.54 & 1.09 & 6.98   \\ 
+(19) & 3$_{4}^{\rm_o}$      & 0.120 & 0.112 & 18.5 & 3.62 & 23.2   \\
+(21) & 4$_{3}^{\rm_o}$      & -0.150 & 0.253 & 20.7 & 4.05 & 26.0  \\
+(23) & 2$_{5}^{\rm_o}$      & -1.13 & 9.88 & 12.3 & 2.42 & 15.5   \\
+ (24) & 5$_{3}^{\rm_o}$    & 1.70 & 35.5 & 12.3 & 2.41 & 15.5  \\
+(25) & 4$_{4}^{\rm_o}$      & 0.798 & 6.52 & 7.84 & 1.54 & 9.87  \\ 
+(26)  &  $^7$D$_{3}^{\rm_o}$   & -0.493 & 3.20 & -33.3 & -6.53 & -41.9  \\ 
+(29) & $^7$P$_{3}^{\rm_o}$  & -0.511 & 3.91 & -15.8 & -3.11 & -19.9  \\ 
+(30) &5$_{4}^{\rm_o}$     & -0.297 & 1.04 & 1.95 & 0.382 & 2.45  \\ 
+(32) & $^7$P$_{4}^{\rm_o}$  & 0.425 &  2.41 & -9.56 & -1.87 & -12.0 \\ 
+(33) &3$_{5}^{\rm_o}$     & 2.64 & 77.5 & 5.16 & 1.01 & 6.49   \\ 
+(35) & 7$_{3}^{\rm_o}$    & 2.10 & 80.0 & -2.30 & -0.451 & -2.89  \\ 
+\bottomrule
+\bottomrule
+\end{tabular}
+
+\end{table*}
+  \begin{table*}[t] 
+ \caption{Strong electric dipole transitions and isotopic shift parameters for Mt~\textsc{i}. Only direct optical transitions to the ground state satisfying the E1 transition selection rules are shown. Here $D_{\text{E1}}$ is the transition amplitude in a.u., $A_{\text{E1}}$ is the transition rate, $a$, $F$, and $\tilde{F}$ are calculated isotopic shift parameters for the charge radius. The numbers in parentheses correspond to the numbered states in Table \ref{tab:SHESpectrumMt}. \label{tab:SHEE1transitionMt}}
+\begin{tabular}{l@{\hspace{0.01cm}}c@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r}  % @{} adds extra padding to the columns 
+\toprule
+\toprule
+& State &   \parbox{1cm}{$D_{\text{E1}}$ \\ (a.u)} & \parbox{1cm}{$A_{\text{E1}}$ \\ { \small $(\times 10^{6} \ \text{s}^{-1})$ }} & \parbox{1cm}{$a  $ \\ (cm$^{-1}$)} & \parbox{1cm}{$F $ \\ ($\frac{\text{cm}^{-1}}{\text{fm}^{2}}$)} &   \multicolumn{1}{c}{\parbox{1cm}{$\tilde{F} $ \\ (cm$^{-1}$) }}  \\
+\midrule
+\multicolumn{7}{c}{Mt \textsc{i} (Ground State: $^4$F$_{9/2}$)}\\
+ 		\\
+ (7)	& 1$_{7/2}^{\rm_o}$	  & 0.0537 & 0.00765 & 27.5& 5.10 & 34.5 \\
+   (8)	& 1$_{9/2}^{\rm_o}$	 & 0.432 & 0.550 & 27.6 & 5.13 & 34.7 \\
+ (13)	&	$^{6}$D$_{9/2}^{\rm_o}$  & 1.27 & 12.3 & -51.7 & -9.60 & -64.9  \\
+  (15) & 2$_{7/2}^{\rm_o}$	   & -0.294 & 0.946 & 33.3 & 6.18 & 41.8 \\
+ (17)	&	$^6$F$_{11/2}^{\rm_o}$    & -1.89 & 33.3 & -47.9& -8.89& -60.1 \\
+  (19) 	& 3$_{9/2}^{\rm_o}$	    & 0.0954 & 0.112 & 19.0 & 3.53 & 23.9  \\ 
+ (20) 	& 2$_{11/2}^{\rm_o}$	    & 0.170 & 0.344 & 25.7 & 4.78 & 32.3  \\
+\bottomrule
+\bottomrule
+\end{tabular}
+
+\end{table*}
+
 
 \section{Ionization potentials and comparison with other data.} \label{sec:SHEIP}
 
@@ -1875,7 +1994,7 @@ Mt~V    & $6d^5$        & 5/2 & 50.3 &             &   & \\
 \end{table}
 
 \begin{figure}
-\center
+\centering
 \includegraphics[scale=1.00]{./figures/Ionization_Plot.eps}
 \caption{Plot of ionization trends for open $d$-shell elements. The IP trend lines for the doubly ionized elements (blue) use the scale on the right and the neutral IP trend lines (red) use the left. The IPs of neutral SHEs and the doubly ionized lighter homologues Ta~\textsc{iii}, W~\textsc{iii}, Re~\textsc{iii}, Os~\textsc{iii} and Ir~\textsc{iii} were calculated using the CIPT method. All other IPs are from Ref. \cite{NIST_ASD}. \label{fig:IPPlot}}
 \end{figure}
@@ -1884,7 +2003,7 @@ Mt~V    & $6d^5$        & 5/2 & 50.3 &             &   & \\
 
 Calculation of atomic spectra and optical E1 transitions for the elements in the superheavy region with open $d$-shells is novel. In spite of the extreme computational cost of existing methods, using perturbation theory we can calculate the low-lying energy states and relevant E1 transitions with a modest computational cost and with a small loss in accuracy \cite{DBHF2017}. In this work we presented the low-lying energy states for Sg \textsc{i}, Bh \textsc{i}, Hs \textsc{i} and Mt \textsc{i} including the optical transitions between the ground state and states of the opposite parity and their ionization potentials. For all SHEs we observed the relativistic effects, which contract the spectrum compared to their lighter analogs. This is advantageous as it results in a large number of states in the allowed E1 optical region and therefore enhances the likelihood of future measurements. These calculations will help to facilitate future experimental measurements of atomic spectra of these elements. We also presented the relevant isotopic field shift for optical E1 transitions for all four considered SHE. This may help the interpretation of future measurements and contribute to our understanding of the nuclear properties of elements in the superheavy region and potentially identify the existence of meta-stable superheavy isotopes in astronomical spectra.\\
 
-\chapter{Oganesson, $Z=118$}
+ \chapter{Oganesson, $Z=118$}
 The super heavy element (SHE) oganesson ($Z=118$) was first synthesized in 2006 at Dubna \cite{OganessianOg2006} and has recently been officially named and recognized \cite{Karol2016}.  It is also the first SHE and not naturally occuring element in the group of noble elements (Group 18) where the ground state has completely filled electron $np$ shells. Like other SHEs  ($Z>100$) it is of great experimental and theoretical interest due to the high relativistic nature  which may result in exotic and anomalous chemical and physical properties \cite{Pershina2009, Schwerdtfeger2014}. In general, experimental study of SHEs is difficult  due to the short lifetimes and low production rates. Og is no exception, where the only confirmed isotope ($^{294}$Og) has a halflife of 0.7 ms \cite{OganessianOg2006}. The study of Og and other SHEs is of great interest due to their exotic characteristics such as the large dependence on relativistic effects and the possible existence of long-lived isotopes of heavy nuclei in the ``island of stability''. \\
 \linebreak
 %Victor
@@ -1893,8 +2012,7 @@ The existence of long lived SHEs is predicted to occur when the ratio of neutron
 There has been considerable work on both relativistic and quantum electrodynamic (QED) effects \cite{Pyykko1988, Jerabek2018, Goidenko2003, Eliav2015, Indelicato2007, Thierfelder2010} in Og. In this work we included both the Breit interaction and QED radiative effects. To aid in the experimental study of Og we use  theoretical methods to further study its physical properties. 
 \section{CIPT calculation of } \label{sec:CIPT}
 \begin{table*} [t!]
-\begin{center}
-
+\centering
 \caption{CIPT calculations of excitation spectrum, ionisation potential and electron affinity for Rn I with experimental results for comparison. Here $E_E$ and $E_T$ are experimental and theoretical CIPT excitation energies respectively with $\Delta = E_E - E_T$. We also present the calculated Land\'{e} $g$-factors and the energy difference between the experimental and theoretical excitation energies. (Originally published in \cite{LDFOg2018}) \label{tab:RnSpectrum}}
 \begin{tabular}{l@{\hspace{0.5cm}}cc@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r@{\hspace{0.5cm}}}
 \toprule
@@ -1924,10 +2042,10 @@ $6s^2 6p^6 7s$ &   $^2$S & 1/2 &  & 1 868 & 2.00 &    \\
 \bottomrule
 \bottomrule
 \end{tabular}
-\end{center}
+
 \end{table*}
 \begin{table*} [t!]
-\begin{center}
+\centering
 
 \caption{CIPT calculations of excitation spectrum, ionisation potential and electron affinity for Og I. Here $E_T$ and $g_T$ are the theoretical CIPT excitation energies and Land\'{e} $g$-factors respectively.  (Originally published in \cite{LDFOg2018}) \label{tab:OgSpectrum}}
 \begin{tabular}{@{\hspace{1cm}}r@{\hspace{1cm}}r@{\hspace{0.5cm}}l@{\hspace{1cm}}cc@{\hspace{1cm}}r@{\hspace{1cm}}r@{\hspace{1cm}}r}
@@ -1963,7 +2081,7 @@ $7s^2 7p^5$  & $^2$P$^{\rm_o}$ &   3/2  & 71 508    & 1.33  & 71 320\cite{Jerabe
 \bottomrule
 \bottomrule
 \end{tabular}
-\end{center}
+
 \begin{flushleft}
 $^a$ Negative value indicates the state is bound.
 \end{flushleft}
@@ -1992,7 +2110,7 @@ where $J$ is the angular momentum of the upper state, $\alpha$ is the fine struc
 \linebreak
 We calculated the  rates of the $(n+1)s \rightarrow np$ transitions in lighter neutral noble elements Kr and Xe  and compared them to experimental values, these are presented in Table \ref{tab:E1_comp}. The experimental uncertainties are approximately $2\%$ for Xe I transitions \cite{Xe_BSD} and $~10$-$25\%$ for Kr I transitions\cite{Kr_BSD}. Comparing our calculated values to the experimental values in Table \ref{tab:E1_comp} we see the accuracy for these transitions is from 0.6\% to 17.7\%. We used the experimental energies to calculate the transitions rates of Kr I and Xe I using (\ref{eq:Transitionrate}) and since the uncertainty in the experimental energies are negligible the uncertainty in our calculations compared to experimental results in Table \ref{tab:E1_comp} is equivalent to the uncertainty in the square of the calculated transition amplitude $A_{E1}^2$. For our calculation of the Og I transition rates we needed to take into account the non-negligible uncertainty in the energies of our CIPT calculations.  Therefore assuming an accuracy of 18\% for $A_{E1}^2$ and an uncertainty of 3\% in the CIPT energy ($\left|\Delta\right| \approx 1000$~cm$^{-1}$) we expect a transition rate accuracy of 20\% for the $8s \rightarrow 7p$ optical transition ($\omega = 36~689$~cm$^{-1}$) of Og I in Table \ref{tab:E1_transitions}.  \\
 \begin{table}[h]
-\center
+\centering
 \caption{Comparison of E1 transition rates between experimental and CIPT values for Kr I and Xe I. Here $A_{E1}$ is the transition amplitude in atomic units and $T_{E1}$ is the transition rate. \label{tab:E1_comp}}
 \begin{tabular}{c@{\hspace{0.5cm}}c@{\hspace{1cm}}c@{\hspace{0.5cm}}c@{\hspace{0.5cm}}c}
 \toprule
@@ -2012,7 +2130,7 @@ $^1$P$_1^{\rm_o}$ & 80 916 & 0.94  & 314  & 312\cite{Kr_BSD} \\
 \end{table}
 
 \begin{table}[h]
-\center
+\centering
 \caption{Electric dipole transition amplitudes of Og I from the ground state $^1$S$_0$ to the excited states of odd parity and angular momenta $J=1$. Here $A_{E1}$ is the transition amplitude in atomic units and $T_{E1}$ is the transition rate. We include results of MCDF calculations from ref. \cite{Indelicato2007} for comparision. There is significant disagreement for the third transition however there is another transition in \cite{Indelicato2007} which has a rate ($986 \times 10^{6}$ s$^{-1}$) close to our calculated value. So, the disagreement  may be the result of a misprint in \cite{Indelicato2007}. (Originally published in \cite{LDFOg2018}).\label{tab:E1_transitions}}
 \begin{tabular}{c@{\hspace{0.5cm}}c@{\hspace{1cm}}c@{\hspace{0.5cm}}c@{\hspace{0.5cm}}c}
 \toprule
@@ -2092,7 +2210,7 @@ In this work we calculated the spectrum and E1 transitions for Og I including th
 
 
 \begin{table} 
-\center
+\centering
 \begin{tabular}{c|c}
 \toprule
 \toprule
@@ -2112,7 +2230,7 @@ Filled $N$ Shell & $\sum 2n_z + 1 = \sum N - n_z + 1$ \\ [2pt]
 \end{table}
 
 \begin{table}[htbp]
-\center
+\centering
 \begin{tabular}{|c|c|c|c|c|c|}
 \toprule
 \toprule
@@ -2161,7 +2279,7 @@ $l_m$      & $\Omega[Nn_z\Lambda]$ & $2n_z + 1$ & $N - n_z + 1$ & $\Sigma\Lambda
 \end{tabular}
 \end{table}
 \begin{table}[htbp]
-\center
+\centering
 \begin{tabular}{|c|c|c|c|c|c|}
 \toprule
 \toprule
@@ -2227,7 +2345,7 @@ $l_m$      & $\Omega[Nn_z\Lambda]$ & $2n_z + 1$ & $N - n_z + 1$ & $\Sigma\Lambda
 Below is a table of the filled and unfilled $N$ shells of the deformed nuclei of interest. For Eu isotopes there are two applicable deformations, large or small. Due to the relative electric quadrupole moment of the two isotopes we assumed a large deformation for $^{153}$Eu and small deformation for $^{151}$Eu.
 \begin{table}[htbp]
 \begin{adjustwidth}{-3cm}{-3cm}
-\center
+\centering
 \begin{tabular}{|c|c|c|c|}
 \toprule
 \toprule
@@ -2337,7 +2455,7 @@ $^{181}$Ta & $\approx 0.3$
 \end{adjustwidth}
 \end{table}
 \begin{table}[htbp]
-\center
+\centering
 \begin{tabular}{c|c|c|c}
 \toprule
 \toprule
