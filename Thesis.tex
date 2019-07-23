@@ -27,6 +27,7 @@
 \usepackage{etoolbox}
 \usepackage{fmtcount}
 \usepackage{titlesec}
+\usepackage{longtable}
 \hypersetup{
     linktoc=all,
     colorlinks,
@@ -2222,7 +2223,7 @@ In this work we calculated the spectrum and E1 transitions for Og I including th
 
 
 \chapter{Nilsson Orbitals}
-
+In Chapter \ref{chap:Deformed} I discussed the Nilsson model for deformed nuclei. In this Appendix I present the Nilsson values for each nucleons and the open shell configurations for the nuclei of interest.
 \begin{figure}
 \centering
 \begin{subfigure}[b]{0.45\textwidth}
@@ -2244,7 +2245,7 @@ In this work we calculated the spectrum and E1 transitions for Og I including th
     \includegraphics[width=\textwidth]{./figures/Nilsson/neutron_deformed126.png}
     \caption{$N>126$}
 \end{subfigure}
-\caption{Nilsson energy diagrams for both protons and neutrons for prolate deformed nuclei. Here $\delta$ is a degree of deformation. The numbers in circles represent the magic numbers in the spherical limit. These figures have been taken from \cite{BohrMottVol2}}
+\caption{Nilsson energy diagrams for both protons and neutrons for prolate deformed nuclei. Here $\delta_{\text{osc}}$ is a degree of deformation. The numbers in circles represent the magic numbers in the spherical limit. These figures have been taken from A. Bohr B. R. Mottelson, Nuclear Structure Vol. 2 \cite{BohrMottVol2}.}
 
 \end{figure}
 
@@ -2252,6 +2253,7 @@ In this work we calculated the spectrum and E1 transitions for Og I including th
 
 \begin{table} 
 \centering
+\caption[Collective Nilsson for for major shells.]{This table presents the collective Nilsson values $\sum 2n_z + 1$ and $\sum N - n_z + 1$ for major shells $N$. This is identical for both protons and neutrons. \label{table:FullShellNz}}
 \begin{tabular}{c|c}
 \toprule
 \toprule
@@ -2266,122 +2268,136 @@ Filled $N$ Shell & $\sum 2n_z + 1 = \sum N - n_z + 1$ \\ [2pt]
 \bottomrule
 \bottomrule
 \end{tabular}
-\caption{This shows $\sum 2n_z + 1$ and $\sum N - n_z + 1$  for each completely filled $N$ shell in the Nilsson model. \label{table:FullShellNz} %These numbers are the same for protons and neutrons.
-}
 \end{table}
 
 \begin{table}[htbp]
 \centering
-\begin{tabular}{|c|c|c|c|c|c|}
+\caption{Nilsson values, $2n_z + 1$, $N - n_z + 1$ and $\Sigma\Lambda$ for individual nucleons.}
+\begin{tabular}{l@{\hspace{1cm}}r@{\hspace{1cm}}c@{\hspace{1cm}}c@{\hspace{1cm}}c}
 \toprule
 \toprule
-$l_m$      & $\Omega[Nn_z\Lambda]$ & $2n_z + 1$ & $N - n_z + 1$ & $\Sigma\Lambda$ & $\Omega - \Lambda$ \\
+$l_m$      & $\Omega[Nn_z\Lambda]$ & $2n_z + 1$ & $N - n_z + 1$ & $\Sigma\Lambda$ \\
 \midrule
-1$s_{1/2}$ & $1/2[000]$            & 1          & 1             & 0       &   1/2     \\
-1$p_{3/2}$ & $1/2[110]$            & 3          & 1             & 0      &   1/2      \\
-1$p_{3/2}$ & $3/2[101]$            & 1          & 2             & 1/2   &   1/2           \\
-1$p_{1/2}$ & $1/2[101]$            & 1          & 2             & -1/2    &   -1/2       \\
-\midrule
-1$d_{5/2}$ & $1/2[220]$            & 5          & 1             & 0      & 1/2        \\
-1$d_{5/2}$ & $3/2[211]$            & 3          & 2             & 1/2    & 1/2           \\
-1$d_{5/2}$ & $5/2[202]$            & 1          & 3             & 1       & 1/2        \\
-2$s_{1/2}$ & $1/2[211]$            & 3          & 2             & -1/2      & -1/2         \\
-1$d_{3/2}$ & $1/2[200]$            & 1          & 3             & 0         & -1/2      \\
-1$d_{3/2}$ & $3/2[202]$            & 1          & 3             & -1       & -1/2        \\
-\midrule
-1$f_{7/2}$ & $1/2[330]$            & 7          & 1             & 0        & 1/2       \\
-1$f_{7/2}$ & $3/2[321]$            & 5          & 2             & 1/2      & 1/2         \\
-1$f_{7/2}$ & $5/2[312]$            & 3          & 3             & 1          & 1/2     \\
-1$f_{7/2}$ & $7/2[303]$            & 1          & 4             & 3/2       & 1/2        \\
-2$p_{3/2}$ & $1/2[321]$            & 5          & 2             & -1/2      & -1/2         \\
-2$p_{3/2}$ & $3/2[312]$            & 3          & 3             & -1       & -1/2        \\
-1$f_{5/2}$ & $1/2[310]$            & 3          & 3             & 0         & 1/2      \\
-1$f_{5/2}$ & $3/2[301]$            & 1          & 4             & 1/2      & 1/2         \\
-1$f_{5/2}$ & $5/2[303]$            & 1          & 4             & -3/2      & -1/2         \\
-2$p_{1/2}$ & $1/2[301]$            & 1          & 4             & -1/2      & -1/2         \\
-\midrule
-1$g_{9/2}$ & $1/2[440]$            & 9          & 1             & 0        & 1/2       \\
-1$g_{9/2}$ & $3/2[431]$            & 7          & 2             & 1/2      & 1/2         \\
-1$g_{9/2}$ & $5/2[422]$            & 5          & 3             & 1        & 1/2       \\
-1$g_{9/2}$ & $7/2[413]$            & 3          & 4             & 3/2      & 1/2         \\
-1$g_{9/2}$ & $9/2[404]$            & 1          & 5             & 2        & 1/2       \\
-1$g_{7/2}$ & $1/2[431]$            & 7          & 2             & -1/2      & -1/2         \\
-1$g_{7/2}$ & $3/2[422]$            & 5          & 3             & -1          & -1/2     \\
-1$g_{7/2}$ & $5/2[413]$            & 3          & 4             & -3/2      & -1/2         \\ 
-1$g_{7/2}$ & $7/2[404]$            & 1          & 5             & -2        & -1/2       \\
-2$d_{5/2}$ & $1/2[420]$            & 5          & 3             & 0         & 1/2      \\
-2$d_{5/2}$ & $3/2[411]$            & 3          & 4             & 1/2      & 1/2         \\
-2$d_{5/2}$ & $5/2[402]$            & 1          & 5             & 1    & 1/2  \\
-2$d_{3/2}$ & $1/2[411]$            & 3          & 4             & -1/2     & -1/2          \\
-2$d_{3/2}$ & $3/2[402]$            & 1          & 5             & -1       & -1/2        \\
-3$s_{1/2}$ & $1/2[400]$            & 1          & 5             & 1/2       & 1/2        \\
+\multicolumn{5}{c}{$N=0$} \\
+1$s_{1/2}$ & $1/2[000]$            & 1          & 1             & 0            \\
+\multicolumn{5}{c}{$N=1$} \\
+1$p_{3/2}$ & $1/2[110]$            & 3          & 1             & 0          \\
+1$p_{3/2}$ & $3/2[101]$            & 1          & 2             & 1/2           \\
+1$p_{1/2}$ & $1/2[101]$            & 1          & 2             & -1/2          \\
+\multicolumn{5}{c}{$N=2$} \\
+1$d_{5/2}$ & $1/2[220]$            & 5          & 1             & 0        \\
+1$d_{5/2}$ & $3/2[211]$            & 3          & 2             & 1/2          \\
+1$d_{5/2}$ & $5/2[202]$            & 1          & 3             & 1             \\
+2$s_{1/2}$ & $1/2[211]$            & 3          & 2             & -1/2           \\
+1$d_{3/2}$ & $1/2[200]$            & 1          & 3             & 0             \\
+1$d_{3/2}$ & $3/2[202]$            & 1          & 3             & -1            \\
+\multicolumn{5}{c}{$N=3$} \\
+1$f_{7/2}$ & $1/2[330]$            & 7          & 1             & 0             \\
+1$f_{7/2}$ & $3/2[321]$            & 5          & 2             & 1/2               \\
+1$f_{7/2}$ & $5/2[312]$            & 3          & 3             & 1             \\
+1$f_{7/2}$ & $7/2[303]$            & 1          & 4             & 3/2               \\
+2$p_{3/2}$ & $1/2[321]$            & 5          & 2             & -1/2              \\
+2$p_{3/2}$ & $3/2[312]$            & 3          & 3             & -1              \\
+1$f_{5/2}$ & $1/2[310]$            & 3          & 3             & 0              \\
+1$f_{5/2}$ & $3/2[301]$            & 1          & 4             & 1/2               \\
+1$f_{5/2}$ & $5/2[303]$            & 1          & 4             & -3/2               \\
+2$p_{1/2}$ & $1/2[301]$            & 1          & 4             & -1/2               \\
+\multicolumn{5}{c}{$N=4$} \\
+1$g_{9/2}$ & $1/2[440]$            & 9          & 1             & 0               \\
+1$g_{9/2}$ & $3/2[431]$            & 7          & 2             & 1/2               \\
+1$g_{9/2}$ & $5/2[422]$            & 5          & 3             & 1               \\
+1$g_{9/2}$ & $7/2[413]$            & 3          & 4             & 3/2               \\
+1$g_{9/2}$ & $9/2[404]$            & 1          & 5             & 2              \\
+1$g_{7/2}$ & $1/2[431]$            & 7          & 2             & -1/2             \\
+1$g_{7/2}$ & $3/2[422]$            & 5          & 3             & -1             \\
+1$g_{7/2}$ & $5/2[413]$            & 3          & 4             & -3/2            \\ 
+1$g_{7/2}$ & $7/2[404]$            & 1          & 5             & -2              \\
+2$d_{5/2}$ & $1/2[420]$            & 5          & 3             & 0              \\
+2$d_{5/2}$ & $3/2[411]$            & 3          & 4             & 1/2            \\
+2$d_{5/2}$ & $5/2[402]$            & 1          & 5             & 1    \\
+2$d_{3/2}$ & $1/2[411]$            & 3          & 4             & -1/2               \\
+2$d_{3/2}$ & $3/2[402]$            & 1          & 5             & -1               \\
+3$s_{1/2}$ & $1/2[400]$            & 1          & 5             & 1/2           \\
 \bottomrule
 \bottomrule
 \end{tabular}
 \end{table}
 \begin{table}[htbp]
 \centering
-\begin{tabular}{|c|c|c|c|c|c|}
+\begin{tabular}{l@{\hspace{0.5cm}}r@{\hspace{1cm}}c@{\hspace{1cm}}c@{\hspace{1cm}}c@{\hspace{1cm}}c}
 \toprule
 \toprule
-$l_m$      & $\Omega[Nn_z\Lambda]$ & $2n_z + 1$ & $N - n_z + 1$ & $\Sigma\Lambda$ & $\Sigma$ ( $\Omega - \Lambda$) \\
+$l_m$      & $\Omega[Nn_z\Lambda]$ & $2n_z + 1$ & $N - n_z + 1$ & $\Sigma\Lambda$  \\
 \midrule
-1$h_{11/2}$ & $1/2[550]$            & 11         & 1             & 0      & 1/2         \\
-1$h_{11/2}$ & $3/2[541]$            & 9          & 2             & 1/2      & 1/2         \\
-1$h_{11/2}$ & $5/2[532]$            & 7          & 3             & 1       & 1/2        \\
-1$h_{11/2}$ & $7/2[523]$            & 5          & 4             & 3/2      & 1/2        \\
-1$h_{11/2}$ & $9/2[514]$            & 3          & 5             & 2        & 1/2       \\
-1$h_{11/2}$ & $11/2[505]$           & 1          & 6             & 5/2      & 1/2         \\
-1$h_{9/2}$ & $1/2[541]$             & 9          & 2             & -1/2      & -1/2         \\
-1$h_{9/2}$ & $3/2[532]$             & 7          & 3             & -1     & -1/2          \\
-1$h_{9/2}$ & $5/2[523]$             & 5          & 4             & -3/2      & -1/2         \\
-1$h_{9/2}$ & $7/2[514]$             & 3          & 5             & -2        & -1/2       \\
-1$h_{9/2}$ & $9/2[505]$             & 1          & 6             & -5/2      & -1/2         \\
-2$f_{7/2}$ & $1/2[530]$             & 7          & 3             & 0        & 1/2       \\
-2$f_{7/2}$ & $3/2[521]$             & 5          & 4             & 1/2      & 1/2         \\
-2$f_{7/2}$ & $5/2[512]$             & 3          & 5             & 1        & 1/2       \\
-2$f_{7/2}$ & $7/2[503]$             & 1          & 6             & 3/2       & 1/2        \\
-3$p_{3/2}$ & $1/2[521]$             & 5          & 4             & -1/2     & -1/2          \\
-3$p_{3/2}$ & $3/2[512]$             & 3          & 5             & -1       & -1/2        \\
-2$f_{5/2}$ & $1/2[510]$             & 3          & 5             & 0      & 1/2         \\
-2$f_{5/2}$ & $3/2[501]$             & 1          & 6             & 1/2       & 1/2        \\
-2$f_{5/2}$ & $5/2[503]$             & 1          & 6             & -3/2       & -1/2        \\
-3$p_{1/2}$ & $1/2[501]$             & 1          & 6             & -1/2       & -1/2        \\
-\midrule
-1$i_{13/2}$ & $1/2[660]$            & 13         & 1             & 0        & 1/2       \\
-1$i_{13/2}$ & $3/2[651]$            & 11         & 2             & 1/2        & 1/2       \\
-1$i_{13/2}$ & $5/2[642]$            & 9          & 3             & 2        & 1/2       \\
-1$i_{13/2}$ & $7/2[633]$            & 7          & 4             & 3/2      & 1/2         \\
-1$i_{13/2}$ & $9/2[624]$            & 5          & 5             & 2        & 1/2       \\
-1$i_{13/2}$ & $11/2[615]$           & 3          & 6             & 5/2      & 1/2         \\
-1$i_{13/2}$ & $13/2[606]$           & 1          & 7             & 3         & 1/2      \\
-2$g_{9/2}$  & $1/2[651]$            & 11         & 2             & -1/2        & -1/2       \\
-2$g_{9/2}$  & $3/2[642]$            & 9          & 3             & -1          & -1/2     \\
-2$g_{9/2}$  & $5/2[633]$            & 7          & 4             & -3/2       & -1/2        \\
-2$g_{9/2}$  & $7/2[624]$            & 5          & 5             & -2        & -1/2       \\
-2$g_{9/2}$  & $9/2[615]$            & 3          & 6             & -5/2      & -1/2         \\
-1$i_{11/2}$ & $1/2[640]$            & 9          & 3             & 0         & 1/2      \\
-1$i_{11/2}$ & $3/2[631]$            & 7          & 4             & 1/2      & 1/2         \\
-1$i_{11/2}$ & $5/2[622]$            & 5          & 5             & 1       & 1/2        \\
-1$i_{11/2}$ & $7/2[613]$            & 3          & 6             & 3/2      & 1/2         \\
-1$i_{11/2}$ & $9/2[604]$            & 1          & 7             & 2       & 1/2        \\
-1$i_{11/2}$ & $11/2[606]$*           & 1          & 7             & -3       & -1/2        \\
+\multicolumn{5}{c}{$N=5$} \\
+1$h_{11/2}$ & $1/2[550]$            & 11         & 1             & 0             \\
+1$h_{11/2}$ & $3/2[541]$            & 9          & 2             & 1/2               \\
+1$h_{11/2}$ & $5/2[532]$            & 7          & 3             & 1           \\
+1$h_{11/2}$ & $7/2[523]$            & 5          & 4             & 3/2         \\
+1$h_{11/2}$ & $9/2[514]$            & 3          & 5             & 2         \\
+1$h_{11/2}$ & $11/2[505]$           & 1          & 6             & 5/2            \\
+1$h_{9/2}$ & $1/2[541]$             & 9          & 2             & -1/2          \\
+1$h_{9/2}$ & $3/2[532]$             & 7          & 3             & -1        \\
+1$h_{9/2}$ & $5/2[523]$             & 5          & 4             & -3/2            \\
+1$h_{9/2}$ & $7/2[514]$             & 3          & 5             & -2         \\
+1$h_{9/2}$ & $9/2[505]$             & 1          & 6             & -5/2           \\
+2$f_{7/2}$ & $1/2[530]$             & 7          & 3             & 0             \\
+2$f_{7/2}$ & $3/2[521]$             & 5          & 4             & 1/2               \\
+2$f_{7/2}$ & $5/2[512]$             & 3          & 5             & 1           \\
+2$f_{7/2}$ & $7/2[503]$             & 1          & 6             & 3/2           \\
+3$p_{3/2}$ & $1/2[521]$             & 5          & 4             & -1/2           \\
+3$p_{3/2}$ & $3/2[512]$             & 3          & 5             & -1            \\
+2$f_{5/2}$ & $1/2[510]$             & 3          & 5             & 0         \\
+2$f_{5/2}$ & $3/2[501]$             & 1          & 6             & 1/2           \\
+2$f_{5/2}$ & $5/2[503]$             & 1          & 6             & -3/2           \\
+3$p_{1/2}$ & $1/2[501]$             & 1          & 6             & -1/2            \\
+\multicolumn{5}{c}{$N=6$} \\
+1$i_{13/2}$ & $1/2[660]$            & 13         & 1             & 0            \\
+1$i_{13/2}$ & $3/2[651]$            & 11         & 2             & 1/2        \\
+1$i_{13/2}$ & $5/2[642]$            & 9          & 3             & 2           \\
+1$i_{13/2}$ & $7/2[633]$            & 7          & 4             & 3/2       \\
+1$i_{13/2}$ & $9/2[624]$            & 5          & 5             & 2      \\
+1$i_{13/2}$ & $11/2[615]$           & 3          & 6             & 5/2       \\
+1$i_{13/2}$ & $13/2[606]$           & 1          & 7             & 3        \\
+2$g_{9/2}$  & $1/2[651]$            & 11         & 2             & -1/2         \\
+2$g_{9/2}$  & $3/2[642]$            & 9          & 3             & -1     \\
+2$g_{9/2}$  & $5/2[633]$            & 7          & 4             & -3/2      \\
+2$g_{9/2}$  & $7/2[624]$            & 5          & 5             & -2        \\
+2$g_{9/2}$  & $9/2[615]$            & 3          & 6             & -5/2     \\
+1$i_{11/2}$ & $1/2[640]$            & 9          & 3             & 0       \\
+1$i_{11/2}$ & $3/2[631]$            & 7          & 4             & 1/2    \\
+1$i_{11/2}$ & $5/2[622]$            & 5          & 5             & 1       \\
+1$i_{11/2}$ & $7/2[613]$            & 3          & 6             & 3/2      \\
+1$i_{11/2}$ & $9/2[604]$            & 1          & 7             & 2            \\
+1$i_{11/2}$ & $11/2[606]$*           & 1          & 7             & -3          \\
 \vdots      & \vdots                & \vdots     & \vdots        & \vdots           \\
-\midrule
-1$j_{15/2}$ & $1/2[770]$            & 15         & 1             & 0          & 1/2     \\
-1$j_{15/2}$ & $3/2[761]$            & 13         & 2             & 1/2       & 1/2        \\
-1$j_{15/2}$ & $5/2[752]$            & 11         & 3             & 1           & 1/2    \\
-1$j_{15/2}$ & $7/2[743]$            & 9          & 4             & 3/2        & 1/2       \\
-1$j_{15/2}$ & $9/2[734]$            & 7          & 5             & 2         & 1/2      \\
-1$j_{15/2}$ & $11/2[725]$            & 5          & 6             & 5/2         & 1/2      \\
-1$j_{15/2}$ & $13/2[716]$            & 3          & 7             & 3       & 1/2        \\
-1$j_{15/2}$ & $15/2[707]$            & 1          & 8             & 7/2       & 1/2        \\
-\vdots      & \vdots                & \vdots     & \vdots        & \vdots           \\
+
 \bottomrule
 \bottomrule
 \end{tabular}
 \end{table}
 \newpage
+\begin{table}[htbp]
+\centering
+\begin{tabular}{l@{\hspace{0.5cm}}r@{\hspace{1cm}}c@{\hspace{1cm}}c@{\hspace{1cm}}c@{\hspace{1cm}}c}
+\toprule
+\toprule
+$l_m$      & $\Omega[Nn_z\Lambda]$ & $2n_z + 1$ & $N - n_z + 1$ & $\Sigma\Lambda$  \\
+\midrule
+\multicolumn{5}{c}{$N=7$} \\
+1$j_{15/2}$ & $1/2[770]$            & 15         & 1             & 0            \\
+1$j_{15/2}$ & $3/2[761]$            & 13         & 2             & 1/2         \\
+1$j_{15/2}$ & $5/2[752]$            & 11         & 3             & 1          \\
+1$j_{15/2}$ & $7/2[743]$            & 9          & 4             & 3/2         \\
+1$j_{15/2}$ & $9/2[734]$            & 7          & 5             & 2              \\
+1$j_{15/2}$ & $11/2[725]$            & 5          & 6             & 5/2           \\
+1$j_{15/2}$ & $13/2[716]$            & 3          & 7             & 3         \\
+1$j_{15/2}$ & $15/2[707]$            & 1          & 8             & 7/2         \\
+\vdots      & \vdots                & \vdots     & \vdots        & \vdots           \\
+\bottomrule
+\bottomrule
+\end{tabular}
+\end{table}
 \section{Filled and Unfilled shells of Nuclei}
 Below is a table of the filled and unfilled $N$ shells of the deformed nuclei of interest. For Eu isotopes there are two applicable deformations, large or small. Due to the relative electric quadrupole moment of the two isotopes we assumed a large deformation for $^{153}$Eu and small deformation for $^{151}$Eu.
 \begin{table}[htbp]
