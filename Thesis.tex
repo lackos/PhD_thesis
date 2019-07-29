@@ -1,4 +1,4 @@
-\documentclass[10pt,a4paper, twoside]{report}
+\documentclass[10pt,a4paper, twoside, openright]{report}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{amsmath}
@@ -101,17 +101,35 @@
   \ifnum\value{table}=0\addtocontents{lot}{{\bfseries \chaptertitlename~\Numberstring{chapter}\vskip10pt}}\fi
 }
 \begin{document}
-\onehalfspacing
-\title{PhD Thesis \\
-Violation of the fundamental symmetries and atomic structure of superheavy elements}
-\begin{figure*}
+\begin{titlepage}
+	\centering
+	\begin{figure*}
 \centering
 \includegraphics[scale=1]{./figures/unsw-crest.eps}
 \captionsetup[figure]{list=no}
 \end{figure*}
-\author{Bryce G. C. Lackenby}
-\date{\today}
-\maketitle
+    \captionsetup[figure]{list=no}
+	\vspace{1cm}
+	{\scshape\Large PhD Thesis\par}
+	\vspace{1.5cm}
+	{\huge\bfseries Violation of the fundamental symmetries and atomic structure of superheavy elements\par}
+	\vspace{2cm}
+	{\Large Bryce G. C. Lackenby \par}
+	\vfill
+	\raggedright
+	Supervisors\par
+	Victor V. Flambaum \\
+	Vladimir A. Dzuba \\
+	\centering
+
+	\vfill
+
+% Bottom of the page
+	{\large \today\par}
+\end{titlepage}
+\onehalfspacing
+
+\pagenumbering{roman}
 \tableofcontents
 
 
@@ -135,7 +153,10 @@ of the calculations.
 \cite{LDFOg2018} \bibentry{LDFOg2018} \\
 \cite{LFMQM2018} \bibentry{LFMQM2018} \\
 \cite{LDFSg2019} \bibentry{LDFSg2019}
+
+
 \part{Violation of  fundamental symmetries in nuclei}
+\pagenumbering{arabic}
 \chapter{Introduction} \label{chap:P1Intro}
 Since its inception in the latter half of the of 20th century, the Standard Model (SM) has proven a robust phenomenological theory and remains the most holistic and accurate description of the interactions (with the exception of  the gravitational force) of known fundamental particles and forces in nature. However despite the success of the SM  there are  physical phenomena which cannot be described without the SM being revised or extended. Similar to how classical physics is a large spatial approximation to quantum theory, it is suspected that the standard model is a low energy approximation to a more fundamental theory of the universe.  Therefore, for the past several decades there has been a determined, concerted effort to detect, measure, and explain phenomena which lie outside the current standard model of physics, known as ``beyond the standard model'' (BSM) physics. On this frontier of modern physics, a possible avenue to study BSM physics is through the violation of fundamental symmetries of nature and how they manifest in physical systems. Many BSM theories have been proposed such as supersymmetric \cite{Fayet1976, Fayet1977, Pospelov2005, Ramsey2008}, double Higgs \cite{Inoue2014} and Left-Right symmetric models \cite{Pati1974}. Some of the observed phenomena which initiated this search for BSM are the existence of dark matter and energy, the non unified gravitational forces and the apparent matter and anti-matter assymetry in the universe. It is the last of these which is most appropriate to this thesis. \\
 \linebreak
@@ -262,6 +283,15 @@ Violation of LLIV in nuclear systems using the tensor interaction does not requi
 \end{tabular}
 \end{table}
 \fi
+
+Molecules in particular present a lucrative option due to existence of very close paired levels of opposite parity, the  $\Omega$-doublet - see e.g.  \cite{Flambaum2014}. For highly polar molecules consisting of a heavy and light nucleus (for example, Th and O) the effect of MQM is $\sim Z^2$, therefore it is calculated for the heavier nucleus. The Hamiltonian of diatomic paramagnetic molecule including the $T, P-$ odd nuclear moment effects is given by \cite{SFK1984,Kozlov1995}:
+\begin{align}
+H = W_d d_e \mathbf{S}\cdot\mathbf{n} + W_{Q}\dfrac{Q}{I}\mathbf{I}\cdot\mathbf{n} - \dfrac{W_{M}M}{2I(2I -1)}\mathbf{S}\hat{\mathbf{T}}\mathbf{n},
+\end{align}
+where $d_e$ is the electron EDM, $Q$ is the nuclear Schiff moment, $M$ is the nuclear MQM, $\mathbf{S}$ is the electron spin, $\mathbf{n}$ is the symmetry axis of the molecule, $\hat{\mathbf{T}} $ is the second rank tensor operator characterised by the nuclear spins $T_{ij} = I_iI_j + I_jI_i - \tfrac{2}{3}\delta_{ij}I(I + 1)$  and  $W_d$, $W_Q$ and $W_M$ are fundamental parameters for each interaction which are dependent on the particular molecule. We have omitted the $P$-,$T$- odd electron-nucleon interaction terms which are presented e.g. in reviews \cite{Safronova2017,GF2004}. 
+These parameters $W_d$, $W_Q$ and $W_M$
+%, which are necessary for extracting the nuclear MQM from an experiment, 
+are related to the electronic molecular structure of the state.
 \chapter{Properties of deformed nuclei} \label{chap:Deformed}
  In this chapter I give a brief overview of the Nilsson model for deformed nuclei and the quadrupole properties of nuclei. The independent particle model will only describe how a single nucleon will behave in the mean field. In the case of an atom this is a relatively simple and stable approach. This is because in an atom, to a first approximation, the electrons experience a potential from the much larger point like nucleus. It is only in lower approximations that you take into account the inter electron potential by using methods such as Hartree Fock. However in the nucleus there is no centre source of potential, it all comes from the inter-nucleon interactions which is not completely understood. Therefore any mean field potential ascribed to the nucleus is going to be inherently unstable, especially when considering larger nuclei. This results in a anisotropy of the nucleus which has interesting properties when trying to understand nuclear physics. 
 \section{The Nilsson Model}
@@ -269,11 +299,12 @@ While collective effects of the nucleus have been considered for a significantly
 \begin{align} \label{eq:NilssonHamiltonian}
 H = \dfrac{\textbf{p}^2}{2m} + \dfrac{1}{2}m \left[\omega_{\perp}\left(\textbf{x}^2 + \textbf{y}^2\right) + \omega_z \textbf{z}^2\right] + C\textbf{l}\cdot \textbf{s} + D \left(\textbf{l}^2 - \left<I^2\right>\right)
 \end{align}
-which has the form of an asymmetric three dimensional harmonic oscillator model where we have chosen the $z-$axis as the axis of deformation. Here $m$ is the nucleon mass, $\omega_z$ and $\omega_{\perp} = \omega_x = \omega_y$ (as we are considering quadrupole deformations only) are the nucleon oscillation frequencies along the $z-$axis and the perpendicular  plane respectively.  Both the spin-orbit term ($\textbf{l}\cdot \textbf{s}$) and the  $\textbf{l}^2 - \left<I^2\right>$ terms were included to reproduce the magic numbers in the spherical limit. To relate this Hamiltonian to the the collective deformation of the nucleus, $\delta$, the angular frequencies and deformation parameter are related by,
+which has the form of an asymmetric three dimensional harmonic oscillator model where we have chosen the $z-$axis as the axis of deformation. Here $m$ is the nucleon mass, $\omega_z$ and $\omega_{\perp} = \omega_x = \omega_y$ (as we are considering quadrupole deformations only) are the nucleon oscillation frequencies along the $z-$axis and the perpendicular  plane respectively.  Both the spin-orbit term ($\textbf{l}\cdot \textbf{s}$) and the  $\textbf{l}^2 - \left<I^2\right>$ terms were included to reproduce the magic numbers in the spherical limit. Specifically, the $\left<I^2\right>$  term was introduced phenomenologically to correct the energy of the single-particle states closer to the nuclear surface and lower them to correct for the steep rise in the harmonic-oscillator potential there. 	To relate this Hamiltonian to the the collective deformation of the nucleus, $\delta$, the angular frequencies and deformation parameter are related by,
 \begin{align*}
 \omega_{\perp^{2}} = \omega_0^2\left(1 + \dfrac{2}{3}\delta\right) \\
 \omega_z^2 = \omega_0^2\left(1 - \dfrac{4}{3}\delta\right)
 \end{align*}
+One of the consequence of deformation is configuration mixing.  Forexample thed5/2and thed3/2states which are separate for thespherical shell model mix in the Nilsson model.As a consequence of mixing the total angular momentum does nothave a well defined value in a deformed shell model, for example for amixture ofd5/2and thed3/2states the total angular momentum is amixture ofj=52andj=32
 \begin{figure}
 \centering
 \begin{subfigure}[b]{0.48\textwidth}
@@ -411,7 +442,7 @@ Q_{\nu} &= \sum_{i} q_{i,\nu} \nonumber\\
 &= \dfrac{\hbar}{m}\left[\dfrac{1}{\omega_z}\sum_{i}\left(2n_z + 1\right)_{i,\nu} - \dfrac{1}{\omega_{\perp}}\sum_{i}\left(N -n_z + 1\right)_{i,\nu}\right]. \label{eq:CollectiveMDim} 
 \end{align}
 \section{Example calculation of $Q_{\nu}$ and $M_{\nu}$ for the $^{173}$Yb nucleus}
-To illustrate the process of calculating NQMN and LLIV values we will present the calculation of $^{173}$Yb as an example. To begin we find the nuclear configuration of protons and neutrons in the deformed field using the energy level plots presented in \cite{Nilsson1955,BohrMottVol2} by filling each non-degenerate $\Omega$ energy branch with two nucleons until all the nucleons have been distributed. To find the correct deformation, $\delta$, from which to fill we use the experimental value of the nuclear spin (which is solely due to the unpaired nucleon). The filling must be done such that the unpaired nucleon is in the correct spin state. The nuclear spin of $^{173}$Yb is $5/2^{-}$ due to an unpaired neutron. Using the method described above we find that this is possible with a minimum deformation of $\delta \approx 0.3$. Here we will only present the configuration of the partially filled $N$ shells. The numbers for each full shell is given in Table \ref{table:FullShellNz}. The incomplete neutron and proton shells in $^{173}$Yb are $N = 5,6$ and $N = 4,5$ respectively. The nucleon configuration of the incomplete shells are given in Table \ref{table:YbConfig}.
+To illustrate the process of calculating NQMN and LLIV values we will present the calculation of $^{173}$Yb. To begin we find the nuclear configuration of protons and neutrons in the deformed field using the energy level plots presented in \cite{Nilsson1955,BohrMottVol2} (see Appendix \ref{chap:Nilsson}) by filling each non-degenerate $\Omega$ energy branch with two nucleons until all the nucleons have been distributed. To find the correct deformation, $\delta$, from which to fill we use the experimental value of the nuclear spin (which is solely due to the unpaired nucleon). The filling must be done such that the unpaired nucleon is in the correct spin state. The nuclear spin of $^{173}$Yb is $5/2^{-}$ due to an unpaired neutron. Using the method described above we find that this is possible with a minimum deformation of $\delta \approx 0.3$. Here we will only present the configuration of the partially filled $N$ shells. The numbers for each full shell are presented in the Appendix \ref{chap:Nilsson} (Table \ref{table:FullShellNz}). The incomplete neutron and proton shells in $^{173}$Yb are $N = 5,6$ and $N = 4,5$ respectively. The nucleon configuration of the incomplete shells are given in Table \ref{table:YbConfig}.
 \begin{landscape}
 \begin{table} 
 \centering
@@ -444,8 +475,7 @@ $\pm 1/2[550]$, $\pm 3/2[541]$, $\pm 5/2[532]$, $\pm 7/2[523]$ \end{flushleft} }
 
 \end{table}
 \end{landscape}
-Summing up the contribution for all the $^{173}$Yb filled shells from Table \ref{table:FullShellNz} and the partially filled shells from Table \ref{table:YbConfig} the total values for  neutrons are $\sum(2n_z + 1)_{n} = 439$, $\sum(N - n_z + 1)_n = 318$ and protons $\sum(2n_z + 1)_{p} = 266$, $\sum(N - n_z + 1)_p = 190$. Using equation (\ref{eq:RotationalFactor}) to transform the measured value of the quadrupole moment in the lab frame $Q_p^{Lab} = 4.39$ barn (where 1 barn = 100 fm$^2$ = $10^{-24}$ cm$^{2}$) to the internal (rotating) frame we have $Q_{p}^{int} = 12.66\ \text{barn}$. Using equation (\ref{eq:QDimensionless}), the values for $\sum\left(2n_z + 1\right)_{p}$, $\sum\left(N - n_z + 1\right)_p$ and $Q^{int}_p$ we find the dimensionless deformation parameters $\eta = 1.18$ and $\xi = 0.93$ for $^{173}$Yb. We can find the NQMN and the proton and neutron LLIV tensors using (\ref{eq:QDimensionless}) and (\ref{eq:MDimensionless}). Finally in the lab frame using (\ref{eq:RotationalFactor}) we have,
-Using equations (\ref{eq:QDimensionless}) and  (\ref{eq:MDimensionless}) to calculate the total NQMN and LLIV momentum tensors in the intrinsic frame, and equation (\ref{eq:RotationalFactor}) to transform back to the laboratory frame we find,
+Summing up the contribution for all the $^{173}$Yb filled shells and the partially filled shells from Table \ref{table:YbConfig} the total values for neutrons are $\sum(2n_z + 1)_{n} = 439$, $\sum(N - n_z + 1)_n = 318$ and protons $\sum(2n_z + 1)_{p} = 266$, $\sum(N - n_z + 1)_p = 190$. Using equation (\ref{eq:RotationalFactor}) to transform the measured value of the quadrupole moment in the lab frame $Q_p^{Lab} = 4.39$ barn (where 1 barn = 100 fm$^2$ = $10^{-24}$ cm$^{2}$) to the internal (rotating) frame we have $Q_{p}^{int} = 12.66\ \text{barn}$. Using equation (\ref{eq:QDimensionless}), the values for $\sum\left(2n_z + 1\right)_{p}$, $\sum\left(N - n_z + 1\right)_p$ and $Q^{int}_p$ we find the dimensionless deformation parameters $\eta = 1.18$ and $\xi = 0.93$ for $^{173}$Yb. Using equations (\ref{eq:QDimensionless}) and  (\ref{eq:MDimensionless}) to calculate the total NQMN and LLIV momentum tensors in the intrinsic frame, and equation (\ref{eq:RotationalFactor}) to transform back to the laboratory frame we find,
 \begin{align*}
 Q_{n}^{\text{Lab}} &= 4.53 \text{ barn} \\
 M_{p}^{\text{Lab}} &= 54.30 \quad m\text{ MeV}\\
@@ -457,7 +487,7 @@ From (\ref{eq:LLIVEnergyShift}) we find that the LLIV energy shift of the nucleu
 \left<\delta H\right>_{p} &= 9.05 \quad C^{(2)}_{0,p} \ \text{MeV} \\
 \left<\delta H\right>_n &=  12.875 \quad C^{(2)}_{0,n} \ \text{MeV}
 \end{align*}
-Considering only the contribution of the unpaired neutron in the Schmidt model (see Section \ref{sec:Minimal} or Refs. \cite{Kostelecky1999,Flambaum2016}) gives energy shifts $\left<\delta H\right>_{p} = 0 \ C^{(2)}_{0,p} \text{MeV}$ and $\left<\delta H\right>_n = 0.8 \ C^{(2)}_{0,n} \text{MeV}$. The collective contribution of paired nucleons in the core gives non zero LLIV energy shifts for both protons and neutrons (in the Schmidt model either the proton or neutron LLIV shift will always be zero) and enhances the LLIV energy shifts by an order of magnitude. This method can be completed with all the other deformed nuclei, the Nilsson quantum numbers can be found in Table \ref{table:NzNumbers} and the quadrupole moment values are presented in Table \ref{table:LLIVDeformed}.\\
+Considering only the contribution of the unpaired neutron in the Schmidt model (see Section \ref{sec:Minimal} or Refs. \cite{Kostelecky1999,Flambaum2016}) gives energy shifts $\left<\delta H\right>_{p} = 0 \ C^{(2)}_{0,p} \text{MeV}$ and $\left<\delta H\right>_n = 0.8 \ C^{(2)}_{0,n} \text{MeV}$. The collective contribution of paired nucleons in the core gives non zero LLIV energy shifts for both protons and neutrons (in the Schmidt model either the proton or neutron LLIV shift will always be zero) and enhances the LLIV energy shifts by an order of magnitude. This method can be completed with all the other deformed nuclei, the Nilsson quantum numbers can be found in Table \ref{table:NzNumbers} and the quadrupole moment values are presented in Table \ref{table:LLIVDeformed}. The open major shells for all nuclei of experimental interest are presented in Appendix \ref{chap:Nilsson}.\\
 \linebreak
 \begin{table}[h!]
 \centering
@@ -569,128 +599,32 @@ where $G_F$ is the Fermi weak constant, $\gamma_5$ is the standard Dirac matrix,
 Also the PNC effects of the tensor weak interaction which has different selection rules are strongly enhanced  and can be measured in atoms and molecules having close opposite parity energy levels with the difference of the electron angular momenta equal to 2. Corresponding states can be mixed by the tensor weak interaction but not the scalar (proportional to the  weak charge) and vector (proportional to the nuclear anapole moment) components. If the difference of the electron angular momenta is 1 the effects of the anapole and the weak quadrupole may be separated due the difference in their contributions to the different hyperfine components of the electromagnetic transitions. Corresponding atomic calculations have been performed in Ref.  \cite{FDC17}. Measurements of the tensor PNC effects in atoms and molecules will allow one to extract  the neutron quadrupole moment of the nuclei. \\
 
 \chapter{The magnetic quadrupole moment of the nucleus} \label{chap:MQM}
-\textit{The results of this chapter have been published in reference \cite{LFMQM2018}} \\
-\linebreak
-In this chapter I present the calcuation of the nuclear MQM in specific deformed nuclei along with the induced energy shifts in polar diatomic molecules. The results are presented in terms of fundamental $T-$ and $P-$ violating parameters in the neutron EDM, $d_n$ , the quark chromo-EDMs and the $CP-$ violating QCD $\bar{\theta}$ term.
-\iffalse
-\section{Magnetic quadrupole moment in deformed nuclei}
-TP violating nuclear moments induce a spin hedgehog wavefunction.
-\begin{align*}
-\left|\psi'\right> = \left(1 + \xi\hat{\boldsymbol{\sigma}}\hat{\boldsymbol{\nabla}}\right)\left|\psi_0\right>
-\end{align*}
-where $\left|\psi_0\right>$ is the unperturbed wavefunction. The magnetic quadrupole moment of the nucleus (MQM) is defined by the second order tensor operator,
-\begin{align*}
-\hat{M}_{kn} = \dfrac{e}{2m}\left[3\mu\left(r_k\sigma_n + \sigma_kr_n - \dfrac{2}{3}\delta_{kn}\hat{\boldsymbol{\sigma}}\textbf{r}\right) \right. \\
-\left. + 2q\left(r_kl_n + l_kr_n\right)\right]
-\end{align*}
-for the unperturbed wavefunction the matrix element vanishes $\left<\psi_0\right|\hat{M_{kn}}\left|\psi_0\right> = 0$. However after it is perturbed by the TP odd interaction there is a non zero matrix element.
-\begin{align*}
-M_{kn} &= \left<\psi'\right|\hat{M_{kn}}\left|\psi'\right> \\
-&= \left<\psi_0\right|\hat{M_{kn}}\left|\psi_0\right> \\
--\xi  \left<\psi_0\right|\left[\hat{\boldsymbol{\sigma}}\hat{\boldsymbol{\nabla}}, \hat{M}_{kn}\right]\left|\psi_0\right> \\ - \xi^{2} \left<\psi_0\right|\hat{\boldsymbol{\sigma}}\hat{\boldsymbol{\nabla}}\hat{M}_{kn}\hat{\boldsymbol{\sigma}}\hat{\boldsymbol{\nabla}}\left|\psi_0\right>
-\end{align*}
-as stated above the first term vanishes also ignore the last term as it is heavily suppressed due to $\xi^2$ the MQM due to the TP violating effects is given by the matrix element,
-\begin{align*}
-M_{kn} = -\xi  \left<\psi_0\right|\left[\sigma_{\nu}\nabla_{\nu}, \hat{M}_{kn}\right]\left|\psi_0\right>
-\end{align*}
-This simplifies to 4 effective matrix elements,
-\begin{align*}
-M^{(1)}_{kn} &= \left<\psi_0\right|\sigma_m\nabla_m\left(r_k\sigma_n + \sigma_kr_n - \dfrac{2}{3}\delta_{kn}\sigma_{\nu}r_{\nu}\right)\left|\psi_0\right> \\
-M^{(2)}_{kn} &= \left<\psi_0\right|\sigma_m\nabla_m\left(r_kl_n + l_kr_n\right)\left|\psi_0\right> \\
-M^{(3)}_{kn} &=  \left<\psi_0\right|\left[\sigma_m , r_k\sigma_n + \sigma_kr_n -\dfrac{2}{3}\delta_{kn}\sigma_{\nu}r_{\nu}\right]\nabla_m\left|\psi_0\right> \\
-M^{(4)}_{kn} &= \left<\psi_0\right|\left[\sigma_m, r_kl_n + l_kr_n\right]\nabla_m\left|\psi_0\right>
-\end{align*}
-These 4 matrix elements will determine the MQM in nuclei. We will go through each of the matrix elements separately. The first element,
-\begin{align*}
-M^{(1)}_{kn} &= \left<\sigma_m\nabla_m\left(r_k\sigma_n + \sigma_kr_n - \dfrac{2}{3}\delta_{kn}\sigma_\nu r_\nu\right)\right> \\
-&= \left<\sigma_m\left(\delta_{km}\sigma_{n} + \delta_{mn}\sigma_k - \dfrac{2}{3}\delta_{kn}\delta_{m\nu}\sigma_{\nu}\right)\right> \\
-&= \left<\sigma_k\sigma_n + \sigma_n\sigma_k - \dfrac{2}{3}\sigma_{\nu}\sigma_{\nu} \right>
-\end{align*}
-Using the Pauli matrices properties for the anticommutator and product we have $\left\{\sigma_k, \sigma_n\right\} = 2I_{2}\delta_{kn}$ and $\sigma_{\nu}\sigma_{\nu} = 3I_{2}$ therefore we have that,
-\begin{align*}
-M^{(1)}_{kn} = 2I_{2}\delta_{kn} - \dfrac{2}{3} 3I_{2} = 0.
-\end{align*}
-The second matrix element is given by ,
-\begin{align*}
-M^{(2)}_{kn} &= \left<\sigma_m\delta_m\left(r_kl_n + l_kr_n\right)\right> \\
- &= \left<\sigma_m \left[\delta_{km}l_n + \delta_{nm}l_k\right]\right> \\
-&= \left<\sigma_k l_n + \sigma_nl_k\right>
-\end{align*}
-The third matrix element is given by,
-\begin{align*}
-M^{(3)}_{kn} &= \left<\left[\sigma_m, r_kl_n + l_kr_n\right]\nabla_m\right> \\
-\end{align*}
-as $r_i$, $l_{j}$ and $\sigma_k$ commute for $i,j,k$ we have that,
-\begin{align*}
-M^{(3)}_{kn} = 0.
-\end{align*}
-For the last matrix element we have,
-\begin{align*}
-M^{(4)}_{kn} &= \left<\left[\sigma_m, r_k\sigma_n + \sigma_kr_n - \dfrac{2}{3}\delta_{kn}\sigma_{\nu}r_{\nu}\right] \nabla_m\right> \\
-&= \left< \left[\sigma_m,r_k\right]]\sigma_n\nabla_m + r_k\left[\sigma_m,\sigma_n\right]\nabla_m + \left[\sigma_m,\sigma_k\right]r_n\nabla_m \right. \\ 
-&\left. + \sigma_k\left[\sigma_m,r_n\right]\nabla_m - \dfrac{2}{3}\delta_{kn}\left[\sigma_m,\sigma_{\nu}\right]r_{\nu}\nabla_m\right> \\
-&= r_k\left[\sigma_m,\sigma_n\right]\nabla_m + r_n \left[\sigma_m,\sigma_k\right]\nabla_m - \dfrac{2}{3}\delta_{kn}\left[\sigma_m,\sigma_{\nu}\right]r_{\nu}\nabla_{m}
-\end{align*}
-Using the Pauli commutation relations $\left[\sigma_i\sigma_j\right] = 2i\epsilon_{ijk}\sigma_k$ we have that,
-\begin{align*}
-M^{(4)}_{kn} = \left<2ir_k\epsilon_{mna}\sigma_a\nabla_m + 2ir_n\epsilon_{mka}\sigma_a\nabla_m\right> - \dfrac{2}{3}\delta_{kn}2i\epsilon_{m\nu a}\sigma_{a}r_{\nu}\nabla_{m}
-\end{align*}
-We can rewrite this as,
-\begin{align*}
-M^{(4)}_{kn} = r_kB_n + r_nB_k - \dfrac{2}{3}\delta_{kn}r_{\nu}B_{\nu}
-\end{align*}
-where $B_{i} = 2i\epsilon_{mia}\sigma_a\nabla_m$. we are interested in the projection of the MQM on the symmetry axis of the nucleus which we will denote as the $z$ axis. Therefore we want to find $M_{zz}$ projection. For the non vanishing matrix elements we will find the value of the projection,
-\begin{align*}
-M_{zz}^{(2)} = \left<2\sigma_zl_z\right>
-\end{align*}
-Pauli matrices are related to the spin matrices by the realation,
-\begin{align*}
-\sigma_i = 2s_i
-\end{align*}
-and therefore the matrix element is given by,
-\begin{align*}
-M_{zz}^{(2)} = 4\left<s_zl_z\right>
-\end{align*}
-For the unperturbed state we will use the Nilsson basis described in the 1955 Nilsson paper citeNilsson1955 $\left|\psi_0\right> = \left|Nl\Lambda\Sigma\right>$. From citeNilsson1955 the matrix element $\left<s_zl_z\right> = \left<s_z\right>\left<l_Z\right> = \Sigma\Lambda$. \\
-For the other matrix element we have to simplify the matrix element first. \\
-
-\begin{align*}
-\dfrac{\left<r_{\nu}B_{\nu}\right>}{2i} &= \left<r_{\nu}\epsilon_{m\nu a}\sigma_a \nabla_m\right> \\
-&= -i\left<\sigma_a\epsilon_{a\nu m}r_{\nu} p_{m} \right> \\
-&= -i\left<\boldsymbol{\sigma}\cdot\left(\textbf{r} \times \textbf{p}\right)\right> \\
-&= -i\left<\boldsymbol{\sigma}\cdot\textbf{l}\right> \\ 
-\Rightarrow \left<r_{\nu}B_{\nu}\right> &= 2\left<\boldsymbol{\sigma}\cdot\textbf{l}\right> \\
-&= 4\left<\textbf{s}\cdot\textbf{l}\right> \\
-&= 4\Sigma\Lambda
-\end{align*}
-Also
-\begin{align*}
-\end{align*}
-Therefore the total quadrupole moment is given by,
-
-\fi
-\section{MQM  Calculation}
+In this chapter I present the calcuation of the nuclear MQM in specific deformed nuclei along with the induced energy shifts in polar diatomic molecules. The results are presented in terms of fundamental $T-$ and $P-$ violating parameters in the neutron EDM, $d_n$, the quark chromo-EDMs and the $CP-$ violating QCD $\bar{\theta}$ term. The results of this chapter have been published in reference \cite{LFMQM2018}.
+\section{The MQM of deformed nuclei}
 The magnetic quadrupole moment of a nucleus due to the electromagnetic current of a single nucleon with mass $m$ is defined by the second order tensor operator \cite{SFK1984},
 \begin{align} \label{eq:MQMTensor}
 \begin{split}
-\hat{M}_{kn}^{\nu} = \dfrac{e}{2m}\left[3\mu_{\nu}\left(r_k\sigma_n + \sigma_kr_n - \dfrac{2}{3}\delta_{kn}\hat{\boldsymbol{\sigma}}\textbf{r}\right) \right. \\
-\left. + 2q_{\nu}\left(r_kl_n + l_kr_n\right)\right]
+\hat{M}_{kn}^{\nu} = \dfrac{e}{2m}\left[3\mu_{\nu}\left(r_k\sigma_n + \sigma_kr_n - \dfrac{2}{3}\delta_{kn}\hat{\boldsymbol{\sigma}}\textbf{r}\right) + 2q_{\nu}\left(r_kl_n + l_kr_n\right)\right]
 \end{split}
 \end{align}
-where $\nu = p,n$ for protons and neutrons respectively and, $\mu_{\nu}$ and $q_{\nu}$ are the magnetic moment and charge of the nucleon respectively. The nuclear MQM is $T$-,$P$- odd and therefore it is forbidden in the absence of nucleon EDMs and $T$-, $P$- odd nuclear forces. It is understood the shell nucleons interact with the core of the nucleus through a $P-$ and $T-$ odd potential \cite{Flambaum1994, SFK1984, KhriplovichPNC}. This results in a perturbed ``spin hedgehog'' wavefunction of a nucleon given by \cite{SFK1984, Flambaum1994},
+where $\nu = p,n$ for protons and neutrons respectively and, $\mu_{\nu}$ and $q_{\nu}$ are the magnetic moment and charge of the nucleon respectively. The MQM of a nucleus is in part induced by a $P-$ and $T-$ odd potential between a nucleon and the core \cite{Flambaum1994, SFK1984, KhriplovichPNC}. In the contact limit, this potential on a single nucleon is given by, 
+\begin{align} \label{eq:TPodd}
+H_{T-,P-} = \dfrac{G}{2\sqrt{2}m}\eta_{\nu}\hat{\boldsymbol{\sigma}}\hat{\boldsymbol{\nabla}}U
+\end{align}
+where $U$ is the strong nuclear potential which has been assumed to have the same profile as the nuclear number density $\rho$, $\eta_{\nu}$ is the $T$-,$P$- odd nuclear strength constant and $G_{F}$ is the Fermi weak constant. For an unperturbed nucleon wavefunction $\left|\psi_0\right>$ the  $T-,P-$odd potential (\ref{eq:TPodd}) results in a perturbed ``spin hedgehog'' wavefunction given by \cite{SFK1984, Flambaum1994},
 \begin{align} \label{eq:SpinHedgehog}
 \left|\psi'\right> &= \left(1 + \dfrac{\xi_{\nu}}{e}\hat{\boldsymbol{\sigma}}\hat{\boldsymbol{\nabla}}\right)\left|\psi_0\right> \\
-\xi_{\nu} &\approx -2\times 10^{-21}\eta_{\nu} \ e\cdot\text{cm} \nonumber
+\text{where}, \quad \xi_{\nu} &\approx -2\times 10^{-21}\eta_{\nu} \ e\cdot\text{cm} \nonumber
 \end{align}
-where $\nu = p,n$ for protons and nucleons respectively. Here $\eta_{\nu}$ represent $T$-,$P$- odd nuclear strength constants from the $T$-,$P$- violating nuclear potential $H_{T,P} = \eta_{\nu}G_{F}/(2^{3/2}m_{\nu})(\boldsymbol{\sigma}\cdot \nabla\rho)$ and $\left|\psi_0\right>$ is the unperturbed nucleon wavefunction. Here $\rho$ is the total nuclear number density and $G_{F}$ is the Fermi weak constant.  It should be noted that we used   $T$-,$P$- odd interaction in the contact limit while the actual interaction has a finite range due to the pion exchange contribution. Another approximation used in the derivation of the Eq. (\ref{eq:SpinHedgehog}) is that the strong potential and nuclear density have similar profiles (not necessarily the  spherical one). These approximations introduce a sizeable theoretical uncertainty.  Using (\ref{eq:MQMTensor}) and (\ref{eq:SpinHedgehog}) the MQM for a single nucleon due to the $P$-, $T$- odd valence-core interaction is given by,
+It should be noted that we used   $T$-,$P$- odd interaction in the contact limit while the actual interaction has a finite range due to the pion exchange contribution. Another approximation used in the derivation of the Eq. (\ref{eq:SpinHedgehog}) is that the strong potential and nuclear density have similar profiles (not necessarily the  spherical one). These approximations introduce a sizeable theoretical uncertainty.  Using (\ref{eq:MQMTensor}) and (\ref{eq:SpinHedgehog}) the MQM for a single nucleon due to the $P$-, $T$- odd valence-core interaction is given by,
 \begin{align}
-M^{TP}  = M_{zz}^{TP} = \xi\dfrac{2}{m}\left(\mu\left<\sigma\cdot l \right> - q\left<\sigma_z l_z\right>\right) .
+M^{TP}  = M_{zz}^{TP} = \xi_{\nu}\dfrac{2}{m}\left(\mu\left<\sigma\cdot l \right> - q\left<\sigma_z l_z\right>\right) .
 \end{align}
 In the Nilsson basis \cite{Nilsson1955} the nucleon's total angular momentum projection onto the symmetry axis is given by $\Omega_N = \Lambda_N + \Sigma_N$, where $\Sigma_N = \pm 1/2$ is the spin projection and $\Lambda$ is the orbital angular momentum projection of the nucleon. In this basis the MQM  generated by the spin-hedgehog Eq. (\ref{eq:SpinHedgehog}) is given by,
 \begin{align}
-M^{TP}_{\nu} = 4\Sigma_N\Lambda_N\xi\left(\mu_{\nu} - q_{\nu}\right)\dfrac{\hbar}{m_p c}.
+M^{TP}_{\nu} = 4\Sigma_N\Lambda_N\xi_{\nu}\left(\mu_{\nu} - q_{\nu}\right)\dfrac{\hbar}{m_p c}.
 \end{align} 
-The orbit of a permanent electric dipole moment (EDM) also  generates a contribution to the nuclear MQM, $M_{\nu}^{EDM} \propto d_{\nu}$ \cite{Khriplovich1976}. As both the proton and neutron are expected to have an EDM both will contribute to the MQM. From \cite{Flambaum2014} using a valence nucleon approach the ratio of the two contributions $M^{TP}_{\nu}/M_{\nu}^{EDM}$ is independent of the total angular momentum, $I$, of the nucleon. Therefore up to non diagonal elements of definite $I$ the ratio is the same in the Nilsson model. That is,
+As discussed in Chapter \ref{chap:Violation}, the orbit of a permanent electric dipole moment (EDM) also  generates a contribution to the nuclear MQM, $M_{\nu}^{EDM} \propto d_{\nu}$ \cite{Khriplovich1976}. As both the proton and neutron are expected to have an EDM, both will contribute to the MQM. From \cite{Flambaum2014} using a valence nucleon approach the ratio of the two contributions $M^{TP}_{\nu}/M_{\nu}^{EDM}$ is independent of the total angular momentum, $I$, of the nucleon. Therefore up to non diagonal elements of definite $I$, the ratio is the same in the Nilsson model. That is,
 \begin{align}
 M_{\nu}^{EDM} \approx  4\Sigma_N\Lambda_N d_{\nu}\dfrac{\hbar}{m_p c}.
 \end{align}
@@ -701,31 +635,39 @@ M_{\nu} &= 4\Sigma_N\Lambda_N M_{\nu}^0 \\
 M_{\nu}^0 &= \left[\xi\left(\mu_{\nu} - q_{\nu}\right) + d_{\nu}\right]\dfrac{\hbar}{m_p c}. 
 \end{split}
 \end{align}
-Using the Nilsson model we can find the total MQM of the nucleus by summing up every nucleon in the open and closed shells. To find the nuclear configuration of each species we have to first identify the quadrupole deformation of the nucleus. In  odd-A nuclei there is  one unpaired nucleon which defines the nucleus' spin  and parity ($I_t^{\pi}$). Therefore we find the correct deformation factor $\delta$ of the nucleus by filling up each energy level in the Nilsson energy diagrams \cite{BohrMottVol2} such that the final configuration results in the correct nuclear spin and parity (see Ref. \cite{BF2018}).   For any odd-$A$ isotope the nuclear MQM in laboratory frame can be found  using (\ref{eq:RotationalFactor})  and (\ref{eq:NuclearMQM}) if the condition $I_t \geq 3/2$ is satisfied. The nuclear MQM  for nuclei of experimental interest are presented in  Table \ref{table:NuclearMQM}. We do not consider configuration mixing in our MQM calculations. Configuration mixing has been shown to suppress the nuclear EDM and spin matrix elements with partially filled nuclear shells \cite{Yoshinaga2010, Yoshinaga2014, Yamanaka2017}. A similar effect may appear for MQM. \\
+Using the Nilsson model we can find the total MQM of the nucleus by summing up every nucleon in the open and closed shells. To find the nuclear configuration of each species we have to first identify the quadrupole deformation of the nucleus. In  odd-A nuclei there is  one unpaired nucleon which defines the nucleus' spin  and parity ($I_t^{\pi}$). Therefore we find the correct deformation factor $\delta$ of the nucleus by filling up each energy level in the Nilsson energy diagrams \cite{BohrMottVol2} such that the final configuration results in the correct nuclear spin and parity (see Ref. \cite{BF2018}). These are presented in Appendix \ref{chap:Nilsson} for the nuclei in Table \ref{table:NuclearMQM}.   For any odd-$A$ isotope the nuclear MQM in laboratory frame can be found  using equations (\ref{eq:RotationalFactor})  and (\ref{eq:NuclearMQM}) if the condition $I_t \geq 3/2$ is satisfied. The nuclear MQM  for nuclei of experimental interest are presented in  Table \ref{table:NuclearMQM}. We do not consider configuration mixing in our MQM calculations. Configuration mixing has been shown to suppress the nuclear EDM and spin matrix elements with partially filled nuclear shells \cite{Yoshinaga2010, Yoshinaga2014, Yamanaka2017}. A similar effect may appear for MQM. \\
 
 \begin{table}
-\label{table:NuclearMQM}
-\caption[Nulcear MQM for deformed nuclei of interest.]{Total nuclear MQM for each quadrupole deformed nucleus calculated  using the Nilsson model. This table presents both the proton and neutron contributions to the total nuclear MQM in the laboratory frame. }
-\begin{tabular}{ccc|ccc}
+\centering
+\caption[Nulcear MQM for deformed nuclei of interest.]{Total nuclear MQM for each quadrupole deformed nucleus calculated  using the Nilsson model. This table presents both the proton and neutron contributions to the total nuclear MQM in the laboratory frame. Available MQMs using a spherical basis for the nucleons from reference \cite{Flambaum2014} are presented for comparison. \label{table:NuclearMQM}}
+\begin{tabular}{c@{\hspace{1cm}}c@{\hspace{1cm}}c@{\hspace{1cm}}c}
 \toprule
 \toprule
-\parbox{1.5cm}{Nuclei}   & $I_t^{\pi}$ &  $M$ & \parbox{1.5cm}{Nuclei} & $I_t^{\pi}$ & $M$ \\
+& & \multicolumn{2}{c}{$M$ }\\
+\cline{3-4}
+\parbox{1.5cm}{Nuclei}   & $I_t^{\pi}$ &  Nilsson Basis & Spherical Basis \cite{Flambaum2014}  \\
 \midrule
-$^9$Be     & $\tfrac{3}{2}^-$ & $0M_{0}^{p} + 0.4M_{0}^{n}$ &  $^{167}$Er & $\tfrac{7}{2}^+$ & $21M_{0}^{p} +36M_{0}^{n}$\\[5pt]
-$^{21}$Ne  & $\tfrac{3}{2}^+$ & $0M_{0}^{p} + 0.4M_{0}^{n}$ &  $^{173}$Yb & $\tfrac{5}{2}^-$ & $14M_{0}^{p} +26M_{0}^{n}$\\[5pt]
-$^{27}$Al  & $\tfrac{5}{2}^+$ & $3M_{0}^{p} + 4.5M_{0}^{n}$ &  $^{177}$Hf & $\tfrac{7}{2}^-$ & $17M_{0}^{p} +42M_{0}^{n}$\\[5pt]
-$^{151}$Eu & $\tfrac{5}{2}^+$ & $12M_{0}^{p} + 23M_{0}^{n}$   &  $^{179}$Hf & $\tfrac{9}{2}^+$ & $20M_{0}^{p} + 50M_{0}^{n}$\\[5pt]
-$^{153}$Eu & $\tfrac{5}{2}^+$ & $12M_{0}^{p} + 20M_{0}^{n}$   &  $^{181}$Ta & $\tfrac{7}{2}^+$ & $19M_{0}^{p} + 45M_{0}^{n}$\\[5pt]
-$^{163}$Dy & $\tfrac{5}{2}^-$ & $11M_{0}^{p} + 21M_{0}^{n}$  &  $^{229}$Th & $\tfrac{5}{2}^+$ & $13M_{0}^{p} + 27M_{0}^{n}$\\[5pt]
+$^9$Be     & $\tfrac{3}{2}^-$ & $0M_{0}^{p} + 0.4M_{0}^{n}$ \\[5pt]
+$^{21}$Ne  & $\tfrac{3}{2}^+$ & $0M_{0}^{p} + 0.4M_{0}^{n}$ \\[5pt]
+$^{27}$Al  & $\tfrac{5}{2}^+$ & $3M_{0}^{p} + 4.5M_{0}^{n}$ \\[5pt]
+$^{151}$Eu & $\tfrac{5}{2}^+$ & $12M_{0}^{p} + 23M_{0}^{n}$ \\[5pt]
+$^{153}$Eu & $\tfrac{5}{2}^+$ & $12M_{0}^{p} + 20M_{0}^{n}$ \\[5pt]
+$^{163}$Dy & $\tfrac{5}{2}^-$ & $11M_{0}^{p} + 21M_{0}^{n}$ \\[5pt]
+  $^{167}$Er & $\tfrac{7}{2}^+$ & $21M_{0}^{p} +36M_{0}^{n}$ \\[5pt]
+$^{173}$Yb & $\tfrac{5}{2}^-$ & $14M_{0}^{p} +26M_{0}^{n}$& $-10M_{0}^{p} - 10M_{0}^{n}$ \\[5pt]
+$^{177}$Hf & $\tfrac{7}{2}^-$ & $17M_{0}^{p} +42M_{0}^{n}$ & $-19M_{0}^{p} - 14M_{0}^{n}$ \\[5pt]
+$^{179}$Hf & $\tfrac{9}{2}^+$ & $20M_{0}^{p} + 50M_{0}^{n}$ & $ -13M_{0}^{p} - 13M_{0}^{n}$ \\[5pt]
+$^{181}$Ta & $\tfrac{7}{2}^+$ & $19M_{0}^{p} + 45M_{0}^{n}$ & $-14M_{0}^{p} - 11M_{0}^{n}$  \\[5pt]
+$^{229}$Th & $\tfrac{5}{2}^+$ & $13M_{0}^{p} + 27M_{0}^{n}$ & $0M_{0}^{p} - 19M_{0}^{n}$ \\[5pt]
 \bottomrule
 \bottomrule
 \end{tabular}
 
 \end{table}
 
-Comparing these nuclear MQMs to those presented in \cite{Flambaum2014} we see that the use of the deformed Nilsson orbitals instead of the spherical orbitals leads to a  significant increase of the results. For example, in the Hafnium isotopes $^{177}$Hf and  $^{179}$Hf the neutron contribution is enhanced by a factor of 3.  Similarly, for $^{179}$Yb the neutron contribution has doubled.  Note also that  MQMs in these heavy quadrupole deformed nuclei are an order of magnitude larger than MQM due to a valence proton   ($ \sim M_{0}^{p}$)  or neutron  ($\sim M_{0}^{n}$) in spherical nuclei.
+Comparing these nuclear MQMs to those presented in \cite{Flambaum2014} we see that the use of the deformed Nilsson orbitals instead of the spherical orbitals leads to a  significant enhancement of the results. For example, in the Hafnium isotopes $^{177}$Hf and  $^{179}$Hf the neutron contribution is enhanced by a factor of 3.  Similarly, for $^{179}$Yb the neutron contribution has doubled.  Note also that  MQMs in these heavy quadrupole deformed nuclei are an order of magnitude larger than MQM due to a valence proton   ($ \sim M_{0}^{p}$)  or neutron  ($\sim M_{0}^{n}$) in spherical nuclei.
 
-The $T$-,$P$- odd nuclear potential which generated the MQM is dominated primarily by the neutral $\pi_0$ exchange. We can express the strength constants $\eta_{\nu}$ in the  $T$-,$P$- violating nuclear potential $H_{T,P}$  in terms of the strong $\pi NN$ coupling constant $g$ and three $T$-,$P$-odd coupling constants, corresponding to the different isotopic  channels,  $g_i$ where $i=0,1,2$. For heavy nuclei the results are the following  \cite{Dmitriev1994, SFK1984}:
+Experiments to measure the MQM will lead to further constraints on $CP-,T-$ violating parameters. Therefore it is convenient to represent the nuclear MQM in terms of more fundamental $CP-,T-$ violating parameters. The $T$-,$P$- odd nuclear potential which generated the MQM is dominated primarily by the neutral $\pi_0$ exchange. We can express the strength constants $\eta_{\nu}$ in the  $T$-,$P$- violating nuclear potential $H_{T,P}$  in terms of the strong $\pi NN$ coupling constant $g$ and three $T$-,$P$-odd coupling constants, corresponding to the different isotopic  channels,  $g_i$ where $i=0,1,2$. For heavy nuclei the results are the following  \cite{Dmitriev1994, SFK1984}:
 \begin{align}
 \eta_{n} = -\eta_{p} \approx 5\times 10^{6}g\left(\bar{g}_1 + 0.4 \bar{g}_2\ - 0.2\bar{g}_0\right) .
 \end{align}
@@ -733,14 +675,14 @@ We can rewrite the contribution of both the proton and nucleon MQMs in terms of 
 \begin{align} 
 \begin{split}
 M_{p}^0(g) &= \left[ \vphantom{\dfrac{1}{2}} g\left(\bar{g}_1 + 0.4\bar{g}_2 - 0.2\bar{g}_0\right) \right. \\
-&\quad \left. + \dfrac{d_{p}}{1.2 \times 10^{-14} \ e\cdot\text{cm}}\right]3.0 \times 10^{-28} \ e\cdot\text{cm}^2 
+&\qquad \qquad \left. + \dfrac{d_{p}}{1.2 \times 10^{-14} \ e\cdot\text{cm}}\right]3.0 \times 10^{-28} \ e\cdot\text{cm}^2 
 \end{split}\label{eq:MQM_pion_p} \\
 \begin{split}
 M_{n}^0(g) &= \left[ \vphantom{\dfrac{1}{2}} g\left(\bar{g}_1 + 0.4\bar{g}_2 - 0.2\bar{g}_0\right) \right. \\
-& \ \left. + \dfrac{d_{p}}{1.3 \times 10^{-14} \ e\cdot\text{cm}}\right]3.2 \times 10^{-28} \ e\cdot\text{cm}^2. 
+& \qquad \qquad  \left. + \dfrac{d_{p}}{1.3 \times 10^{-14} \ e\cdot\text{cm}}\right]3.2 \times 10^{-28} \ e\cdot\text{cm}^2. 
 \end{split} \label{eq:MQM_pion_n}
 \end{align}
-We can write the contributions of the $T$-,$P$-odd $\pi NN$ interaction and nucleon EDMs in terms of more fundamental $T$-,$P$- violating parameters such as the  QCD $CP$- violating parameter $\bar{\theta}$ which is the heart of the strong $CP$ problem,  or in terms of the EDMs  $d$ and chromo-EDMs $\tilde{d}$ of $u$ and $d$ quarks. They are \cite{ Crewther1979,Pospelov1999, Pospelov2005, Alexandrou2017, JLQCD, PNDME2018}:
+Therefore, we can write the contributions of the $T$-,$P$-odd $\pi NN$ interaction and nucleon EDMs in terms of more fundamental $T$-,$P$- violating parameters such as the  QCD $CP$- violating parameter $\bar{\theta}$ which is the heart of the strong $CP$ problem,  or in terms of the EDMs  $d$ and chromo-EDMs $\tilde{d}$ of $u$ and $d$ quarks. They are \cite{ Crewther1979,Pospelov1999, Pospelov2005, Alexandrou2017, JLQCD, PNDME2018}:
 \begin{align}
 g\bar{g}_0(\bar{\theta})&= -0.37 \bar{\theta} \\
 \begin{split}
@@ -752,7 +694,7 @@ d_{p}(d_u, d_d, \tilde{d}_u, \tilde{d}_d) &= 1.1e\left(\tilde{d}_u + 0.5\tilde{d
 d_{n}(d_u, d_d, \tilde{d}_u, \tilde{d}_d) &= 1.1e\left(\tilde{d}_d + 0.5\tilde{d}_{u}\right) - 0.8 d_d + 0.2d_u
 \end{split} \label{eq:EDM_Chromo_2}
 \end{align}
-where the chromo-EDM contributions in eqs. (\ref{eq:EDM_Chromo_1}) and (\ref{eq:EDM_Chromo_2}) arise from the Peccei-Quinn mechanism \cite{Peccei1977, Pospelov2005}. 
+where the chromo-EDM contributions in equations (\ref{eq:EDM_Chromo_1}) and (\ref{eq:EDM_Chromo_2}) arise from the Peccei-Quinn mechanism \cite{Peccei1977, Pospelov2005}. 
 The corresponding substitutions give the following results for the dependence on $\tilde{\theta}$ of  proton and neutron MQM contributions:
 \begin{align}
 \begin{split}
@@ -770,7 +712,7 @@ M_{n}^0(\tilde{d}_u - \tilde{d}_d) = 1.3 \times 10^{-12}(\tilde{d}_u - \tilde{d}
 While there have been more sophisticated treatments of the  $\pi NN$ interaction with respect to $\bar{\theta}$\cite{Vries2015, Engel2013, Yamanaka2017, Chupp2018} and the quark chromo-EDMs \cite{Fuyuto2013, Seng2018, Engel2013, Yamanaka2017, Chupp2018} the values used above are within the accuracy of our model.  
 %There is a large theoretical uncertainty due to the long range effect of vaccum alignment for the  $\bar{\theta}$ and quark chromo-EDMs.
 \section{MQM energy shift in diatomic molecules} \label{sec:MQMmolecule}
-Direct measurement of the nuclear MQM is unfeasible and a more indirect method is required. As mentioned above the use of neutral molecular systems is promising as the nuclear MQM will interact with the internal electromagnetic field. Molecules in particular present a lucrative option due to existence of very close paired levels of opposite parity, the  $\Omega$-doublet - see e.g.  \cite{Flambaum2014}. For highly polar molecules consisting of a heavy and light nucleus (for example, Th and O) the effect of MQM is $\sim Z^2$, therefore it is calculated for the heavier nucleus. The Hamiltonian of diatomic paramagnetic molecule including the $T, P-$ odd nuclear moment effects is given by \cite{SFK1984,Kozlov1995}:
+Direct measurement of the nuclear MQM is unfeasible and a more indirect method is required. As mentioned in Section \ref{sec:ViolationInAtoms} the use of neutral molecular systems is promising as the nuclear MQM will interact with the internal electromagnetic field. Molecules in particular present a lucrative option due to existence of very close paired levels of opposite parity, the  $\Omega$-doublet - see e.g.  \cite{Flambaum2014}. For highly polar molecules consisting of a heavy and light nucleus (for example, Th and O) the effect of MQM is $\sim Z^2$, therefore it is calculated for the heavier nucleus. The Hamiltonian of diatomic paramagnetic molecule including the $T, P-$ odd nuclear moment effects is given by \cite{SFK1984,Kozlov1995}:
 \begin{align}
 H = W_d d_e \mathbf{S}\cdot\mathbf{n} + W_{Q}\dfrac{Q}{I}\mathbf{I}\cdot\mathbf{n} - \dfrac{W_{M}M}{2I(2I -1)}\mathbf{S}\hat{\mathbf{T}}\mathbf{n},
 \end{align}
@@ -778,7 +720,7 @@ where $d_e$ is the electron EDM, $Q$ is the nuclear Schiff moment, $M$ is the nu
 These parameters $W_d$, $W_Q$ and $W_M$
 %, which are necessary for extracting the nuclear MQM from an experiment, 
 are related to the electronic molecular structure of the state. For each molecule there is an effective field for each fundamental parameter, these effective fields are calculated using many-body methods for electrons close to the heavy nucleus \cite{Flambaum2014}.  For the nuclear MQM we are interested only in $W_M$ which has been calculated for molecules YbF \cite{Kozlov1995}, HfF$^{+}$\cite{Skripnikov2017}, TaN \cite{Skripnikov2015Ta, Fleig2016TaN}, TaO$^+$\cite{Fleig2018}, ThO \cite{Skripnikov2014ThO} and ThF$^+$\cite{Skripnikov2015Th}. 
-Using these vales we present the results for the energy shifts in molecules induced by MQM in terms of $CP-$ violating parameters $\bar{\theta}$, $d_p$  and $(\tilde{d}_u -\tilde{d}_d)$ in Table \ref{table:MQMMoleculeShift}. 
+Using these values we present the results for the energy shifts in molecules induced by MQM in terms of $CP-$ violating parameters $\bar{\theta}$, $d_p$  and $(\tilde{d}_u -\tilde{d}_d)$ in Table \ref{table:MQMMoleculeShift}. \\
 
 \begin{table}
 \centering
@@ -831,8 +773,15 @@ We presented a versatile semi-empirical method to calculate several second order
 This enhancement in deformed nuclei can also be applied for other second order tensor observables of interest such as the time-reversal and parity violating magnetic quadrupole moment. Further study of these tensor properties in deformed nuclei  could lead to further understanding of fundamental physics.
 
 In this work we present a novel method for calculating the nuclear MQM for any nuclei that satisfy the angular momentum condition $I_t \geq 3/2$. In heavy nuclei with large quadrupole deformations there is an enhancement of the nuclear MQM  due to the collective effect of partially filled nucleon shells and therefore these nuclei present an opportunity for detecting and measuring $T$-,$P$- violating effects in the hadronic sector. The molecular systems which have been used to study the electron EDM with promising results are also excellent candidates for measuring the nuclear MQM  \cite{Skripnikov2017, Skripnikov2014ThO}. With increasing experimental capabilities  in paramagnetic molecular systems the possibility of measure these $T$-,$P$- violating effects is attractive. The nuclear MQM's and MQM molecular energy shifts presented in this work may allow experimentalists either detect or constrain the limits of fundamental $T$-,$P$- violating nucleon EDM ($d_p$), strong $CP$ parameter ($\bar{\theta}$) and chromo-EDMs $(\tilde{d}_{u} - e{d}_d) $. 
-\part{Theoretical calculations of Super Heavy Element properties}
+\part{Theoretical calculations of super heavy element properties}
 \chapter{Introduction} \label{chap:P2Intro}
+The discovery and study of new elements has been a constant frontier of scientific advancement throughout history. While the discovery of early elements relied on extracting naturally occurring elements from the environment, the discovery of trans-uranium ($Z>92$) which require significant investment in facilities. Elements where $Z>100$ are known as super heavy elements (SHEs), though they are sometimes described as elements beyond the actinides, $Z>103$. The heaviest SHE synthesized and recognized by the governing body IUPAC is oganesson (Og, $Z=118$). In particular,  elements $Z=113-118$  were synthesized recently (between 1998-2010) using heavy ion fusion reactors \cite{Barber2011, Karol2016, Karol20162}.   The study of SHEs is motivated by many fundamental questions of physics. Can these SHEs be created naturally in the universe? Do stable isotopes of these SHEs exist? Can the exotic effects of SHE be used to probe fundamental physics? 
+
+As the atomic charge of elements increase the relativistic effects of the elements become larger as the electrons are located closer to the nucleus and therefore travel faster.
+
+The field of SHE research is intimately related to the ``island of stability''. The island of stability is the predicted and long sought after collection of stable heavy elemental isotopes. While no stable isotopes have been found, as all trans-uranium elements are radioactive including the SHEs, theoretical calculations predict stable nuclear configurations around closed nucleon shells \cite{Myers1966, Sobiczewski1966, Nilsson1969SHE, Nix1972}. For non deformed nuclei, theoretical calculations prdict closed shells at $Z=114$ and $N=184$ for protons and neutrons respectively. While this proton density has been achieved with flerovium, $Z=114$, being synthesized in  
+
+
 Since the beginning of the 10th century the discovery of elements history the discovery and study of new elements has been a constant theme  in the scientific discipline. While early discoveries relied on the extracting naturally occurring elements from ores the discovery of transuranium elements (which are not naturally occurring on earth) requires significant investments in facilities. Currently, all elements up to $Z=118$ (oganesson) have been synthesized and officially recognized by IUPAC. In particular the region of the periodic table for $Z>100$ are known as super heavy elements (SHEs). While these elements can be synthesized at a rate of a few atoms an hour, they are unstable. The short lifetimes and production rates present a significant problem when attempting to study the physical and chemical properties of the elements. 
 
 
@@ -892,6 +841,29 @@ homologues Ta I and Db I which both have five valence electrons above a closed $
 The calculation of  Ta I is performed to demonstrate the accuracy of the CIPT calculations by comparing 
 with available experimental data.  
 
+
+\chapter{The CIPT method} \label{chap:CIPT}
+In this chapter I give an outline of how the CIPT (a combination of configuration interaction and perturbation theory) method works and how it is implemented to calculate the spectra of open shell super heavy elements (SHEs). The CIPT method was first introduced and described by V. A. Dzuba \textit{et al.} in \cite{DBHF2017}. This method have been further developed with increases in efficiency in \cite{FCI}. This method was used to calculate atomic properties of the SHE in the proceeding chapters.
+\iffalse
+\section{CIPT Method} \label{sec:CIPT}
+
+As mentioned in the previous chapter, open $6d-$shell calculations of atoms with  three or more valence electrons are too computationally expensive for established many-body methods. This computational cost is reduced using a combination of configuration interaction (CI) and perturbation theory (PT) which was first introduced in \cite{DBHF2017}. 
+
+To generate the single-electron wavefunctions for all the elements,  we use the $V^{N_e-1}$ approximation (where $N_e$ is the total number of electrons) \cite{Kelly1964, Dzuba2005} where the Hartree-Fock calculations are performed for the singly-charged open-shell atom with a   $6d^n7s$ configuration, where $n=4,5,6$ and $7$ for Sg, Bh, Hs and Mt respectively. The  single-electron basis states are calculated in the field of the frozen atomic core. The basis sets are generated using a  B-spline technique~\cite{Johnson1988}  with 40 B-spline states in each partial wave of order 9 in a box with radius $40 \ a_B$ (where $a_B$ is the Bohr radius) with partial waves up to $l_{max}=4$ (where $l$ is orbital angular momentum) and the many-electron basis states $|i \rangle = \Phi_i(r_1,\dots,r_{N_e})$ (where $r_j$ is the radial position of the $j$th electron)  for the CI calculations are formed by making all possible single and double excitations from reference low-lying non-relativistic configurations of the atom. This set of many-body electron wavefunctions is ordered from lowest to highest energy and divided into two sets, 
+
+
+Both the Breit interaction (magnetic interaction and retardation)\cite{Breit1929, Mann1971}  and quantum electrodynamic (QED) radiative corrections  (Ueling potential and electric and magnetic form factors) \cite{FG2005} are included in the calculations as described in our earlier works (see, e.g. \cite{FF113-115}).  As both the Breit and QED radiative corrections scale with atomic charge, $Z$ faster than the first power \cite{FF113-115}, their contribution to the energy levels of SHE is non-negligible. It was shown in \cite{LDFDb2018} that the magnitude of the combined correction to the energy levels of Db is at most  200~cm$^{-1}$.  A similar correction is expected for the SHE in this work.
+
+For each level we calculate the Land\'{e} $g$-factor and compare it to the non-relativistic expression,
+\begin{align} \label{eq:Lande}
+g_{\text{NR}} =  1 + \dfrac{J(J + 1) - L(L+1) + S(S+1)}{2J(J+1)}.
+\end{align}
+Where possible, for each level we use $g_{\text{NR}}$ to find an analogous state in the lighter element to obtain an approximate label in the $LS$ coupling scheme. In fact, $LS$ notations do not make sense for the highly relativistic SHE states due to very large spin-orbit interaction (so the eigenvectors will look strongly mixed in $LS$ notation), we only use $LS$ notations for comparison with lighter elements. Otherwise, we label the $n$th sequential state of total angular momentum $J$ and parity by $n_{J}^{\text{parity}}$.
+
+
+
+
+As discussed in the previous chapter, the development of more efficient methods to calculate the atomic properties of atoms with partially filled shells are needed. In this chapter I discuss the recently developed method which combines the configuration interaction method and perturbation theory (written as CIPT method). In Section \ref{sec:HF} I outline the method used to calculate the single-electron atomic basis states using self-consistent Hartree-Fock method
 
 
 
@@ -979,42 +951,20 @@ Each level is presented with an $LS$ notation. These are selected by comparing c
 g_{NR} =  1 + \dfrac{J(J + 1) - L(L+1) + S(S+1)}{2J(J+1)}.
 \end{align}
 and using the $L$ and $S$ values as fitting parameters. We stress that the presented $LS$ notations are approximations as the states of Og are highly relativistic and strongly mixed. \\
-
-\chapter{The CIPT method} \label{chap:CIPT}
-
-\section{CIPT Method} \label{sec:CIPT}
-
-As mentioned above, an open $6d-$shell with more than three  valence electrons makes established many-body methods too computationally expensive to be viable. This computational cost is reduced using a combination of configuration interaction (CI) and perturbation theory (PT) which was first introduced in \cite{DBHF2017} and used in \cite{LDFDb2018, LDF118} for calculating the spectra of SHE Db ($Z=105$) and Og ($Z=118$). In this work we give a brief outline of the CIPT method and its implementation for the elements we calculate. For an in-depth discussion please refer to \cite{DBHF2017}. A fast version of this method has beed developed in~\cite{FCI}.
-
-To generate the single-electron wavefunctions for all the elements,  we use the $V^{N_e-1}$ approximation (where $N_e$ is the total number of electrons) \cite{Kelly1964, Dzuba2005} where the Hartree-Fock calculations are performed for the singly-charged open-shell atom with a   $6d^n7s$ configuration, where $n=4,5,6$ and $7$ for Sg, Bh, Hs and Mt respectively. The  single-electron basis states are calculated in the field of the frozen atomic core. The basis sets are generated using a  B-spline technique~\cite{Johnson1988}  with 40 B-spline states in each partial wave of order 9 in a box with radius $40 \ a_B$ (where $a_B$ is the Bohr radius) with partial waves up to $l_{max}=4$ (where $l$ is orbital angular momentum) and the many-electron basis states $|i \rangle = \Phi_i(r_1,\dots,r_{N_e})$ (where $r_j$ is the radial position of the $j$th electron)  for the CI calculations are formed by making all possible single and double excitations from reference low-lying non-relativistic configurations of the atom. This set of many-body electron wavefunctions is ordered from lowest to highest energy and divided into two sets, 
-
-
-Both the Breit interaction (magnetic interaction and retardation)\cite{Breit1929, Mann1971}  and quantum electrodynamic (QED) radiative corrections  (Ueling potential and electric and magnetic form factors) \cite{FG2005} are included in the calculations as described in our earlier works (see, e.g. \cite{FF113-115}).  As both the Breit and QED radiative corrections scale with atomic charge, $Z$ faster than the first power \cite{FF113-115}, their contribution to the energy levels of SHE is non-negligible. It was shown in \cite{LDFDb2018} that the magnitude of the combined correction to the energy levels of Db is at most  200~cm$^{-1}$.  A similar correction is expected for the SHE in this work.
-
-For each level we calculate the Land\'{e} $g$-factor and compare it to the non-relativistic expression,
-\begin{align} \label{eq:Lande}
-g_{\text{NR}} =  1 + \dfrac{J(J + 1) - L(L+1) + S(S+1)}{2J(J+1)}.
-\end{align}
-Where possible, for each level we use $g_{\text{NR}}$ to find an analogous state in the lighter element to obtain an approximate label in the $LS$ coupling scheme. In fact, $LS$ notations do not make sense for the highly relativistic SHE states due to very large spin-orbit interaction (so the eigenvectors will look strongly mixed in $LS$ notation), we only use $LS$ notations for comparison with lighter elements. Otherwise, we label the $n$th sequential state of total angular momentum $J$ and parity by $n_{J}^{\text{parity}}$.
-
-
-
-
-As discussed in the previous chapter, the development of more efficient methods to calculate the atomic properties of atoms with partially filled shells are needed. In this chapter I discuss the recently developed method which combines the configuration interaction method and perturbation theory (written as CIPT method). In Section \ref{sec:HF} I outline the method used to calculate the single-electron atomic basis states using self-consistent Hartree-Fock method
+\fi
 \section{Hartree-Fock Calculation of Basis States}
-All atomic calculations are performed \textit{ab initio}. The Hamiltonian for a many-body electron atom is given by,
+The CIPT method is an \textit{ab initio} method. To perform the CIPT we must first begin by calculating the many-electron basis functions using a relativistic Hartree-Fock approach. The Hamiltonian for a many-body electron atom is given by,
 \begin{align}
 H\left(\textbf{r}_1,\textbf{r}_2, \textbf{r}_3, .... \textbf{r}_N\right) = \sum_{i=1}^{N} h_0\left(\textbf{r}_i\right) + \dfrac{1}{2}\sum_{i\neq j}\dfrac{1}{r_{ij}}.
 \end{align}
-The first term is the sum of single-electron relativistic Dirac Hamiltonians,
+The first term is the sum of single-electron relativistic Dirac Hamiltonians in the field of the atomic nucleus,
 \begin{align*}
 h_0\left(\textbf{r}\right) = c \boldsymbol{\alpha}\cdot\textbf{p} + \beta c^2 - \dfrac{Z}{r}.
 \end{align*}
+and the second represents the mutual repulsion of electrons. A $V^{N-1}$ Hartree-Fock potential approach \cite{Kelly1964, Dzuba2005} is used, where $N$ is the total number of electrons. In essence the 
 
 
-
-
-To generate the single electron wavefunctions for both Ta I and Db I  we use the $V^{N-1}$ approximation ($N$ is the total number of electrons) \cite{Kelly1964, Dzuba2005}. The Hartree-Fock (HF) calculations are performed for an open-shell atom with a valence $s$ electron removed ($5d^3 6s$ and $6d^3 7s$ for Ta  and Db respectively) where  single-electron basis states are calculated in the field of the frozen core. We use a  B-spline technique~\cite{Johnson1988}  with 40 B-spline states of order 9 in each partial wave in a box with radius $40 \ a_B$ with partial waves up to $l_{max}=4$. Many-electron basis states for the CI calculations are formed by making all possible single and double excitations from reference low-lying configurations. 
+ The Hartree-Fock (HF) calculations are performed for an open-shell atom with a valence $s$ electron removed ($5d^3 6s$ and $6d^3 7s$ for Ta  and Db respectively) where  single-electron basis states are calculated in the field of the frozen core. We use a  B-spline technique~\cite{Johnson1988}  with 40 B-spline states of order 9 in each partial wave in a box with radius $40 \ a_B$ with partial waves up to $l_{max}=4$. Many-electron basis states for the CI calculations are formed by making all possible single and double excitations from reference low-lying configurations. 
 
 
 Finally we have the single-determinant many-electron basis states $\left|i\right> = \Phi\left(r_1, r_2, ... , r{N_e}\right)$, where $r_j$ is the radial position of the $j$th electron.
@@ -1128,7 +1078,7 @@ screening of interelectron interactions. The data in Table \ref{tab:CPaccuracy} 
 $6s$ state of Au (and probably for the $7s$ state of Rg) where the correlation correction
 is the largest in value. Therefore, it is reasonable to assume that the theoretical uncertainty is dominated by valence-valence correlations. The main source for it is the perturbative treatment of the excited configurations. The best way of estimating the uncertainty is to compare the theoretical and experimental energies for lighter elements. We did this in detail for W~\cite{DBHF2017}, which is the lighter analog of Sg, and for pairs Ta and Db~\cite{LDFDb2018}, and Rn and Og~\cite{LDFOg2018}. As follows from this comparison and from the analysis in Sections \ref{sec:Sg}, \ref{sec:Bh}, the theoretical uncertainty for the energies is on the level of $\sim$ 1000~cm$^{-1}$, sometimes a little higher (e.g.  $\sim$ 2000~cm$^{-1}$ for odd states of Bh). The uncertainty for ionization potentials is on the level of a few percent (see section \ref{sec:SHEIP}).
 
-\section{Comparison of CIPT calculations with experimental results in Ta}
+\section{Example calculation of Ta} \label{sed:TaCIPT}
 \begin{table}[p!]
 \centering
 \caption[Comparison of experimental and CIPT spectra and ionisation potential of Ta~I]{Comparison of experimental (from ref.\cite{NIST_ASD}) and CIPT spectra and ionisation potential of Ta I. The experimental excitation energies ($E_E$) and Land\'{e} g-factors ($g_E$) are compared to respective CIPT excitation energies ($E_T$) and Land\'{e} g-factors ($g_T$).   The final column is the difference between experimental and theoretical excitation energies $\Delta = E_{E} - E_{T}$. \label{tab:TaComparison}}
@@ -1566,12 +1516,20 @@ Energy levels of SHE are calculated by solving the matrix eigenvalue problem (\r
 
 
 \subsection{The Seaborgium Atom} \label{sec:Sg}
+\newpage
+ \begin{longtable}{cl@{\hspace{0.5cm}}c@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r} 
 
-
-\begin{table*}[t] 
 \caption[Low-energy spectrum of  Bh \textsc{i} calculated using the CIPT method]{Low-energy spectrum of even- and odd-parity states in Bh \textsc{i}.   We present the energy and Land\'e $g$-factor for each state $J^{\text{parity}}$. We present $LS$- notations only for comparison with lighter analogs.  For SHE states where an analogous state cannot be found in the lighter analog the term is labeled according to the sequential number of the state ($n$) for the given $J^{\text{parity}}$ group, $n_{J}^{\text{parity}}$.\label{tab:SHESpectrumBh}}
- 		\centering
- 		\begin{tabular}{cl@{\hspace{0.5cm}}c@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r} 
+\endfirsthead
+\multicolumn{5}{c}%
+{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+\hline
+&  \parbox{2cm}{Major \\ Configuration} & Term &   \parbox{1cm}{Energy \\ (cm$^{-1}$)}  &  \parbox{1.2cm}{Land\'{e} \\$g$-factor} \\
+\hline
+\endhead
+\hline \multicolumn{5}{r}{\textit{Continued on next page}} \\
+\endfoot
+\endlastfoot
  		\toprule 
  \toprule 
 &  \multicolumn{4}{c}{Bh \textsc{i}} \\
@@ -1621,12 +1579,20 @@ Energy levels of SHE are calculated by solving the matrix eigenvalue problem (\r
 
   \bottomrule
  \bottomrule
- \end{tabular} 
- \end{table*} 
- \begin{table*}[t] 
+ \end{longtable} 
+ \newpage
+\begin{longtable}{cl@{\hspace{0.5cm}}c@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r} 
 \caption[Low-energy spectrum of  Sg \textsc{i} calculated using the CIPT method]{Low-energy spectrum of even- and odd-parity states in Sg \textsc{i}.   We present the energy and Land\'e $g$-factor for each state $J^{\text{parity}}$. We present $LS$- notations only for comparison with lighter analogs.  For SHE states where an analogous state cannot be found in the lighter analog the term is labeled according to the sequential number of the state ($n$) for the given $J^{\text{parity}}$ group, $n_{J}^{\text{parity}}$.\label{tab:SHESpectrumSg}}
- 		\centering 
- 		\begin{tabular}{cl@{\hspace{0.5cm}}c@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r@{\hspace{1cm}}l} 
+\endfirsthead
+\multicolumn{5}{c}%
+{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+\hline
+&  \parbox{2cm}{Major \\ Configuration} & Term &   \parbox{1cm}{Energy \\ (cm$^{-1}$)}  &  \parbox{1.2cm}{Land\'{e} \\$g$-factor} \\
+\hline
+\endhead
+\hline \multicolumn{5}{r}{\textit{Continued on next page}} \\
+\endfoot
+\endlastfoot
  		\toprule 
  \toprule 
 &  \multicolumn{4}{c}{Sg \textsc{i}} \\
@@ -1688,8 +1654,7 @@ Energy levels of SHE are calculated by solving the matrix eigenvalue problem (\r
 (51) & $6d^3 7s^2 7p$  & 9$_1^{\rm_o}$  & 40 073 & 1.62 \\ 
   \bottomrule
  \bottomrule
- \end{tabular} 
- \end{table*} 
+ \end{longtable} 
 Seaborgium was first experimentally detected in 1974 \cite{Ghoirso1974}. Since the initial discovery there has been continued interest and study into its physical and chemical properties including the discovery of isotopes with longer lifetimes. There exist some experimental results for Sg \textsc{i} in the field of chemistry \cite{Schadel2012}. However, there are no spectroscopic results available.   The ground state configuration of Sg \textsc{i} is expected to be [Rn]$5f^{14}6d^47s^2$, similar to the ground state of its lighter homologue (W \textsc{i}, ground configuration:  [Xe]$4f^{14}5d^46s^2$). \\
 \linebreak
 We calculated the first 6 even parity states and the ground state was found  to be the [Rn]$5f^{14}6d^47s^2 \ ^5$D$_0$ state. To calculate the even states we use three reference configurations, $6d^47s^2$, $6d^5 7s$ and $6d^6$ to make states in the effective CI matrix (first terms in the expansion (\ref{eq:psi}) and in the CI effective Hamiltonian (\ref{eq:HCI})). All other states, which are treated as corrections to the states from reference configurations (second terms in the expansion (\ref{eq:psi}) and in the CI Hamiltonian (\ref{eq:HCI})) are obtained by exciting one or two electrons from the reference configurations.
@@ -1706,6 +1671,70 @@ We also present the isotopic shift parameters, $F$ and $a$ from equations (\ref{
 
  Bohrium was first discovered in 1981 \cite{Munzenberg1981}. No atomic spectra have been measured or calculated for any Bh isotopes or ions. When calculating the energy spectrum of Bh \textsc{i}, we use a similar approach as with Sg \textsc{i}.  For the low-lying even parity spectrum we use an effective CI matrix build from the states of the $6d^5 7s^2$, $6d^6 7s$ and $6d^7$ reference configurations. For the odd parity spectrum we use the states from the $6d^5 7s 7p$, $6d^4 7s^2 7p$ and $7d^6 7p$ reference configurations. The lowest six even parity states and low-lying odd parity states are presented in Table~\ref{tab:SHESpectrumSgBh}. For an estimate of accuracy we calculated the low-lying spectrum of Re~\textsc{i} (the lighter analogue of Bh) with similar parameters. Comparing the CIPT calculated spectrum to the experimental spectrum \cite{NIST_ASD}, the energy discrepancy (with respect to the ground state) was $\Delta \approx 900$~cm$^{-1}$ for the even parity states, while for the odd parity states $\Delta \approx 2000$~cm$^{-1}$.\\
 \linebreak
+\newpage
+ \begin{longtable}{cl@{\hspace{0.5cm}}c@{\hspace{0.5cm}}r@{\hspace{0.5cm}}r} 
+
+\caption[Low-energy spectrum of  Bh \textsc{i} calculated using the CIPT method]{Low-energy spectrum of even- and odd-parity states in Bh \textsc{i}.   We present the energy and Land\'e $g$-factor for each state $J^{\text{parity}}$. We present $LS$- notations only for comparison with lighter analogs.  For SHE states where an analogous state cannot be found in the lighter analog the term is labeled according to the sequential number of the state ($n$) for the given $J^{\text{parity}}$ group, $n_{J}^{\text{parity}}$.\label{tab:SHESpectrumBh}}
+\endfirsthead
+\multicolumn{5}{c}%
+{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+\hline
+&  \parbox{2cm}{Major \\ Configuration} & Term &   \parbox{1cm}{Energy \\ (cm$^{-1}$)}  &  \parbox{1.2cm}{Land\'{e} \\$g$-factor} \\
+\hline
+\endhead
+\hline \multicolumn{5}{r}{\textit{Continued on next page}} \\
+\endfoot
+\endlastfoot
+ 		\toprule 
+ \toprule 
+&  \multicolumn{4}{c}{Bh \textsc{i}} \\
+ \cmidrule{2-5}
+&  \parbox{2cm}{Major \\ Configuration} & Term &   \parbox{1cm}{Energy \\ (cm$^{-1}$)}  &  \parbox{1.2cm}{Land\'{e} \\$g$-factor}  \\ 
+ 		\midrule 
+\multicolumn{5}{c}{Even parity states}\\
+ (1) &  $6d^5 7s^2$  &  $^6$S$_{5/2}$    & 0 & 1.78 \\ 
+ (2) &   $6d^5 7s^2$  &  $^4$P$_{3/2}$    & 13 062 & 1.32 \\ 
+ (3) &  $6d^5 7s^2$  &  $^4$G$_{7/2}$    &  13 828 & 1.15 \\ 
+ (4) &   $6d^5 7s^2$  &  $^4$G$_{11/2}$    &  14 981 & 1.19 \\  
+ (5) &   $6d^5 7s^2$  &  $^4$P$_{1/2}$   &  15 659 & 1.90 \\ 
+ (6) &   $6d^5 7s^2$  &  $^4$G$_{9/2}$    & 16 447 & 1.17 \\  
+\multicolumn{5}{c}{Odd parity states}\\
+(7) &   $6d^4 7s^2 7p $  &  $^2$S$_{1/2}^{\rm_o}$    & 12 792 & 0.72 \\  
+(8) &   $6d^4 7s^2 7p $   &  $^6$D$_{1/2}^{\rm_o}$   & 17 781 & 1.66 \\  
+ (9) &   $6d^4 7s^2 7p $   &  $^6$D$_{3/2}^{\rm_o}$    & 19 483 & 1.09 \\  
+(10) &   $6d^5 7s 7p$  &  $^8$P$_{5/2}^{\rm_o}$    & 22 228 & 2.08 \\  
+(11) &   $6d^4 7s^2 7p $   &  $^6$P$_{3/2}^{\rm_o}$    & 22 533 & 1.74 \\  
+(12) &   $6d^4 7s^2 7p $   &  $^6$D$_{5/2}^{\rm_o}$    & 22 930 & 1.26 \\  
+ (13) &   $6d^5 7s 7p$  &  $^8$P$_{7/2}^{\rm_o}$    & 24 020 & 1.67 \\ 
+(14)   &   $6d^4 7s^2 7p $   &  $^6$D$_{7/2}^{\rm_o}$    & 25 171 & 1.28 \\  
+(15)  &   $6d^4 7s^2 7p $   &  $^6$D$_{9/2}^{\rm_o}$    & 26 587 & 1.21 \\  
+ (16) &   $6d^4 7s^2 7p $  &  $^6$F$_{5/2}^{\rm_o}$    & 28 060 & 1.57 \\  
+ (17) &  $6d^4 7s^2 7p $  & 3$_{1/2}^{\rm_o}$  & 29 823 & 0.44 \\ 
+(18) &   $6d^4 7s^2 7p $ &  3$_{3/2}^{\rm_o}$  & 29 885 & 1.55 \\
+(19) &  $6d^4 7s^2 7p $  & 3$_{7/2}^{\rm_o}$  & 31 078 & 1.24 \\ 
+(20) &   $6d^4 7s^2 7p $ & 4$_{5/2}^{\rm_o}$  & 31 253 & 1.30 \\ 
+(21) &   $6d^4 7s^2 7p $  & 4$_{7/2}^{\rm_o}$  & 32 814 & 1.37 \\ 
+(22) &  $6d^4 7s^2 7p $  & 4$_{3/2}^{\rm_o}$  & 33 459 & 1.40 \\
+(23) & $6d^4 7s^2 7p $  & 2$_{9/2}^{\rm_o}$  & 33 575 & 1.06 \\
+(24) & $6d^4 7s^2 7p $  & 5$_{5/2}^{\rm_o}$     & 33 738 & 1.04 \\
+(25) & $6d^4 7s^2 7p $  &  4$_{1/2}^{\rm_o}$  & 35 408 & 2.22 \\
+(26) & $6d^4 7s^2 7p $  & 5$_{3/2}^{\rm_o}$   & 35 447 & 1.00 \\
+(27) & $6d^4 7s^2 7p $  & 6$_{5/2}^{\rm_o}$  & 35 774 & 1.34 \\
+(28) & $6d^4 7s^2 7p $  & 5$_{7/2}^{\rm_o}$   & 36 251 & 1.00 \\
+(29) & $6d^4 7s^2 7p $  & 6$_{3/2}^{\rm_o}$    & 36 333 & 1.02 \\
+(30) & $6d^4 7s^2 7p $  & 7$_{5/2}^{\rm_o}$    & 36 875 & 1.25 \\
+(31) & $6d^4 7s^2 7p $  &  1$_{11/2}^{\rm_o}$    & 37 542 & 1.10 \\
+(32) & $6d^4 7s^2 7p $  & 6$_{7/2}^{\rm_o}$  & 37 910 & 1.32 \\
+(33)  & $6d^4 7s^2 7p $  & 7$_{3/2}^{\rm_o}$     & 37 954 & 1.05 \\
+(34)  & $6d^5 7s 7p $  &  $^8$P$_{9/2}^{\rm_o}$    & 37 972 & 1.62 \\
+(35) &  $6d^4 7s^2 7p $  & 4$_{9/2}^{\rm_o}$  & 38 336 & 1.23 \\  
+(36) &  $6d^4 7s^2 7p $  & 8$_{5/2}^{\rm_o}$  & 39 454 & 1.19 \\
+(37) &  $6d^4 7s^2 7p $  & 7$_{7/2}^{\rm_o}$  & 39 602 & 1.33 \\
+(38) & $6d^4 7s^2 7p $  & 5$_{1/2}^{\rm_o}$  & 40 273 & 1.76 \\
+
+  \bottomrule
+ \bottomrule
+ \end{longtable} 
  The calculated Bh~\textsc{i} ground state is $6d^5 7s^2 \ ^6$S$_{5/2}$.  As with Sg~\textsc{i},  we see the relativistic effect of the tightly bound $7s$ electron which results in the primary excitation of the $6d$ electron. Comparing the spectrum of Bh~\textsc{i} with that of Re~\textsc{I} in Fig. \ref{fig:EL} we see that there are several low-lying states in Re~\textsc{I} corresponding to $6s \rightarrow 5d$ excitations (the lowest is at $11 754.52$~cm$^{-1}$), while there are no similar low-lying states in Bh~\textsc{i}.  The density of low-energy odd-parity states is much larger in Bh~\textsc{i} than in Re~\textsc{i}. The Bh \textsc{i} low odd-parity states are completely dominated by the $6d \rightarrow 7p$ excitations in calculated spectrum and and there are no  $7s \rightarrow 7p$ excitations. 
  The odd-parity state comparison between Bh~\textsc{i} and Re~\textsc{I} is similar to that of Sg~\textsc{i} and W~\textsc{i} in Section \ref{sec:Sg}. In the spectrum of Re~\textsc{i}~\cite{NIST_ASD} there do exist states corresponding to  $5d \rightarrow 6p$ transitions from the ground state; however, they occur much higher in the spectrum compared to Bh~\textsc{i} where the $6d \rightarrow 7p$ excitations dominate. It should be noted that the number of low-lying odd-parity states is larger in Bh~\textsc{i} than in Re \textsc{i}. The lowest odd state of Bh \textsc{i} occurs at $12 792$~cm$^{-1}$, whereas in Re~\textsc{i} the lowest odd state is at $18 950$~cm$^{-1}$.\\
  \linebreak
@@ -2222,8 +2251,145 @@ In this work we calculated the spectrum and E1 transitions for Og I including th
 
 
 
-\chapter{Nilsson Orbitals}
+\chapter{Nilsson Orbitals} \label{chap:Nilsson}
 In Chapter \ref{chap:Deformed} I discussed the Nilsson model for deformed nuclei. In this Appendix I present the Nilsson values for each nucleons and the open shell configurations for the nuclei of interest.
+
+
+
+
+\begin{table} 
+\centering
+\caption[Collective Nilsson for for major shells.]{This table presents the collective Nilsson values $\sum 2n_z + 1$ and $\sum N - n_z + 1$ for major shells $N$. This is identical for both protons and neutrons. \label{table:FullShellNz}}
+\begin{tabular}{c|c}
+\toprule
+\toprule
+Filled $N$ Shell & $\sum 2n_z + 1 = \sum N - n_z + 1$ \\ [2pt]
+\midrule
+0 & 2\\
+1 & 10\\
+2 & 28\\
+3 & 60\\
+4 & 110\\
+5 & 182 \\
+\bottomrule
+\bottomrule
+\end{tabular}
+\end{table}
+\newpage
+%\begin{table}[htbp]
+%\centering
+\begin{longtable}{l@{\hspace{1cm}}r@{\hspace{1cm}}c@{\hspace{1cm}}c@{\hspace{1cm}}c}
+\caption{Nilsson values, $2n_z + 1$, $N - n_z + 1$ and $\Sigma\Lambda$ for individual nucleons.}\\
+\endfirsthead
+\multicolumn{5}{c}%
+{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+\hline
+$l_m$      & $\Omega[Nn_z\Lambda]$ & $2n_z + 1$ & $N - n_z + 1$ & $\Sigma\Lambda$ \\
+\hline
+\endhead
+\hline \multicolumn{5}{r}{\textit{Continued on next page}} \\
+\endfoot
+\endlastfoot
+\toprule
+\toprule
+$l_m$      & $\Omega[Nn_z\Lambda]$ & $2n_z + 1$ & $N - n_z + 1$ & $\Sigma\Lambda$ \\
+\midrule
+\multicolumn{5}{l}{$N=0$} \\
+1$s_{1/2}$ & $1/2[000]$            & 1          & 1             & 0            \\
+\multicolumn{5}{l}{$N=1$} \\
+1$p_{3/2}$ & $1/2[110]$            & 3          & 1             & 0          \\
+1$p_{3/2}$ & $3/2[101]$            & 1          & 2             & 1/2           \\
+1$p_{1/2}$ & $1/2[101]$            & 1          & 2             & -1/2          \\
+\multicolumn{5}{l}{$N=2$} \\
+1$d_{5/2}$ & $1/2[220]$            & 5          & 1             & 0        \\
+1$d_{5/2}$ & $3/2[211]$            & 3          & 2             & 1/2          \\
+1$d_{5/2}$ & $5/2[202]$            & 1          & 3             & 1             \\
+2$s_{1/2}$ & $1/2[211]$            & 3          & 2             & -1/2           \\
+1$d_{3/2}$ & $1/2[200]$            & 1          & 3             & 0             \\
+1$d_{3/2}$ & $3/2[202]$            & 1          & 3             & -1            \\
+\multicolumn{5}{l}{$N=3$} \\
+1$f_{7/2}$ & $1/2[330]$            & 7          & 1             & 0             \\
+1$f_{7/2}$ & $3/2[321]$            & 5          & 2             & 1/2               \\
+1$f_{7/2}$ & $5/2[312]$            & 3          & 3             & 1             \\
+1$f_{7/2}$ & $7/2[303]$            & 1          & 4             & 3/2               \\
+2$p_{3/2}$ & $1/2[321]$            & 5          & 2             & -1/2              \\
+2$p_{3/2}$ & $3/2[312]$            & 3          & 3             & -1              \\
+1$f_{5/2}$ & $1/2[310]$            & 3          & 3             & 0              \\
+1$f_{5/2}$ & $3/2[301]$            & 1          & 4             & 1/2               \\
+1$f_{5/2}$ & $5/2[303]$            & 1          & 4             & -3/2               \\
+2$p_{1/2}$ & $1/2[301]$            & 1          & 4             & -1/2               \\
+\multicolumn{5}{l}{$N=4$} \\
+1$g_{9/2}$ & $1/2[440]$            & 9          & 1             & 0               \\
+1$g_{9/2}$ & $3/2[431]$            & 7          & 2             & 1/2               \\
+1$g_{9/2}$ & $5/2[422]$            & 5          & 3             & 1               \\
+1$g_{9/2}$ & $7/2[413]$            & 3          & 4             & 3/2               \\
+1$g_{9/2}$ & $9/2[404]$            & 1          & 5             & 2              \\
+1$g_{7/2}$ & $1/2[431]$            & 7          & 2             & -1/2             \\
+1$g_{7/2}$ & $3/2[422]$            & 5          & 3             & -1             \\
+1$g_{7/2}$ & $5/2[413]$            & 3          & 4             & -3/2            \\ 
+1$g_{7/2}$ & $7/2[404]$            & 1          & 5             & -2              \\
+2$d_{5/2}$ & $1/2[420]$            & 5          & 3             & 0              \\
+2$d_{5/2}$ & $3/2[411]$            & 3          & 4             & 1/2            \\
+2$d_{5/2}$ & $5/2[402]$            & 1          & 5             & 1    \\
+2$d_{3/2}$ & $1/2[411]$            & 3          & 4             & -1/2               \\
+2$d_{3/2}$ & $3/2[402]$            & 1          & 5             & -1               \\
+3$s_{1/2}$ & $1/2[400]$            & 1          & 5             & 1/2           \\
+\multicolumn{5}{l}{$N=5$} \\
+1$h_{11/2}$ & $1/2[550]$            & 11         & 1             & 0             \\
+1$h_{11/2}$ & $3/2[541]$            & 9          & 2             & 1/2               \\
+1$h_{11/2}$ & $5/2[532]$            & 7          & 3             & 1           \\
+1$h_{11/2}$ & $7/2[523]$            & 5          & 4             & 3/2         \\
+1$h_{11/2}$ & $9/2[514]$            & 3          & 5             & 2         \\
+1$h_{11/2}$ & $11/2[505]$           & 1          & 6             & 5/2            \\
+1$h_{9/2}$ & $1/2[541]$             & 9          & 2             & -1/2          \\
+1$h_{9/2}$ & $3/2[532]$             & 7          & 3             & -1        \\
+1$h_{9/2}$ & $5/2[523]$             & 5          & 4             & -3/2            \\
+1$h_{9/2}$ & $7/2[514]$             & 3          & 5             & -2         \\
+1$h_{9/2}$ & $9/2[505]$             & 1          & 6             & -5/2           \\
+2$f_{7/2}$ & $1/2[530]$             & 7          & 3             & 0             \\
+2$f_{7/2}$ & $3/2[521]$             & 5          & 4             & 1/2               \\
+2$f_{7/2}$ & $5/2[512]$             & 3          & 5             & 1           \\
+2$f_{7/2}$ & $7/2[503]$             & 1          & 6             & 3/2           \\
+3$p_{3/2}$ & $1/2[521]$             & 5          & 4             & -1/2           \\
+3$p_{3/2}$ & $3/2[512]$             & 3          & 5             & -1            \\
+2$f_{5/2}$ & $1/2[510]$             & 3          & 5             & 0         \\
+2$f_{5/2}$ & $3/2[501]$             & 1          & 6             & 1/2           \\
+2$f_{5/2}$ & $5/2[503]$             & 1          & 6             & -3/2           \\
+3$p_{1/2}$ & $1/2[501]$             & 1          & 6             & -1/2            \\
+\multicolumn{5}{l}{$N=6$} \\
+1$i_{13/2}$ & $1/2[660]$            & 13         & 1             & 0            \\
+1$i_{13/2}$ & $3/2[651]$            & 11         & 2             & 1/2        \\
+1$i_{13/2}$ & $5/2[642]$            & 9          & 3             & 2           \\
+1$i_{13/2}$ & $7/2[633]$            & 7          & 4             & 3/2       \\
+1$i_{13/2}$ & $9/2[624]$            & 5          & 5             & 2      \\
+1$i_{13/2}$ & $11/2[615]$           & 3          & 6             & 5/2       \\
+1$i_{13/2}$ & $13/2[606]$           & 1          & 7             & 3        \\
+2$g_{9/2}$  & $1/2[651]$            & 11         & 2             & -1/2         \\
+2$g_{9/2}$  & $3/2[642]$            & 9          & 3             & -1     \\
+2$g_{9/2}$  & $5/2[633]$            & 7          & 4             & -3/2      \\
+2$g_{9/2}$  & $7/2[624]$            & 5          & 5             & -2        \\
+2$g_{9/2}$  & $9/2[615]$            & 3          & 6             & -5/2     \\
+1$i_{11/2}$ & $1/2[640]$            & 9          & 3             & 0       \\
+1$i_{11/2}$ & $3/2[631]$            & 7          & 4             & 1/2    \\
+1$i_{11/2}$ & $5/2[622]$            & 5          & 5             & 1       \\
+1$i_{11/2}$ & $7/2[613]$            & 3          & 6             & 3/2      \\
+1$i_{11/2}$ & $9/2[604]$            & 1          & 7             & 2            \\
+1$i_{11/2}$ & $11/2[606]$           & 1          & 7             & -3          \\
+\vdots      & \vdots                & \vdots     & \vdots        & \vdots           \\
+\multicolumn{5}{l}{$N=7$} \\
+1$j_{15/2}$ & $1/2[770]$            & 15         & 1             & 0            \\
+1$j_{15/2}$ & $3/2[761]$            & 13         & 2             & 1/2         \\
+1$j_{15/2}$ & $5/2[752]$            & 11         & 3             & 1          \\
+1$j_{15/2}$ & $7/2[743]$            & 9          & 4             & 3/2         \\
+1$j_{15/2}$ & $9/2[734]$            & 7          & 5             & 2              \\
+1$j_{15/2}$ & $11/2[725]$            & 5          & 6             & 5/2           \\
+1$j_{15/2}$ & $13/2[716]$            & 3          & 7             & 3         \\
+1$j_{15/2}$ & $15/2[707]$            & 1          & 8             & 7/2         \\
+\vdots      & \vdots                & \vdots     & \vdots        & \vdots           \\
+\bottomrule
+\bottomrule
+\end{longtable}
+\section{Filled and Unfilled shells of Nuclei}
 \begin{figure}
 \centering
 \begin{subfigure}[b]{0.45\textwidth}
@@ -2248,175 +2414,34 @@ In Chapter \ref{chap:Deformed} I discussed the Nilsson model for deformed nuclei
 \caption{Nilsson energy diagrams for both protons and neutrons for prolate deformed nuclei. Here $\delta_{\text{osc}}$ is a degree of deformation. The numbers in circles represent the magic numbers in the spherical limit. These figures have been taken from A. Bohr B. R. Mottelson, Nuclear Structure Vol. 2 \cite{BohrMottVol2}.}
 
 \end{figure}
-
-
-
-\begin{table} 
-\centering
-\caption[Collective Nilsson for for major shells.]{This table presents the collective Nilsson values $\sum 2n_z + 1$ and $\sum N - n_z + 1$ for major shells $N$. This is identical for both protons and neutrons. \label{table:FullShellNz}}
-\begin{tabular}{c|c}
-\toprule
-\toprule
-Filled $N$ Shell & $\sum 2n_z + 1 = \sum N - n_z + 1$ \\ [2pt]
-\midrule
-0 & 2\\
-1 & 10\\
-2 & 28\\
-3 & 60\\
-4 & 110\\
-5 & 182 \\
-\bottomrule
-\bottomrule
-\end{tabular}
-\end{table}
-
-\begin{table}[htbp]
-\centering
-\caption{Nilsson values, $2n_z + 1$, $N - n_z + 1$ and $\Sigma\Lambda$ for individual nucleons.}
-\begin{tabular}{l@{\hspace{1cm}}r@{\hspace{1cm}}c@{\hspace{1cm}}c@{\hspace{1cm}}c}
-\toprule
-\toprule
-$l_m$      & $\Omega[Nn_z\Lambda]$ & $2n_z + 1$ & $N - n_z + 1$ & $\Sigma\Lambda$ \\
-\midrule
-\multicolumn{5}{c}{$N=0$} \\
-1$s_{1/2}$ & $1/2[000]$            & 1          & 1             & 0            \\
-\multicolumn{5}{c}{$N=1$} \\
-1$p_{3/2}$ & $1/2[110]$            & 3          & 1             & 0          \\
-1$p_{3/2}$ & $3/2[101]$            & 1          & 2             & 1/2           \\
-1$p_{1/2}$ & $1/2[101]$            & 1          & 2             & -1/2          \\
-\multicolumn{5}{c}{$N=2$} \\
-1$d_{5/2}$ & $1/2[220]$            & 5          & 1             & 0        \\
-1$d_{5/2}$ & $3/2[211]$            & 3          & 2             & 1/2          \\
-1$d_{5/2}$ & $5/2[202]$            & 1          & 3             & 1             \\
-2$s_{1/2}$ & $1/2[211]$            & 3          & 2             & -1/2           \\
-1$d_{3/2}$ & $1/2[200]$            & 1          & 3             & 0             \\
-1$d_{3/2}$ & $3/2[202]$            & 1          & 3             & -1            \\
-\multicolumn{5}{c}{$N=3$} \\
-1$f_{7/2}$ & $1/2[330]$            & 7          & 1             & 0             \\
-1$f_{7/2}$ & $3/2[321]$            & 5          & 2             & 1/2               \\
-1$f_{7/2}$ & $5/2[312]$            & 3          & 3             & 1             \\
-1$f_{7/2}$ & $7/2[303]$            & 1          & 4             & 3/2               \\
-2$p_{3/2}$ & $1/2[321]$            & 5          & 2             & -1/2              \\
-2$p_{3/2}$ & $3/2[312]$            & 3          & 3             & -1              \\
-1$f_{5/2}$ & $1/2[310]$            & 3          & 3             & 0              \\
-1$f_{5/2}$ & $3/2[301]$            & 1          & 4             & 1/2               \\
-1$f_{5/2}$ & $5/2[303]$            & 1          & 4             & -3/2               \\
-2$p_{1/2}$ & $1/2[301]$            & 1          & 4             & -1/2               \\
-\multicolumn{5}{c}{$N=4$} \\
-1$g_{9/2}$ & $1/2[440]$            & 9          & 1             & 0               \\
-1$g_{9/2}$ & $3/2[431]$            & 7          & 2             & 1/2               \\
-1$g_{9/2}$ & $5/2[422]$            & 5          & 3             & 1               \\
-1$g_{9/2}$ & $7/2[413]$            & 3          & 4             & 3/2               \\
-1$g_{9/2}$ & $9/2[404]$            & 1          & 5             & 2              \\
-1$g_{7/2}$ & $1/2[431]$            & 7          & 2             & -1/2             \\
-1$g_{7/2}$ & $3/2[422]$            & 5          & 3             & -1             \\
-1$g_{7/2}$ & $5/2[413]$            & 3          & 4             & -3/2            \\ 
-1$g_{7/2}$ & $7/2[404]$            & 1          & 5             & -2              \\
-2$d_{5/2}$ & $1/2[420]$            & 5          & 3             & 0              \\
-2$d_{5/2}$ & $3/2[411]$            & 3          & 4             & 1/2            \\
-2$d_{5/2}$ & $5/2[402]$            & 1          & 5             & 1    \\
-2$d_{3/2}$ & $1/2[411]$            & 3          & 4             & -1/2               \\
-2$d_{3/2}$ & $3/2[402]$            & 1          & 5             & -1               \\
-3$s_{1/2}$ & $1/2[400]$            & 1          & 5             & 1/2           \\
-\bottomrule
-\bottomrule
-\end{tabular}
-\end{table}
-\begin{table}[htbp]
-\centering
-\begin{tabular}{l@{\hspace{0.5cm}}r@{\hspace{1cm}}c@{\hspace{1cm}}c@{\hspace{1cm}}c@{\hspace{1cm}}c}
-\toprule
-\toprule
-$l_m$      & $\Omega[Nn_z\Lambda]$ & $2n_z + 1$ & $N - n_z + 1$ & $\Sigma\Lambda$  \\
-\midrule
-\multicolumn{5}{c}{$N=5$} \\
-1$h_{11/2}$ & $1/2[550]$            & 11         & 1             & 0             \\
-1$h_{11/2}$ & $3/2[541]$            & 9          & 2             & 1/2               \\
-1$h_{11/2}$ & $5/2[532]$            & 7          & 3             & 1           \\
-1$h_{11/2}$ & $7/2[523]$            & 5          & 4             & 3/2         \\
-1$h_{11/2}$ & $9/2[514]$            & 3          & 5             & 2         \\
-1$h_{11/2}$ & $11/2[505]$           & 1          & 6             & 5/2            \\
-1$h_{9/2}$ & $1/2[541]$             & 9          & 2             & -1/2          \\
-1$h_{9/2}$ & $3/2[532]$             & 7          & 3             & -1        \\
-1$h_{9/2}$ & $5/2[523]$             & 5          & 4             & -3/2            \\
-1$h_{9/2}$ & $7/2[514]$             & 3          & 5             & -2         \\
-1$h_{9/2}$ & $9/2[505]$             & 1          & 6             & -5/2           \\
-2$f_{7/2}$ & $1/2[530]$             & 7          & 3             & 0             \\
-2$f_{7/2}$ & $3/2[521]$             & 5          & 4             & 1/2               \\
-2$f_{7/2}$ & $5/2[512]$             & 3          & 5             & 1           \\
-2$f_{7/2}$ & $7/2[503]$             & 1          & 6             & 3/2           \\
-3$p_{3/2}$ & $1/2[521]$             & 5          & 4             & -1/2           \\
-3$p_{3/2}$ & $3/2[512]$             & 3          & 5             & -1            \\
-2$f_{5/2}$ & $1/2[510]$             & 3          & 5             & 0         \\
-2$f_{5/2}$ & $3/2[501]$             & 1          & 6             & 1/2           \\
-2$f_{5/2}$ & $5/2[503]$             & 1          & 6             & -3/2           \\
-3$p_{1/2}$ & $1/2[501]$             & 1          & 6             & -1/2            \\
-\multicolumn{5}{c}{$N=6$} \\
-1$i_{13/2}$ & $1/2[660]$            & 13         & 1             & 0            \\
-1$i_{13/2}$ & $3/2[651]$            & 11         & 2             & 1/2        \\
-1$i_{13/2}$ & $5/2[642]$            & 9          & 3             & 2           \\
-1$i_{13/2}$ & $7/2[633]$            & 7          & 4             & 3/2       \\
-1$i_{13/2}$ & $9/2[624]$            & 5          & 5             & 2      \\
-1$i_{13/2}$ & $11/2[615]$           & 3          & 6             & 5/2       \\
-1$i_{13/2}$ & $13/2[606]$           & 1          & 7             & 3        \\
-2$g_{9/2}$  & $1/2[651]$            & 11         & 2             & -1/2         \\
-2$g_{9/2}$  & $3/2[642]$            & 9          & 3             & -1     \\
-2$g_{9/2}$  & $5/2[633]$            & 7          & 4             & -3/2      \\
-2$g_{9/2}$  & $7/2[624]$            & 5          & 5             & -2        \\
-2$g_{9/2}$  & $9/2[615]$            & 3          & 6             & -5/2     \\
-1$i_{11/2}$ & $1/2[640]$            & 9          & 3             & 0       \\
-1$i_{11/2}$ & $3/2[631]$            & 7          & 4             & 1/2    \\
-1$i_{11/2}$ & $5/2[622]$            & 5          & 5             & 1       \\
-1$i_{11/2}$ & $7/2[613]$            & 3          & 6             & 3/2      \\
-1$i_{11/2}$ & $9/2[604]$            & 1          & 7             & 2            \\
-1$i_{11/2}$ & $11/2[606]$*           & 1          & 7             & -3          \\
-\vdots      & \vdots                & \vdots     & \vdots        & \vdots           \\
-
-\bottomrule
-\bottomrule
-\end{tabular}
-\end{table}
-\newpage
-\begin{table}[htbp]
-\centering
-\begin{tabular}{l@{\hspace{0.5cm}}r@{\hspace{1cm}}c@{\hspace{1cm}}c@{\hspace{1cm}}c@{\hspace{1cm}}c}
-\toprule
-\toprule
-$l_m$      & $\Omega[Nn_z\Lambda]$ & $2n_z + 1$ & $N - n_z + 1$ & $\Sigma\Lambda$  \\
-\midrule
-\multicolumn{5}{c}{$N=7$} \\
-1$j_{15/2}$ & $1/2[770]$            & 15         & 1             & 0            \\
-1$j_{15/2}$ & $3/2[761]$            & 13         & 2             & 1/2         \\
-1$j_{15/2}$ & $5/2[752]$            & 11         & 3             & 1          \\
-1$j_{15/2}$ & $7/2[743]$            & 9          & 4             & 3/2         \\
-1$j_{15/2}$ & $9/2[734]$            & 7          & 5             & 2              \\
-1$j_{15/2}$ & $11/2[725]$            & 5          & 6             & 5/2           \\
-1$j_{15/2}$ & $13/2[716]$            & 3          & 7             & 3         \\
-1$j_{15/2}$ & $15/2[707]$            & 1          & 8             & 7/2         \\
-\vdots      & \vdots                & \vdots     & \vdots        & \vdots           \\
-\bottomrule
-\bottomrule
-\end{tabular}
-\end{table}
-\section{Filled and Unfilled shells of Nuclei}
 Below is a table of the filled and unfilled $N$ shells of the deformed nuclei of interest. For Eu isotopes there are two applicable deformations, large or small. Due to the relative electric quadrupole moment of the two isotopes we assumed a large deformation for $^{153}$Eu and small deformation for $^{151}$Eu.
-\begin{table}[htbp]
-\begin{adjustwidth}{-3cm}{-3cm}
-\centering
-\begin{tabular}{|c|c|c|c|}
+\newpage
+\begin{longtable}{cll}
+\caption{Population of protons and neutrons in deformed nuclei. The coloured numbers represent the unpaired nucleon for each nucleus.}\\
+\endfirsthead
+\multicolumn{3}{c}%
+{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
 \toprule
 \toprule
-Nuclei     & Deformation ($\delta$) & Protons & Neutrons \\
+Nuclei      & Protons & Neutrons \\
 \midrule
-$^{9}$Be   &                        
+\endhead
+\hline \multicolumn{3}{r}{\textit{Continued on next page}} \\
+\endfoot
+\endlastfoot
+\toprule
+\toprule
+Nuclei  &  Protons & Neutrons \\
+\midrule
+$^{9}$Be                          
     &  \pbox{20cm}{Filled Shells: N/A \\
     $1s_{1/2}$: $\pm 1/2$ \\
     $1p_{3/2}$: $\pm 1/2$}              
     &  \pbox{20cm}{Filled Shells: N/A \\
     $1s_{1/2}$: $\pm 1/2$ \\
-    $1p_{3/2}$: $\pm 1/2, \textcolor{red}{3/2}$}\\
+    $1p_{3/2}$: $\pm 1/2, \textcolor{BrickRed}{3/2}$}\\
 \midrule
-$^{21}$Ne  &       
+$^{21}$Ne         
     &  \pbox{20cm}{Filled Shells: N/A \\
     $1s_{1/2}$: $\pm 1/2$ \\
     $1p_{3/2}$: $\pm 1/2$, $\pm 3/2$ \\
@@ -2426,21 +2451,21 @@ $^{21}$Ne  &
     $1s_{1/2}$: $\pm 1/2$ \\
     $1p_{3/2}$: $\pm 1/2$, $\pm 3/2$ \\
     $1p_{1/2}$: $\pm 1/2$ \\
-    $1d_{5/2}$: $\pm 1/2$ $\textcolor{red}{3/2}$}\\
+    $1d_{5/2}$: $\pm 1/2$, $\textcolor{BrickRed}{3/2}$}\\
 \midrule
-$^{27}$Al  &       
+$^{27}$Al         
     &  \pbox{20cm}{Filled Shells: N/A \\
     $1s_{1/2}$: $\pm 1/2$ \\
     $1p_{3/2}$: $\pm 1/2$, $\pm 3/2$ \\
     $1p_{1/2}$: $\pm 1/2$ \\
-    $1d_{5/2}$: $\pm 1/2$, $\pm 3/2$, $\textcolor{blue}{5/2}$}              
+    $1d_{5/2}$: $\pm 1/2$, $\pm 3/2$, $\textcolor{RoyalBlue}{5/2}$}              
     &  \pbox{20cm}{Filled Shells: N/A \\
     $1s_{1/2}$: $\pm 1/2$ \\
     $1p_{3/2}$: $\pm 1/2$, $\pm 3/2$ \\
     $1p_{1/2}$: $\pm 1/2$ \\
     $1d_{5/2}$: $\pm 1/2$, $\pm 3/2$, $\pm 5/2$}\\
 \midrule
-$^{163}$Dy & $\approx 0.2$ 
+$^{163}$Dy 
     &  \pbox{20cm}{Filled Shells: N = 0, 1, 2, 3 \\
     $1g_{9/2}$: Full Shell \\
     $1g_{7/2}$: $\pm 1/2$, $\pm 3/2$, $\pm 5/2$ \\
@@ -2448,11 +2473,11 @@ $^{163}$Dy & $\approx 0.2$
     $1h_{11/2}$:$\pm 1/2$, $\pm 3/2$, $\pm 5/2$}              
     &  \pbox{20cm}{Filled Shells: N = 0, 1, 2, 3, 4 \\
     $1h_{11/2}$: Full Shell \\
-    $2f_{7/2}$: $\pm 1/2$, $\pm 3/2$, $\textcolor{red}{5/2}$ \\
+    $2f_{7/2}$: $\pm 1/2$, $\pm 3/2$, $\textcolor{BrickRed}{5/2}$ \\
     $1h_{9/2}$: $\pm 1/2$, $\pm 3/2$ \\
     $1i_{13/2}$: $\pm 1/2$, $\pm 3/2$} \\
 \midrule
-$^{173}$Yb & $\approx 0.3$
+$^{173}$Yb 
     &  \pbox{20cm}{Filled Shells: N = 0, 1, 2, 3 \\
     $1g_{9/2}$: Full Shell \\
     $1g_{7/2}$: $\pm 1/2$, $\pm 3/2$, $\pm 5/2$ \\
@@ -2462,11 +2487,11 @@ $^{173}$Yb & $\approx 0.3$
     &  \pbox{20cm}{Filled Shells: N = 0, 1, 2, 3, 4 \\
     $1h_{11/2}$: Full Shell \\
     $2f_{7/2}$: $\pm 1/2$, $\pm 3/2$, $\pm 5/2$ \\
-    $1h_{9/2}$: $\pm 1/2$, $\pm 3/2$, $\textcolor{red}{5/2}$ \\
+    $1h_{9/2}$: $\pm 1/2$, $\pm 3/2$, $\textcolor{BrickRed}{5/2}$ \\
     $1i_{13/2}$:$\pm 1/2$, $\pm 3/2$, $\pm 5/2$, $\pm 7/2$ \\
     $3p_{3/2}$: $\pm 1/2$} \\
 \midrule
-$^{177}$Hf &
+$^{177}$Hf 
     &  \pbox{20cm}{Filled Shells: N = 0, 1, 2, 3 \\
     $1g_{9/2}$: Full Shell \\
     $1g_{7/2}$: Full Shell \\
@@ -2475,10 +2500,10 @@ $^{177}$Hf &
     &  \pbox{20cm}{Filled Shells: N = 0, 1, 2, 3, 4 \\
     $1h_{11/2}$: Full Shell \\
     $2f_{7/2}$: Full Shell \\
-    $1h_{9/2}$: $\pm 1/2$, $\pm 3/2$, $\textcolor{red}{5/2}$ \\
+    $1h_{9/2}$: $\pm 1/2$, $\pm 3/2$, $\textcolor{BrickRed}{5/2}$ \\
     $1i_{13/2}$:$\pm 1/2$, $\pm 3/2$, $\pm 5/2$, $\pm 7/2$} \\
 \midrule
-$^{179}$Hf & $\approx 0.1$
+$^{179}$Hf 
     &  \pbox{20cm}{Filled Shells: N = 0, 1, 2, 3 \\
     $1g_{9/2}$: Full Shell \\
     $1g_{7/2}$: Full Shell \\
@@ -2488,12 +2513,12 @@ $^{179}$Hf & $\approx 0.1$
     $1h_{11/2}$: Full Shell \\
     $2f_{7/2}$: Full Shell \\
     $1h_{9/2}$: $\pm 1/2$, $\pm 3/2$, $\pm 5/2$ \\
-    $1i_{13/2}$:$\pm 1/2$, $\pm 3/2$, $\pm 5/2$, $\pm 7/2$, $\textcolor{red}{9/2}$} \\
+    $1i_{13/2}$:$\pm 1/2$, $\pm 3/2$, $\pm 5/2$, $\pm 7/2$, $\textcolor{BrickRed}{9/2}$} \\
 \midrule
-$^{181}$Ta & $\approx 0.3$
+$^{181}$Ta 
     &  \pbox{20cm}{Filled Shells: N = 0, 1, 2, 3 \\
     $1g_{9/2}$: Full Shell \\
-    $1g_{7/2}$: $\pm 1/2$, $\pm 3/2$, $\pm 5/2$, $\textcolor{blue}{7/2}$ \\
+    $1g_{7/2}$: $\pm 1/2$, $\pm 3/2$, $\pm 5/2$, $\textcolor{RoyalBlue}{7/2}$ \\
     $2d_{5/2}$: $\pm 1/2$, $\pm 3/2$ \\
     $1h_{11/2}$:$\pm 1/2$, $\pm 3/2$, $\pm 5/2$, $\pm 7/2$ \\
     $2d_{3/2}$: $\pm 1/2$ \\
@@ -2505,20 +2530,8 @@ $^{181}$Ta & $\approx 0.3$
     $1i_{13/2}$:$\pm 1/2$, $\pm 3/2$, $\pm 5/2$, $\pm 7/2$ \\
     $1p_{3/2}$: $\pm 1/2$ \\
     $1g_{9/2}$: $\pm 1/2$} \\
-\bottomrule
-\bottomrule
-
-\end{tabular}
-\end{adjustwidth}
-\end{table}
-\begin{table}[htbp]
-\centering
-\begin{tabular}{c|c|c|c}
-\toprule
-\toprule
-Nuclei     & Deformation ($\delta$) & Protons & Neutrons \\
 \midrule
-$^{201}$Hg & $\approx 0$
+$^{201}$Hg 
     &  \pbox{20cm}{Filled Shells: N = 0, 1, 2, 3 \\
     $1g_{9/2}$: Full Shell \\
     $1g_{7/2}$: Full Shell \\
@@ -2531,32 +2544,32 @@ $^{201}$Hg & $\approx 0$
     $1h_{9/2}$: Full Shell \\
     $1i_{13/2}$: Full Shell \\
     $1p_{3/2}$: Full Shell \\
-    $1f_{5/2}$: $\pm 1/2$, \textcolor{red}{3/2}} \\
+    $1f_{5/2}$: $\pm 1/2$, \textcolor{BrickRed}{3/2}} \\
 \midrule
-$^{229}$Th & $\approx 0.21$
+$^{229}$Th 
     &  \pbox{20cm}{Filled Shells: N = 0, 1, 2, 3, 4 \\
     $1h_{11/2}$: Full Shell \\
     $1h_{9/2}$: $\pm 1/2$, $\pm 3/2$ \\
     $1i_{13/2}$: $\pm 1/2$, $\pm 3/2$}              
     &  \pbox{20cm}{Filled Shells: N = 0, 1, 2, 3, 4, 5 \\
     $1i_{13/2}$: Full Shell \\
-    $1g_{9/2}$: $\pm 1/2$, $\pm 3/2$, $\textcolor{red}{5/2}$ \\
+    $1g_{9/2}$: $\pm 1/2$, $\pm 3/2$, $\textcolor{BrickRed}{5/2}$ \\
     $1i_{11/2}$: $\pm 1/2$, $\pm 3/2$ \\
     $1j_{15/2}$: $\pm 1/2$, $\pm 3/2$} \\
 \midrule
-$^{151}$Eu & $\leq 0.05$
+$^{151}$Eu 
     &  \pbox{20cm}{Filled Shells: N = 0, 1, 2, 3 \\
     $1g_{9/2}$: Full Shell \\
     $1g_{7/2}$: Full Shell \\
-    $2d_{5/2}$: $\pm 1/2$, $\pm 3/2$, $\textcolor{blue}{5/2}$ }          
+    $2d_{5/2}$: $\pm 1/2$, $\pm 3/2$, $\textcolor{RoyalBlue}{5/2}$ }          
     &  \pbox{20cm}{Filled Shells: N = 0, 1, 2, 3, 4 \\
     $1h_{11/2}$: Full Shell \\
     $2f_{7/2}$:$\pm 1/2$, $\pm 3/2$, $\pm 5/2$} \\
 \midrule
-$^{153}$Eu & $> 0.25$
+$^{153}$Eu 
     &  \pbox{20cm}{Filled Shells: N = 0, 1, 2, 3 \\
     $1g_{9/2}$: Full Shell \\
-    $1g_{7/2}$: $\pm 1/2$, $\pm 3/2$, $\textcolor{blue}{5/2}$ \\
+    $1g_{7/2}$: $\pm 1/2$, $\pm 3/2$, $\textcolor{RoyalBlue}{5/2}$ \\
     $2d_{5/2}$: $\pm 1/2$ \\ 
     $1h_{11/2}$:$\pm 1/2$, $\pm 3/2$, $\pm 5/2$}          
     &  \pbox{20cm}{Filled Shells: N = 0, 1, 2, 3, 4 \\
@@ -2565,7 +2578,7 @@ $^{153}$Eu & $> 0.25$
     $1h_{9/2}$: $\pm 1/2$ \\
     $1i_{13/2}$: $\pm 1/2$} \\
 \midrule
-$^{167}$Er & $\approx 0.3$          
+$^{167}$Er           
     &  \pbox{20cm}{Filled Shells: N = 0, 1, 2, 3 \\
     $1g_{9/2}$: Full Shell \\
     $1g_{7/2}$: $\pm 1/2$, $\pm 3/2$, $\pm 5/2$\\
@@ -2575,14 +2588,10 @@ $^{167}$Er & $\approx 0.3$
     $1h_{11/2}$: Full Shell \\
     $2f_{7/2}$: $\pm 1/2$, $\pm 3/2$, $\pm 5/2$ \\
     $1h_{9/2}$: $\pm 1/2$, $\pm 3/2$ \\
-    $1i_{13/2}$:$\pm 1/2$, $\pm 3/2$, $\pm 5/2$, $\textcolor{red}{7/2}$} \\
-\midrule
-$^{133}$Cs & $< 0$                  &         & \\
-$^{131}$Xe & $< 0$                  &         & \\
+    $1i_{13/2}$:$\pm 1/2$, $\pm 3/2$, $\pm 5/2$, $\textcolor{BrickRed}{7/2}$} \\
 \bottomrule
 \bottomrule
-\end{tabular}
-\end{table}
+\end{longtable}
 \clearpage
 \listoffigures
 \clearpage
