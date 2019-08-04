@@ -5,44 +5,45 @@
 \BOOKMARK [1][-]{section.2.2}{Lorentz symmetry violation}{chapter.2}% 5
 \BOOKMARK [1][-]{section.2.3}{Violation in nuclear, atomic and molecular systems}{chapter.2}% 6
 \BOOKMARK [0][-]{chapter.3}{Properties of deformed nuclei}{part.1}% 7
-\BOOKMARK [1][-]{section.3.1}{The Nilsson Model}{chapter.3}% 8
-\BOOKMARK [1][-]{section.3.2}{Second order tensor properties of nuclei}{chapter.3}% 9
-\BOOKMARK [0][-]{chapter.4}{The weak quadrupole moment and Lorentz violation in nuclei}{part.1}% 10
-\BOOKMARK [1][-]{section.4.1}{Lorentz invariance violation in deformed nuclei}{chapter.4}% 11
-\BOOKMARK [1][-]{section.4.2}{Quadrupole moment of neutron distribution in deformed nuclei}{chapter.4}% 12
-\BOOKMARK [1][-]{section.4.3}{Example calculation of Q and M for the 173Yb nucleus}{chapter.4}% 13
-\BOOKMARK [1][-]{section.4.4}{Nuclei with a small deformation}{chapter.4}% 14
-\BOOKMARK [1][-]{section.4.5}{Weak quadrupole moments and parity nonconservation in atomic and molecular systems}{chapter.4}% 15
-\BOOKMARK [0][-]{chapter.5}{The magnetic quadrupole moment of the nucleus}{part.1}% 16
-\BOOKMARK [1][-]{section.5.1}{The MQM of deformed nuclei}{chapter.5}% 17
-\BOOKMARK [1][-]{section.5.2}{MQM energy shift in diatomic molecules}{chapter.5}% 18
-\BOOKMARK [0][-]{chapter.6}{Conclusion}{part.1}% 19
-\BOOKMARK [-1][-]{part.2}{II Theoretical calculations of super heavy element properties}{}% 20
-\BOOKMARK [0][-]{chapter.7}{Introduction}{part.2}% 21
-\BOOKMARK [0][-]{chapter.8}{The CIPT method}{part.2}% 22
-\BOOKMARK [1][-]{section.8.1}{Generation of Basis States}{chapter.8}% 23
-\BOOKMARK [2][-]{subsection.8.1.1}{Relativistic and Radiative effects}{section.8.1}% 24
-\BOOKMARK [1][-]{section.8.2}{Configuration Interaction + Perturbation Theory}{chapter.8}% 25
-\BOOKMARK [2][-]{subsection.8.2.1}{Fast configuration interaction method}{section.8.2}% 26
-\BOOKMARK [1][-]{section.8.3}{Estimation of the accuracy}{chapter.8}% 27
-\BOOKMARK [1][-]{section.8.4}{Example CIPT calculations in Ta and comparison to experiment}{chapter.8}% 28
-\BOOKMARK [0][-]{chapter.9}{Atomic structure of superheavy element Db }{part.2}% 29
-\BOOKMARK [1][-]{section.9.1}{Calculation of Excitation spectrum}{chapter.9}% 30
-\BOOKMARK [1][-]{section.9.2}{Electric dipole transitions and isotope shift}{chapter.9}% 31
-\BOOKMARK [1][-]{section.9.3}{Discussion}{chapter.9}% 32
-\BOOKMARK [0][-]{chapter.10}{Atomic structure of super heavy elements Sg, Bh, Hs and Mt}{part.2}% 33
-\BOOKMARK [1][-]{section.10.1}{Electric dipole transitions and isotope shifts of SHE and their lighter analogs}{chapter.10}% 34
-\BOOKMARK [2][-]{subsection.10.1.1}{The Seaborgium Atom}{section.10.1}% 35
-\BOOKMARK [2][-]{subsection.10.1.2}{The Bohrium Atom}{section.10.1}% 36
-\BOOKMARK [2][-]{subsection.10.1.3}{The Hassium atom}{section.10.1}% 37
-\BOOKMARK [2][-]{subsection.10.1.4}{The Meitnerium Atom}{section.10.1}% 38
-\BOOKMARK [1][-]{section.10.2}{Ionization potentials and comparison with other data.}{chapter.10}% 39
-\BOOKMARK [1][-]{section.10.3}{Conclusion}{chapter.10}% 40
-\BOOKMARK [0][-]{chapter.11}{Atomic structure of oganesson}{part.2}% 41
-\BOOKMARK [1][-]{section.11.1}{CIPT calculation of Rn and Og spectrum}{chapter.11}% 42
-\BOOKMARK [1][-]{section.11.2}{Electric dipole transitions of Og}{chapter.11}% 43
-\BOOKMARK [1][-]{section.11.3}{Electron density of Og}{chapter.11}% 44
-\BOOKMARK [0][-]{chapter.12}{Conclusion}{part.2}% 45
-\BOOKMARK [0][-]{appendix.A}{Nilsson Orbitals}{part.2}% 46
-\BOOKMARK [1][-]{section.A.1}{Quantum numbers for Nilsson orbitals}{appendix.A}% 47
-\BOOKMARK [1][-]{section.A.2}{Filled and Unfilled shells of Nuclei}{appendix.A}% 48
+\BOOKMARK [1][-]{section.3.1}{Quadrupole deformation of nuclei}{chapter.3}% 8
+\BOOKMARK [1][-]{section.3.2}{The Nilsson Model}{chapter.3}% 9
+\BOOKMARK [1][-]{section.3.3}{Second order tensor properties of nuclei}{chapter.3}% 10
+\BOOKMARK [0][-]{chapter.4}{The weak quadrupole moment and Lorentz violation in nuclei }{part.1}% 11
+\BOOKMARK [1][-]{section.4.1}{Lorentz invariance violation in deformed nuclei}{chapter.4}% 12
+\BOOKMARK [1][-]{section.4.2}{Quadrupole moment of neutron distribution in deformed nuclei}{chapter.4}% 13
+\BOOKMARK [1][-]{section.4.3}{Example calculation of Q and M for the 173Yb nucleus}{chapter.4}% 14
+\BOOKMARK [1][-]{section.4.4}{Nuclei with a small deformation}{chapter.4}% 15
+\BOOKMARK [1][-]{section.4.5}{Weak quadrupole moments and parity nonconservation in atomic and molecular systems}{chapter.4}% 16
+\BOOKMARK [0][-]{chapter.5}{The magnetic quadrupole moment of the nucleus}{part.1}% 17
+\BOOKMARK [1][-]{section.5.1}{The MQM of deformed nuclei}{chapter.5}% 18
+\BOOKMARK [1][-]{section.5.2}{MQM energy shift in diatomic molecules}{chapter.5}% 19
+\BOOKMARK [0][-]{chapter.6}{Conclusion}{part.1}% 20
+\BOOKMARK [-1][-]{part.2}{II Theoretical calculations of super heavy element properties}{}% 21
+\BOOKMARK [0][-]{chapter.7}{Introduction}{part.2}% 22
+\BOOKMARK [0][-]{chapter.8}{The CIPT method}{part.2}% 23
+\BOOKMARK [1][-]{section.8.1}{Generation of Basis States}{chapter.8}% 24
+\BOOKMARK [2][-]{subsection.8.1.1}{Relativistic and Radiative effects}{section.8.1}% 25
+\BOOKMARK [1][-]{section.8.2}{Configuration Interaction + Perturbation Theory}{chapter.8}% 26
+\BOOKMARK [2][-]{subsection.8.2.1}{Fast configuration interaction method}{section.8.2}% 27
+\BOOKMARK [1][-]{section.8.3}{Estimation of the accuracy}{chapter.8}% 28
+\BOOKMARK [1][-]{section.8.4}{Example CIPT calculations in Ta and comparison to experiment}{chapter.8}% 29
+\BOOKMARK [0][-]{chapter.9}{Atomic structure of superheavy element Db }{part.2}% 30
+\BOOKMARK [1][-]{section.9.1}{Calculation of Excitation spectrum}{chapter.9}% 31
+\BOOKMARK [1][-]{section.9.2}{Electric dipole transitions and isotope shift}{chapter.9}% 32
+\BOOKMARK [1][-]{section.9.3}{Discussion}{chapter.9}% 33
+\BOOKMARK [0][-]{chapter.10}{Atomic structure of super heavy elements Sg, Bh, Hs and Mt}{part.2}% 34
+\BOOKMARK [1][-]{section.10.1}{Electric dipole transitions and isotope shifts of SHE and their lighter analogs}{chapter.10}% 35
+\BOOKMARK [2][-]{subsection.10.1.1}{The Seaborgium Atom}{section.10.1}% 36
+\BOOKMARK [2][-]{subsection.10.1.2}{The Bohrium Atom}{section.10.1}% 37
+\BOOKMARK [2][-]{subsection.10.1.3}{The Hassium atom}{section.10.1}% 38
+\BOOKMARK [2][-]{subsection.10.1.4}{The Meitnerium Atom}{section.10.1}% 39
+\BOOKMARK [1][-]{section.10.2}{Ionization potentials and comparison with other data.}{chapter.10}% 40
+\BOOKMARK [1][-]{section.10.3}{Conclusion}{chapter.10}% 41
+\BOOKMARK [0][-]{chapter.11}{Atomic structure of oganesson}{part.2}% 42
+\BOOKMARK [1][-]{section.11.1}{CIPT calculation of Rn and Og spectrum}{chapter.11}% 43
+\BOOKMARK [1][-]{section.11.2}{Electric dipole transitions of Og}{chapter.11}% 44
+\BOOKMARK [1][-]{section.11.3}{Electron density of Og}{chapter.11}% 45
+\BOOKMARK [0][-]{chapter.12}{Conclusion}{part.2}% 46
+\BOOKMARK [0][-]{appendix.A}{Nilsson Orbitals}{part.2}% 47
+\BOOKMARK [1][-]{section.A.1}{Quantum numbers for Nilsson orbitals}{appendix.A}% 48
+\BOOKMARK [1][-]{section.A.2}{Filled and Unfilled shells of Nuclei}{appendix.A}% 49
